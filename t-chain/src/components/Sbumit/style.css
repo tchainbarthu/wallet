@@ -1,0 +1,63 @@
+.sbumit {
+  align-items: center;
+  background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
+  /* background-color: #a3c8ff;
+   */
+  /* background-color: #1890ff; */
+  /* border-radius: 63px; */
+  border-radius: 10px;
+  display: flex;
+  gap: 10px;
+  height: 30px;
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+  /* width: 280px; */
+  width: 320px;
+}
+
+.sbumit.disabled {
+  align-items: center;
+  background: linear-gradient(90.00deg, rgb(113, 120, 122) 0%,rgb(0, 0, 0) 99.999%);
+  /* border-radius: 63px; */
+  border-radius: 10px;
+  display: flex;
+  gap: 10px;
+  height: 34px;
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+  /* width: 280px; */
+  width: 320px;
+}
+
+.sbumit .logon {
+  /* color: #000000;
+   */
+  /* color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1.5px;
+  position: relative;
+  width: fit-content; */
+  /* 登录 */
+  color: rgb(255, 255, 255);
+  /* font-family: 思源黑体; */
+  font-family: "Inter", Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.sbumit:hover {
+  background-color: #64a2ff;
+}
+
+.sbumit.disabled:hover {
+  background-color: #505050; /* or any other color you want */
+}

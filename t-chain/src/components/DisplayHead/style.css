@@ -1,0 +1,123 @@
+.display-head {
+  background-color: #edf3ff;
+  border: 1px solid;
+  border-color: #000000;
+  height: 103px;
+  position: relative;
+  width: 393px;
+}
+
+.display-head .text-wrapper {
+  /* color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 15px;
+  font-weight: 400;
+  left: 9px;
+  letter-spacing: 0;
+  line-height: 40px;
+  position: absolute;
+  text-align: center;
+  top: 11px;
+  white-space: nowrap;
+  width: 39px; */
+  color: rgb(255, 255, 255);
+/* font-family: Poppins; */
+font-size: 18px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: -0.24px;
+text-align: left;
+
+/* Name */
+position: absolute;
+font-family: "Inter", Helvetica;
+width: 183px;
+height: 20px;
+left: 38.19%;
+right: 8.45%;
+top: 26.85%;
+bottom: 63.89%;
+}
+
+.display-head .div {
+  /* color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 10px;
+  letter-spacing: 0;
+  line-height: 40px;
+  position: absolute;
+  text-align: center;
+  top: 42px;
+  white-space: nowrap;
+  width: 243px; */
+  color: rgb(255, 255, 255);
+font-family: Poppins;
+font-size: 15px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: -0.24px;
+text-align: left;
+/* width: 200px; */
+position: absolute;
+top: 170px;
+overflow: hidden; /* Hide text that overflows the container */
+  text-overflow: ellipsis; /* Add ellipsis to the end of the text */
+  direction: ltr; /* Change text direction to right-to-left */
+  unicode-bidi: bidi-override; /* Override the normal text direction */
+}
+
+.display-head .text-wrapper-2 {
+  /* color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 280px;
+  letter-spacing: 0;
+  line-height: 40px;
+  position: absolute;
+  text-align: center;
+  top: 42px;
+  white-space: nowrap; */
+  color: rgb(255, 255, 255);
+font-family: Poppins;
+font-size: 29px;
+font-weight: 600;
+line-height: 29px;
+letter-spacing: 0%;
+text-align: left;
+
+position: absolute;
+width: 139px;
+height: 29px;
+left: 35px;
+top: 125px;
+}
+
+.display-head .coin-icon {
+  /* circle */
+position: absolute;
+width: 85.02px;
+height: 85.02px;
+left: 5%;
+right: -22.35%;
+top: 5%;
+bottom: -27.05%;
+/* background: rgb(255, 255, 255); */
+}
+.display-head .t-chain-coin {
+  /* circle */
+/* path */
+position: absolute;
+width: 55.64px;
+height: 49.11px;
+left: 10%;
+right: -5.07%;
+top: 13%;
+bottom: -8.13%;
+/* background: rgb(255, 255, 255); */
+
+/* 线性渐变 */
+/* background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%); */
+}

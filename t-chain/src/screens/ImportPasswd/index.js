@@ -1,0 +1,1 @@
+export { ImportPasswd } from "./IphonePro";

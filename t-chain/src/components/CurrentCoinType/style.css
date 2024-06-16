@@ -1,0 +1,33 @@
+.current-coin-type {
+  height: 40px;
+  width: 115px;
+}
+
+.current-coin-type .overlap-group {
+  height: 40px;
+  position: relative;
+  top: -1px;
+}
+
+.current-coin-type .rectangle {
+  background-color: #ffffff;
+  height: 33px;
+  left: 0;
+  position: absolute;
+  top: 5px;
+  width: 115px;
+}
+
+.current-coin-type .text-wrapper-3 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 15px;
+  font-weight: 400;
+  left: 30px;
+  letter-spacing: 0;
+  line-height: 40px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  white-space: nowrap;
+}

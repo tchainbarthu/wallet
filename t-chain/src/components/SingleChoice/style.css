@@ -1,0 +1,12 @@
+.single-choice {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: relative;
+  width: 149px;
+}
+
+.single-choice .selection-option-instance {
+  flex: 0 0 auto !important;
+}

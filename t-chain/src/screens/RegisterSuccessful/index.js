@@ -1,0 +1,1 @@
+export { RegisterSuccessful } from "./IphonePro";

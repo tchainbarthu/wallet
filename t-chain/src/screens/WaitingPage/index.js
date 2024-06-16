@@ -1,0 +1,1 @@
+export { WaitingPage } from "./IphonePro";

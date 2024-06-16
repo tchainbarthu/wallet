@@ -1,0 +1,24 @@
+.selection-option {
+  align-items: flex-end;
+  display: flex;
+  gap: 6px;
+  justify-content: flex-start; /* Add this line */
+  position: relative;
+  width: 280px;
+}
+
+.selection-option .radio-button-instance {
+  position: relative !important;
+}
+
+.selection-option .select-option {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: fit-content;
+}

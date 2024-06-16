@@ -1,0 +1,229 @@
+.table-row {
+  /* background-color: #e5e4e4; */
+  height: 50px;
+  position: relative;
+  width: 393px;
+}
+
+.table-row .overlap {
+  height: 50px;
+  left: 10;
+  position: absolute;
+  top: -1px;
+  width: 100px;
+}
+
+.table-row .rectangle {
+  background-color: #dcf8f3;
+  border: 1px solid;
+  border-color: #000000;
+  height: 38px;
+  left: 0;
+  position: absolute;
+  top: 1px;
+  width: 138px;
+}
+
+.table-row .div {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 20px;
+  letter-spacing: 0;
+  line-height: 40px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  white-space: nowrap;
+  width: 100px;
+  overflow: hidden; /* Hide text that overflows the container */
+  text-overflow: ellipsis; /* Add ellipsis to the end of the text */
+  direction: ltr; /* Change text direction to right-to-left */
+  unicode-bidi: bidi-override; /* Override the normal text direction */
+}
+
+.table-row .overlap-group {
+  height: 39px;
+  left: 120px;
+  position: absolute;
+  top: -1px;
+  width: 78px;
+}
+
+.table-row .rectangle-2 {
+  background-color: #dcf8f3;
+  border: 1px solid;
+  border-color: #000000;
+  height: 38px;
+  left: 0;
+  position: absolute;
+  top: 1px;
+  width: 78px;
+}
+
+.table-row .text-wrapper-2 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 20px;
+  letter-spacing: 0;
+  line-height: 40px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  white-space: nowrap;
+  /* width: 78px; */
+  width: 50px;
+  overflow: hidden; /* Hide text that overflows the container */
+  text-overflow: ellipsis; /* Add ellipsis to the end of the text */
+  direction: ltr; /* Change text direction to right-to-left */
+  unicode-bidi: bidi-override; /* Override the normal text direction */
+}
+
+.table-row .strite-line-up {
+  /* 直线 2 */
+position: absolute;
+/* width: 327px; */
+/* height: 0; */
+left: 24px;
+top: -14px;
+/* top: 171px; */
+}
+.table-row .strite-line-down {
+  /* 直线 2 */
+position: absolute;
+/* width: 327px; */
+/* height: 0; */
+left: 24px;
+top: 35px;
+/* top: 171px; */
+}
+.table-row .overlap-2 {
+  height: 39px;
+  left: 216px;
+  position: absolute;
+  top: -1px;
+  width: 59px;
+}
+
+.table-row .rectangle-3 {
+  background-color: #dcf8f3;
+  border: 1px solid;
+  border-color: #000000;
+  height: 38px;
+  left: 0;
+  position: absolute;
+  top: 1px;
+  width: 59px;
+}
+
+.table-row .text-wrapper-3 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 40px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  white-space: nowrap;
+  width: 59px;
+}
+.table-row .text-wrapper-4 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: -16px;
+  letter-spacing: 0;
+  line-height: 40px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  white-space: nowrap;
+  width: 59px;
+}
+.table-row .overlap-group-2 {
+  height: 39px;
+  left: 15px;
+  position: absolute;
+  top: -50px;
+  width: 59px;
+}
+
+.table-row .overlap-3 {
+  height: 39px;
+  left: 334px;
+  position: absolute;
+  top: -1px;
+  width: 59px;
+}
+
+.table-row .div-label {
+  /* Today: 9:05 */
+position: absolute;
+width: 56px;
+height: 10px;
+left: 24px;
+
+color: rgb(34, 38, 40);
+font-family: Poppins;
+font-size: 12px;
+font-weight: 400;
+line-height: 10px;
+letter-spacing: 0%;
+text-align: left;
+}
+
+.table-row .div-label-1 {
+  /* Today: 9:05 */
+position: absolute;
+width: 56px;
+height: 10px;
+left: 24px;
+
+color: rgb(34, 38, 40);
+font-family: Poppins;
+font-size: 12px;
+font-weight: 400;
+line-height: 10px;
+letter-spacing: 0%;
+text-align: left;
+}
+
+.table-row .div-label-2 {
+  /* Today: 9:05 */
+position: absolute;
+width: 56px;
+height: 10px;
+left: 24px;
+
+color: rgb(34, 38, 40);
+font-family: Poppins;
+font-size: 12px;
+font-weight: 400;
+line-height: 10px;
+letter-spacing: 0%;
+text-align: left;
+}
+
+.table-row .div-label-3 {
+  /* Today: 9:05 */
+position: absolute;
+width: 56px;
+height: 10px;
+left: 0px;
+
+color: rgb(34, 38, 40);
+font-family: Poppins;
+font-size: 12px;
+font-weight: 400;
+line-height: 10px;
+letter-spacing: 0%;
+text-align: left;
+}
+

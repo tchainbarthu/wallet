@@ -1,0 +1,408 @@
+.iphone-pro-lockpage {
+  /* background-color: #ffffff; */
+  /* Background */
+background: rgb(248, 249, 252);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.iphone-pro-lockpage .div-2 {
+  background-color: #ffffff;
+  height: 852px;
+  position: relative;
+  width: 393px;
+  box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.1);
+}
+
+.iphone-pro-lockpage .language-instance-2 {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  left: 80%;
+  right: 32.55%;
+  top: 1%;
+  bottom: 10.74%;
+}
+
+.iphone-pro-lockpage .overlap-group {
+  /* background-color: #75a3ce; */
+  background-color: #00b4ff;
+  /* height: 106px; */
+  height: 85px;
+  left: 0;
+  position: absolute;
+  top: 0px;
+  width: 393px;
+}
+
+.iphone-pro-lockpage .little-robot {
+  height: 30px;
+  left: 10px;
+  object-fit: cover;
+  position: absolute;
+  top: 15px;
+  width: 30px;
+}
+
+.iphone-pro-lockpage .overlap {
+  height: 43px;
+  left: 55px;
+  position: absolute;
+  top: 18px;
+  width: 296px;
+}
+
+.iphone-pro-lockpage .language-instance {
+  left: 275px !important;
+  position: absolute !important;
+  top: 0px !important;
+}
+
+.iphone-pro-lockpage .description-instance {
+  left: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+.iphone-pro-lockpage .label-instance {
+  left: 0px !important;
+  position: absolute !important;
+  /* top: 135px !important; */
+}
+
+.iphone-pro-lockpage .design-component-instance-node {
+  left: 0px !important;
+  position: absolute !important;
+  /* top: 181px !important; */
+}
+
+.iphone-pro-lockpage .label-2 {
+  left: 0px !important;
+  position: absolute !important;
+  /* top: 229px !important; */
+}
+
+.iphone-pro-lockpage .label-3 {
+  left: 0px !important;
+  position: absolute !important;
+  /* top: 273px !important; */
+}
+
+.iphone-pro-lockpage .label-4 {
+  left: 0px !important;
+  position: absolute !important;
+  /* top: 340px !important; */
+  
+}
+.iphone-pro-lockpage .label-4 .div{
+  color: #ffffff;
+}
+
+.iphone-pro-lockpage .display-5 {
+
+  /* list */
+position: absolute;
+width: 166px;
+height: 58px;
+left: 25px;
+right: 196px;
+top: 108px;
+bottom: 646px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 14px;
+
+
+  border-radius: 12px;
+
+/* elevation */
+box-shadow: 0px 3px 4px 0px rgba(47, 102, 246, 0.12);
+/* 线性渐变 */
+background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
+}
+
+.iphone-pro-lockpage .label-5 {
+  left: 0px !important;
+  position: absolute !important;
+  /* top: 380px !important; */
+}
+
+.iphone-pro-lockpage .sbumit-instance {
+  left: 19px !important;
+  position: absolute !important;
+  top: 700px !important;
+  /* width: 135px !important; */
+  /* Buttons v2 */
+position: relative;
+width: 163px;
+height: 48px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px 12px 24px;
+
+border-radius: 12px;
+
+/* 线性渐变 */
+/* background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%); */
+}
+
+/* .iphone-pro-lockpage .sbumit-instance .sbumit.disabled{
+  color:#505050;
+} */
+
+.iphone-pro-lockpage .sbumit-2 {
+  left: 220px !important;
+  position: absolute !important;
+  top: 700px !important;
+  
+
+  /* Buttons v2 */
+position: relative;
+width: 163px;
+height: 48px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px 12px 24px;
+
+border-radius: 12px;
+
+/* 线性渐变 */
+/* background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%); */
+}
+
+/* .iphone-pro-lockpage .sbumit-2 .sbumit.disabled {
+  color: #505050;
+} */
+
+.iphone-pro-lockpage .input-text-instance {
+  left: 100px !important;
+  position: absolute !important;
+  /* top: 131px !important; */
+  width: 200px;
+  /* border-color:rgb(196, 251, 255); */
+}
+
+.iphone-pro-lockpage .input-text-2 {
+  left: 100px !important;
+  position: absolute !important;
+  width: 200px;
+  /* top: 176px !important; */
+}
+
+.iphone-pro-lockpage .input-text-3 {
+  left: 100px !important;
+  position: absolute !important;
+  /* top: 224px !important; */
+  width: 200px;
+}
+
+.iphone-pro-lockpage .input-text-4 {
+  left: 100px !important;
+  /* position: absolute !important; */
+  /* top: 356px !important; */
+  width: 200px;
+}
+
+/* .iphone-pro-lockpage .input-text-5 {
+  left: 100px !important;
+  position: absolute !important;
+  top: 398px !important;
+} */
+
+.iphone-pro-lockpage .lock-type-instance {
+  left: 100px !important;
+  position: absolute !important;
+  /* top: 270px !important; */
+  width: 200px !important;
+  text-align: left;
+  border-width: 1px;
+  border-color: rgb(220, 227, 228);
+}
+
+.iphone-pro-lockpage .display-1 {
+  /* list */
+/* position: relative */
+left: 25px;
+position: absolute;
+top: 200px;
+width: 343px;
+height: 58px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 14px;
+
+border-radius: 12px;
+
+/* elevation */
+box-shadow: 0px 3px 4px 0px rgba(47, 102, 246, 0.12);
+/* Surface */
+background: rgb(255, 255, 255);
+}
+
+.iphone-pro-lockpage .display-2 {
+  /* list */
+  left: 25px;
+  position: absolute;
+  top: 280px;
+width: 343px;
+height: 58px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 14px;
+
+border-radius: 12px;
+
+/* elevation */
+box-shadow: 0px 3px 4px 0px rgba(47, 102, 246, 0.12);
+/* Surface */
+background: rgb(255, 255, 255);
+}
+
+.iphone-pro-lockpage .display-3 {
+  /* list */
+  left: 25px;
+  position: absolute;
+  top: 360px;
+width: 343px;
+height: 58px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 14px;
+
+border-radius: 12px;
+
+/* elevation */
+box-shadow: 0px 3px 4px 0px rgba(47, 102, 246, 0.12);
+/* Surface */
+background: rgb(255, 255, 255);
+}
+
+.iphone-pro-lockpage .display-4 {
+  /* list */
+  left: 25px;
+  position: absolute;
+  top: 440px;
+width: 343px;
+height: 58px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 14px;
+
+border-radius: 12px;
+
+/* elevation */
+box-shadow: 0px 3px 4px 0px rgba(47, 102, 246, 0.12);
+/* Surface */
+background: rgb(255, 255, 255);
+}
+
+.iphone-pro-lockpage .text-wrapper-4 {
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 15px;
+  font-weight: 400;
+  left: 60px;
+  letter-spacing: 0;
+  line-height: 1px;
+  position: absolute;
+  text-align: left;
+  /* top: 350px; */
+  width: 162px;
+  top: 25px;
+}
+
+.iphone-pro-lockpage .text-wrapper-4.en {
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 15px;
+  font-weight: 400;
+  left: 140px;
+  letter-spacing: 0;
+  line-height: 1px;
+  position: absolute;
+  text-align: left;
+  /* top: 350px; */
+  width: 162px;
+  top: 25px;
+}
+
+.iphone-pro-lockpage .display-6 {
+  /* list */
+  top:108px;
+position: absolute;
+width: 166px;
+height: 58px;
+left: 210px;
+right: 18px;
+/* top: 108px; */
+bottom: 646px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 14px;
+
+border-radius: 12px;
+
+/* elevation */
+box-shadow: 0px 3px 4px 0px rgba(47, 102, 246, 0.12);
+/* 线性渐变 */
+background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
+}
+
+.iphone-pro-lockpage .display-6 .div {
+  color: #ffffff;
+}
+
+.iphone-pro-lockpage .text-wrapper-5 {
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 15px;
+  font-weight: 400;
+  left: 60px;
+  letter-spacing: 0;
+  line-height: 1px;
+  position: absolute;
+  text-align: left;
+  /* top: 385px; */
+  width: 162px;
+  top: 25px;
+}
+.iphone-pro-lockpage .text-wrapper-5.en {
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 15px;
+  font-weight: 400;
+  left: 140px;
+  letter-spacing: 0;
+  line-height: 1px;
+  position: absolute;
+  text-align: left;
+  /* top: 385px; */
+  width: 162px;
+  top: 25px;
+}

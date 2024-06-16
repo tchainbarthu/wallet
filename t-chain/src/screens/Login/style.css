@@ -1,0 +1,298 @@
+.iphone-pro-login {
+  /* background-color: #ffffff; */
+  /* Background */
+background: rgb(248, 249, 252);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  
+}
+
+.iphone-pro-login .div-2 {
+  background-color: #ffffff;
+  height: 852px;
+  position: relative;
+  width: 393px;
+  box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.1);
+}
+
+.iphone-pro-login .overlap-group {
+  /* background-color: #75a3ce; */
+  background-color: #00b4ff;
+  /* height: 106px; */
+  height: 85px;
+  left: 0;
+  position: absolute;
+  /* top: 87px;
+   */
+   top: 0px;
+  width: 393px;
+}
+
+.iphone-pro-login .little-robot {
+  /* height: 30px;
+  left: 10px;
+  object-fit: cover;
+  position: absolute;
+  top: 15px;
+  width: 30px; */
+  /* g */
+position: absolute;
+width: 130.93px;
+height: 32.98px;
+left: 32.53%;
+right: 32.55%;
+top: 3%;
+bottom: 10.74%;
+}
+
+.iphone-pro-login .overlap {
+  /* height: 43px; */
+  height: 43px;
+  left: 55px;
+  top: 18px;
+  width: 296px;
+  position: absolute;
+  
+  /* position: relative; */
+  top: 18px;
+  width: 296px;
+}
+
+/* .iphone-pro-login .language-instance {
+  left: 300px !important;
+  position: absolute !important;
+  top: 50px !important;
+} */
+
+.iphone-pro-login .language-instance-1 {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  left: 80%;
+  right: 32.55%;
+  top: 2%;
+  bottom: 10.74%;
+}
+
+.iphone-pro-login .description-instance {
+  left: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+.iphone-pro-login .img {
+  /* height: 86px;
+  left: 152px;
+  object-fit: cover;
+  position: absolute;
+  top: 130px;
+  width: 88px; */
+  /* g */
+position: absolute;
+width: 95.92px;
+height: 111.97px;
+left: 39.73%;
+right: 34.69%;
+top: 14.53%;
+bottom: 71.68%;
+}
+
+.iphone-pro-login .sbumit-instance {
+  /* left: 40px !important;
+  position: absolute !important;
+  top: 457px !important; */
+  /* Buttons v2 */
+/* position: relative; */
+position: absolute;
+top: 470px;
+bottom: -446px;
+width: 343px;
+height: 48px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px 12px 24px;
+
+border-radius: 12px;
+
+/* 线性渐变 */
+background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
+left: 24px;
+right: 136px;
+}
+
+
+.iphone-pro-login .sbumit-instance-2 {
+  /* left: 40px !important;
+  position: absolute !important;
+  top: 457px !important; */
+  /* Buttons v2 */
+/* position: relative; */
+/* Buttons v2 */
+position: absolute;
+width: 343px;
+height: 48px;
+left: 16px;
+top: 666px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px 12px 24px;
+
+
+
+border-radius: 12px;
+
+/* 线性渐变 */
+background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
+left: 24px;
+right: 136px;
+}
+
+
+.iphone-pro-login .input-text-instance {
+ /* Social */
+position: absolute;
+width: 293px;
+height: 40px;
+left: 66px;
+top: 266px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+align-items: center;
+padding: 12px 14px 12px 14px;
+
+box-sizing: border-box;
+/* Otline */
+border: 1px solid rgb(215, 217, 228);
+border-radius: 8px;
+
+/* Surface */
+background: rgb(255, 255, 255);
+}
+
+.iphone-pro-login .design-component-instance-node {
+
+position: absolute;
+width: 293px;
+height: 40px;
+left: 66px;
+top: 330px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+align-items: center;
+padding: 12px 14px 12px 14px;
+
+box-sizing: border-box;
+/* Otline */
+border: 1px solid rgb(215, 217, 228);
+border-radius: 8px;
+
+/* Surface */
+background: rgb(255, 255, 255);
+}
+
+.iphone-pro-login .label-instance {
+  left: 20px !important;
+  position: absolute !important;
+  top: 237px !important;
+}
+
+.iphone-pro-login .label-2 {
+  left: 20px !important;
+  position: absolute !important;
+  top: 346px !important;
+}
+
+.iphone-pro-login .redirect-link-instance {
+  /* left: 20px !important;
+  position: absolute !important;
+  top: 387px !important; */
+  /* Continue with Apple */
+position: absolute;
+width: 56px;
+height: 16px;
+left: 29px;
+right: 290px;
+top: 390px;
+bottom: 406px;
+/* Small */
+color: rgb(17, 24, 60);
+font-family: Readex Pro;
+font-size: 14px;
+font-weight: 400;
+line-height: 16px;
+letter-spacing: 0%;
+text-align: left;
+}
+
+.iphone-pro-login .redirect-link-2 {
+  /* left: 290px !important;
+  position: absolute !important;
+  top: 387px !important; */
+  /* 每天登录奖励：5枚 */
+position: absolute;
+width: 120px;
+height: 16px;
+left: 233px;
+right: 22px;
+top: 390px;
+bottom: 406px;
+
+}
+
+.redirect-link {
+  cursor: pointer;
+}
+
+.input-text {
+  text-align: left;
+}
+
+.iphone-pro-login .divider{
+  /* Divider */
+position: absolute;
+width: 330px;
+height: 16px;
+left: 22px;
+right: 23px;
+top: 614px;
+bottom: 182px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+
+}
+
+.iphone-pro-login .divider-1{
+  /* Divider */
+position: absolute;
+width: 350px;
+height: 16px;
+left: 45px;
+right: 23px;
+top: 580px;
+bottom: 182px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+
+}

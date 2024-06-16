@@ -1,0 +1,28 @@
+.radio-button {
+  border: 2px solid;
+  border-radius: 8px;
+  height: 16px;
+  width: 16px;
+}
+
+.radio-button .ellipse {
+  background-color: #000000;
+  border-radius: 4px;
+  height: 8px;
+  left: 2px;
+  position: relative;
+  top: 2px;
+  width: 8px;
+}
+
+.radio-button.state-selected {
+  border-color: #000000b2;
+}
+
+.radio-button.state-havor {
+  border-color: #000000b2;
+}
+
+.radio-button.state-default {
+  border-color: #00000073;
+}

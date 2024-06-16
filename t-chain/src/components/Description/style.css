@@ -1,0 +1,39 @@
+.description {
+  /* height: 43px;
+   */
+  height: 'auto';
+  position: relative;
+  width: 275px;
+}
+
+.description .t-trust-node-chain {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  /* color: white; */
+  /* font-family: Arial, sans-serif; */
+  font-weight: 400;
+
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: -1px;
+  width: 238px;
+}
+
+.description .text-1 {
+  font-size: 13px;
+  font-family: '黑体', sans-serif;
+  
+  /* color: white; */
+}
+.description .chinese {
+  font-size: 10px;
+  font-family: '黑体', sans-serif;
+  color: white;
+}
+
+.description .english {
+  font-size: 10px;
+  font-family: Arial, sans-serif;
+  color: white;
+}

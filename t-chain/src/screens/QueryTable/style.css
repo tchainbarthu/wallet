@@ -1,0 +1,331 @@
+.iphone-pro-querytable {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.iphone-pro-login .language-instance-1 {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  left: 80%;
+  right: 32.55%;
+  top: 2%;
+  bottom: 10.74%;
+}
+
+.iphone-pro-querytable .title {
+  /* Transfer History */
+position: absolute;
+width: 72px;
+height: 40px;
+left: 151px;
+right: 152px;
+top: 44px;
+bottom: 0;
+color: rgb(34, 38, 40);
+font-family: Poppins;
+font-size: 18px;
+font-weight: 500;
+line-height: 40px;
+letter-spacing: 0%;
+text-align: center;
+}
+
+.iphone-pro-querytable .title.en {
+  /* Transfer History */
+position: absolute;
+width: 120px;
+height: 40px;
+left: 140px;
+right: 152px;
+top: 44px;
+bottom: 0;
+color: rgb(34, 38, 40);
+font-family: Poppins;
+font-size: 18px;
+font-weight: 500;
+line-height: 40px;
+letter-spacing: 0%;
+text-align: center;
+}
+
+.iphone-pro-querytable .TimeHead {
+  /* Today: 9:05 */
+position: absolute;
+width: 40px;
+height: 10px;
+left: 24px;
+right: 311px;
+top: 113px;
+bottom: 689px;
+color: rgb(34, 38, 40);
+font-family: 思源黑体;
+font-size: 20px;
+font-weight: 500;
+line-height: 10px;
+letter-spacing: 0%;
+text-align: left;
+}
+
+/* .iphone-pro-querytable .vector {
+  
+position: absolute;
+width: 24px;
+height: 24px;
+left: 16px;
+right: 335px;
+top: 30px;
+bottom: 8px;
+} */
+
+.iphone-pro-querytable .vector-back {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 16px;
+  right: 335px;
+  top: 30px;
+  bottom: 8px;
+}
+
+.iphone-pro-querytable .div-2 {
+  background-color: #ffffff;
+  height: 852px;
+  overflow: hidden;
+  position: relative;
+  width: 393px;
+  box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.1);
+}
+
+.iphone-pro-querytable .overlap-4 {
+  /* background-color: #75a3ce; */
+  background-color: #00b4ff;
+  /* height: 106px; */
+  height: 85px;
+  left: 0;
+  position: absolute;
+  top: 0px;
+  width: 393px;
+}
+
+.iphone-pro-querytable .little-robot {
+  height: 30px;
+  left: 10px;
+  object-fit: cover;
+  position: absolute;
+  top: 15px;
+  width: 30px;
+}
+
+.iphone-pro-querytable .overlap-5 {
+  height: 43px;
+  left: 55px;
+  position: absolute;
+  top: 18px;
+  width: 296px;
+}
+
+.iphone-pro-querytable .language-instance {
+  left: 275px !important;
+  position: absolute !important;
+  top: 0px !important;
+}
+
+/* .iphone-pro-querytable .description-instance {
+  left: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+} */
+
+.iphone-pro-querytable .language-instance-2 {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  left: 80%;
+  right: 32.55%;
+  top: 1%;
+  bottom: 10.74%;
+}
+
+.iphone-pro-querytable .sbumit-instance {
+  border-radius: unset !important;
+  height: 30px !important;
+  left: 185px !important;
+  position: absolute !important;
+  top: 110px !important;
+  width: 64px !important;
+  cursor: pointer !important;
+  
+}
+.iphone-pro-querytable .sbumit-instance.en {
+  border-radius: unset !important;
+  height: 40px !important;
+  left: 175px !important;
+  position: absolute !important;
+  top: 110px !important;
+  width: 85px !important;
+  cursor: pointer !important;
+  
+}
+
+.iphone-pro-querytable .design-component-instance-node {
+  /* cursor: pointer !important; */
+  margin-bottom: -1.5px !important;
+  margin-top: -3.5px !important;
+}
+
+.iphone-pro-querytable .table-head-instance {
+  left: -1px !important;
+  position: absolute !important;
+  top: 150px !important;
+}
+.iphone-pro-querytable .table-head-instance.put-down{
+  left: -1px !important;
+  position: absolute !important;
+  top: 250px !important;
+}
+
+.iphone-pro-querytable .query-time-instance {
+  left: 260px !important;
+  position: absolute !important;
+  top: 100px !important;
+  border: 0px !important;
+  
+}
+/* .iphone-pro-querytable .query-time {
+
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 70;
+  right: 5.87%;
+  top: 75px;
+
+  border: 0px;
+} */
+.iphone-pro-querytable .table-row-instance-0 {
+  left: -1px !important;
+  position: absolute !important;
+  top: 213px !important;
+}
+.iphone-pro-querytable .table-row-instance-1 {
+  left: -1px !important;
+  position: absolute !important;
+  top: 313px !important;
+}
+.iphone-pro-querytable .table-row-instance-2 {
+  left: -1px !important;
+  position: absolute !important;
+  top: 413px !important;
+}
+.iphone-pro-querytable .table-row-instance-3 {
+  left: -1px !important;
+  position: absolute !important;
+  top: 513px !important;
+}
+.iphone-pro-querytable .table-row-instance-4 {
+  left: -1px !important;
+  position: absolute !important;
+  top: 613px !important;
+}
+.iphone-pro-querytable .table-row-instance-5 {
+  left: -1px !important;
+  position: absolute !important;
+  top: 713px !important;
+}
+
+
+
+.iphone-pro-querytable .table-row-instance-0.put-down {
+  left: -1px !important;
+  position: absolute !important;
+  top: 313px !important;
+}
+.iphone-pro-querytable .table-row-instance-1.put-down {
+  left: -1px !important;
+  position: absolute !important;
+  top: 393px !important;
+}
+.iphone-pro-querytable .table-row-instance-2.put-down {
+  left: -1px !important;
+  position: absolute !important;
+  top: 473px !important;
+}
+.iphone-pro-querytable .table-row-instance-3.put-down {
+  left: -1px !important;
+  position: absolute !important;
+  top: 553px !important;
+}
+.iphone-pro-querytable .table-row-instance-4.put-down {
+  left: -1px !important;
+  position: absolute !important;
+  top: 633px !important;
+}
+.iphone-pro-querytable .table-row-instance-5.put-down {
+  left: -1px !important;
+  position: absolute !important;
+  top: 713px !important;
+}
+
+/* .iphone-pro-querytable .table-row-instance-6.put-down {
+  left: -1px !important;
+  position: absolute !important;
+  top: 713px !important;
+} */
+
+.iphone-pro-querytable .label-4 {
+  left: 0px !important;
+  position: absolute !important;
+  top: 160px !important;
+}
+
+.iphone-pro-querytable .label-5 {
+  left: 0px !important;
+  position: absolute !important;
+  top: 200px !important;
+}
+
+.iphone-pro-querytable .input-text-2 {
+  left: 100px ;
+  position: absolute ;
+  top: 155px ;
+}
+
+.iphone-pro-querytable .input-text-3 {
+  left: 100px ;
+  position: absolute ;
+  top: 195px ;
+}
+
+/* Styles for the pagination container */
+.iphone-pro-querytable .pagination {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  top : 800px;
+  left: 100px;
+}
+
+/* Styles for the pagination links */
+.iphone-pro-querytable .pagination__link {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+/* Styles for the active pagination link */
+.iphone-pro-querytable .pagination__link--active {
+  color: blue;
+  font-weight: bold;
+  
+}
+
+/* Styles for the disabled pagination links */
+.iphone-pro-querytable .pagination__link--disabled {
+  color: grey;
+  cursor: not-allowed;
+  /* cursor: pointer; */
+}

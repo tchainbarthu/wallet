@@ -1,0 +1,30 @@
+.redirect-link {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  height: 17px;
+  justify-content: center;
+  position: relative;
+  width: 77px;
+}
+
+.redirect-link .text-wrapper-2 {
+  /* color: #0a95fa; */
+  font-family: "Inter", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+  /* Small */
+color: rgb(17, 24, 60);
+/* font-family: Readex Pro; */
+font-size: 14px;
+font-weight: 400;
+line-height: 16px;
+letter-spacing: 0%;
+text-align: left;
+}

@@ -1,0 +1,104 @@
+.language {
+  align-items: center;
+  display: inline-flex;
+  gap: 0px;
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+}
+
+.language .text-wrapper.zh{
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.language .text-wrapper.en{
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.language .vector {
+  height: 8.09px;
+  position: relative;
+  width: 13.25px;
+}
+
+.language .language-list {
+  height: 42px;
+  left: 0;
+  position: absolute;
+  top: 25px;
+  width: 61px;
+}
+
+.language .list-button {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  height: 21px;
+  justify-content: center;
+  left: -8px;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  width: 78px;
+}
+
+.language .list-botton {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.language .list-botton-wrapper {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  height: 21px;
+  justify-content: center;
+  left: -17px;
+  padding: 10px;
+  position: absolute;
+  top: 21px;
+  width: 78px;
+}
+
+.language .default {
+  margin-bottom: -0.75px;
+  margin-right: -0.37px;
+  margin-top: -0.34px;
+}
+
+.language .collepsed {
+  margin-bottom: -0.34px;
+  margin-right: -0.38px;
+  margin-top: -0.75px;
+}
+
+.list-botton {
+  cursor: pointer;
+}
+.language {
+  cursor: pointer;
+}

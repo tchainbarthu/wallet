@@ -1,0 +1,501 @@
+.iphone-pro-Homepage {
+  background-color: #ffffff;
+  display: flex;.iphone-pro-Homepage {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .iphone-pro-Homepage .div-2 {
+    background-color: #ffffff;
+    height: 852px;
+    overflow: hidden;
+    position: relative;
+    width: 393px;
+    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.1);
+  }
+  
+  .iphone-pro-Homepage .overlap {
+    height: 103px;
+    left: 0;
+    position: absolute;
+    top: 103px;
+    width: 393px;
+  }
+  
+  .iphone-pro-Homepage .design-component-instance-node {
+    /* left: 0 !important;
+    position: absolute !important;
+    top: 0 !important; */
+    /* Buttons v2 */
+  position: absolute;
+  width: 343px;
+  height: 216px;
+  left: 6%;
+  right: 0%;
+  top: 50%;
+  bottom: 0%;
+  /* 自动布局 */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px 12px 24px;
+  
+  border-radius: 12px;
+  
+  box-shadow: 0px 4px 4px 0px rgb(215, 217, 228);
+  /* 线性渐变 */
+  background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
+  
+  border: 0px;
+  }
+  
+  .iphone-pro-Homepage .detail-component-instance {
+    left: 350px !important;
+    position: absolute !important;
+    top: 0px !important;
+  }
+  
+  .iphone-pro-Homepage .t-chain-coin-list {
+    height: 279px;
+    left: -24px;
+    position: absolute;
+    top: 400px;
+    width: 417px;
+  }
+  
+  .iphone-pro-Homepage .overlap-group-2 {
+    border: 1px solid;
+    border-color: #000000;
+    height: 271px;
+    left: 47px;
+    position: relative;
+    width: 347px;
+  }
+  
+  /* .iphone-pro-Homepage .home-list-componet {
+    height: 39px;
+    left: -1px;
+    position: absolute;
+    top: 10px;
+    width: 393px;
+  } */
+  
+  /* .iphone-pro-Homepage .home-list-component-instance {
+    height: 39px;
+    left: -1px;
+    position: absolute;
+    top: 0px;
+    width: 200px;
+  } */
+  .iphone-pro-Homepage .text-wrapper-5 {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 7px;
+    letter-spacing: 0;
+    line-height: 1px;
+    position: absolute;
+    top: 11px;
+    width: 76px;
+  }
+  
+  .iphone-pro-Homepage .home-list-componet-2 {
+    height: 39px;
+    left: -1px;
+    position: absolute;
+    top: 32px;
+    width: 393px;
+  }
+  
+  .iphone-pro-Homepage .home-list-componet-3 {
+    height: 39px;
+    left: -1px;
+    position: absolute;
+    top: 65px;
+    width: 393px;
+  }
+  
+  .iphone-pro-Homepage .overlap-2 {
+    height: 40px;
+    left: -24px;
+    position: absolute;
+    top: 206px;
+    width: 137px;
+  }
+  
+  .iphone-pro-Homepage .property-1-hover {
+    height: 30px !important;
+    left: 150px !important;
+    position: absolute !important;
+    top: 5px !important;
+    width: 30px !important;
+  }
+  
+  .iphone-pro-Homepage .home-page-button-instance {
+    left: 6px !important;
+    position: absolute !important;
+    top: 533px !important;
+    /* Buttons v2 */
+  /* position: relative;
+  width: 343px;
+  height: 48px;
+  /* 自动布局 */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px 12px 24px; 
+  
+  
+  }
+  
+  .iphone-pro-Homepage .home-page-button-2 {
+    left: 151px !important;
+    position: absolute !important;
+    top: 533px !important;
+  }
+  
+  .iphone-pro-Homepage .overlap-group-lan {
+    /* height: 43px; */
+    height: 43px;
+    left: 55px;
+    position: absolute;
+    
+    /* position: relative; */
+    top: 18px;
+    width: 296px;
+  }
+  
+  .iphone-pro-Homepage .language-instance {
+    left: 275px !important;
+    position: absolute !important;
+    top: 0px !important;
+  }
+  
+  .iphone-pro-Homepage .description-instance {
+    /* left: 0 !important; */
+    /* position: absolute !important; */
+    /* top: 0 !important; */
+  
+    /* g */
+  position: absolute;
+  width: 192.9px;
+  height: 48.96px;
+  left: 24%;
+  /* right: 24.29%; */
+  top: 10%;
+  /* bottom: 79.81%; */
+  } 
+  
+  .iphone-pro-Homepage .overlap-group-more {
+    /* background-color: #75a3ce; */
+    background-color: #00b4ff;
+    /* height: 106px; */
+    height: 85px;
+    left: 0;
+    position: absolute;
+    top: 0px;
+    width: 393px;
+  }
+  
+  .iphone-pro-Homepage .little-robot {
+    height: 30px;
+    left: 10px;
+    object-fit: cover;
+    position: absolute;
+    top: 15px;
+    width: 30px;
+  }
+  
+  .iphone-pro-Homepage .button1 {
+    /* path */
+  position: absolute;
+  width: 148px;
+  height: 129px;
+  left: 53.64%;
+  right: 3.21%;
+  top: 13.89%;
+  bottom: 26.39%;
+  
+  }
+  
+  .iphone-pro-Homepage .sbumit-instance-2 {
+    position: absolute;
+    top: 50%;
+    left:6%;
+  /* Buttons v2 */
+  /* position: relative; */
+  width: 343px;
+  height: 48px;
+  /* 自动布局 */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px 12px 24px;
+  
+  
+  
+    border-radius: 12px;
+  
+  /* 线性渐变 */
+  background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
+  }
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.iphone-pro-Homepage .div-2 {
+  background-color: #ffffff;
+  height: 852px;
+  overflow: hidden;
+  position: relative;
+  width: 393px;
+  box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.1);
+}
+
+.iphone-pro-Homepage .language-instance-2 {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  left: 80%;
+  right: 32.55%;
+  top: 2%;
+  bottom: 10.74%;
+}
+
+.iphone-pro-Homepage .overlap {
+  height: 103px;
+  left: 0;
+  position: absolute;
+  top: 103px;
+  width: 393px;
+}
+
+.iphone-pro-Homepage .design-component-instance-node {
+  /* left: 0 !important;
+  position: absolute !important;
+  top: 0 !important; */
+  /* Buttons v2 */
+position: absolute;
+width: 343px;
+height: 216px;
+left: 6%;
+right: 0%;
+top: 50%;
+bottom: 0%;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px 12px 24px;
+
+border-radius: 12px;
+
+box-shadow: 0px 4px 4px 0px rgb(215, 217, 228);
+/* 线性渐变 */
+background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
+
+border: 0px;
+}
+
+.iphone-pro-Homepage .detail-component-instance {
+  left: 350px !important;
+  position: absolute !important;
+  top: 0px !important;
+}
+
+.iphone-pro-Homepage .t-chain-coin-list {
+  height: 279px;
+  left: -24px;
+  position: absolute;
+  top: 400px;
+  width: 417px;
+}
+
+.iphone-pro-Homepage .overlap-group-2 {
+  border: 1px solid;
+  border-color: #000000;
+  height: 271px;
+  left: 47px;
+  position: relative;
+  width: 347px;
+}
+
+.iphone-pro-Homepage .home-list-componet {
+  height: 39px;
+  left: -1px;
+  position: absolute;
+  top: -1px;
+  width: 393px;
+}
+
+.iphone-pro-Homepage .home-list-component-instance {
+  height: 39px;
+  left: -1px;
+  position: absolute;
+  top: 1px;
+  width: 200px;
+}
+.iphone-pro-Homepage .text-wrapper-5 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 7px;
+  letter-spacing: 0;
+  line-height: 1px;
+  position: absolute;
+  top: 11px;
+  width: 76px;
+}
+
+.iphone-pro-Homepage .home-list-componet-2 {
+  height: 39px;
+  left: -1px;
+  position: absolute;
+  top: 32px;
+  width: 393px;
+}
+
+.iphone-pro-Homepage .home-list-componet-3 {
+  height: 39px;
+  left: -1px;
+  position: absolute;
+  top: 65px;
+  width: 393px;
+}
+
+.iphone-pro-Homepage .overlap-2 {
+  height: 40px;
+  left: -24px;
+  position: absolute;
+  top: 206px;
+  width: 137px;
+}
+
+.iphone-pro-Homepage .property-1-hover {
+  height: 30px !important;
+  left: 150px !important;
+  position: absolute !important;
+  top: 5px !important;
+  width: 30px !important;
+}
+
+.iphone-pro-Homepage .home-page-button-instance {
+  left: 6px !important;
+  position: absolute !important;
+  top: 533px !important;
+  /* Buttons v2 */
+/* position: relative;
+width: 343px;
+height: 48px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px 12px 24px; 
+
+
+}
+
+.iphone-pro-Homepage .home-page-button-2 {
+  left: 151px !important;
+  position: absolute !important;
+  top: 533px !important;
+}
+
+.iphone-pro-Homepage .overlap-group-lan {
+  /* height: 43px; */
+  height: 43px;
+  left: 55px;
+  position: absolute;
+  
+  /* position: relative; */
+  top: 18px;
+  width: 296px;
+}
+
+.iphone-pro-Homepage .language-instance {
+  left: 275px !important;
+  position: absolute !important;
+  top: 0px !important;
+}
+
+.iphone-pro-Homepage .description-instance {
+  /* left: 0 !important; */
+  /* position: absolute !important; */
+  /* top: 0 !important; */
+
+  /* g */
+position: absolute;
+width: 192.9px;
+height: 48.96px;
+left: 24%;
+/* right: 24.29%; */
+top: 10%;
+/* bottom: 79.81%; */
+} 
+
+.iphone-pro-Homepage .overlap-group-more {
+  /* background-color: #75a3ce; */
+  background-color: #00b4ff;
+  /* height: 106px; */
+  height: 85px;
+  left: 0;
+  position: absolute;
+  top: 0px;
+  width: 393px;
+}
+
+.iphone-pro-Homepage .little-robot {
+  height: 30px;
+  left: 10px;
+  object-fit: cover;
+  position: absolute;
+  top: 15px;
+  width: 30px;
+}
+
+.iphone-pro-Homepage .button1 {
+  /* path */
+position: absolute;
+width: 148px;
+height: 129px;
+left: 53.64%;
+right: 3.21%;
+top: 13.89%;
+bottom: 26.39%;
+
+}
+
+.iphone-pro-Homepage .sbumit-instance-2 {
+  position: absolute;
+  top: 50%;
+  left:6%;
+/* Buttons v2 */
+/* position: relative; */
+width: 343px;
+height: 48px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px 12px 24px;
+
+
+
+  border-radius: 12px;
+
+/* 线性渐变 */
+background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
+}

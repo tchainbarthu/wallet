@@ -1,0 +1,20 @@
+.input-text {
+  background: none;
+  border: 1px solid;
+  /* border-color: #000000;
+   */
+   border-color: #d6d6d6;
+   border-width: 0;
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  height: 31px;
+  letter-spacing: 0;
+  line-height: 18px;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: 260px;
+}

@@ -1,0 +1,89 @@
+.home-list-componet {
+  height: 39px;
+  width: 393px;
+}
+
+.home-list-componet .overlap-group {
+  height: 38px;
+  position: relative;
+}
+
+
+.home-list-componet .rectangle {
+  height: 30px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 393px;
+}
+/* #1890ff */
+
+.home-list-componet .coin-icon {
+  height: 24px;
+  left: 7px;
+  position: absolute;
+  top: 3px;
+  width: 24px;
+}
+
+.home-list-componet .t-chain-coin {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 12px;
+  letter-spacing: 0;
+  line-height: 1px;
+  position: absolute;
+  top: 8px;
+  width: 15px;
+}
+
+.home-list-componet.selected .rectangle {
+  height: 30px;
+  left: 2px;
+  position: absolute;
+  top: 0;
+  width: 342px;
+  background-color: #1890ff;
+}
+
+.home-list-componet .text-wrapper {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 37px;
+  letter-spacing: 0;
+  line-height: 1px;
+  position: absolute;
+  top: 13px;
+  width: 76px;
+}
+
+.home-list-componet .text-wrapper-1 {
+  color: #000000;
+  /* color: #ffffff; */
+  font-family: "Inter", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 179px;
+  letter-spacing: 0;
+  line-height: 1px;
+  position: absolute;
+  top: 12px;
+  width: 176px;
+}
+
+
+.home-list-componet:hover .rectangle {
+  background-color: #2970f6;
+}
+
+.home-list-componet:hover .text-wrapper {
+  color: #ffffff;
+}
+
+.home-list-componet.selected .text-wrapper {
+  color: #ffffff;
+}

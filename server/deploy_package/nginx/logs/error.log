@@ -1,0 +1,116 @@
+2024/05/27 10:30:20 [notice] 28852#0: signal process started
+2024/05/27 10:30:29 [error] 28876#0: *3 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 10:31:56 [error] 28876#0: *1 open() "../../nginx/build/favicon.ico" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/login"
+2024/05/27 10:32:38 [notice] 28898#0: signal process started
+2024/05/27 10:43:44 [notice] 28953#0: signal process started
+2024/05/27 10:43:44 [error] 28953#0: open() "../../nginx/logs/nginx.pid" failed (2: No such file or directory)
+2024/05/27 10:44:29 [notice] 28958#0: signal process started
+2024/05/27 10:44:29 [error] 28958#0: open() "../../nginx/logs/nginx.pid" failed (2: No such file or directory)
+2024/05/27 10:45:38 [error] 28969#0: *2 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 11:44:40 [emerg] 30081#0: bind() to 0.0.0.0:8081 failed (98: Address already in use)
+2024/05/27 11:44:40 [emerg] 30081#0: bind() to 0.0.0.0:8081 failed (98: Address already in use)
+2024/05/27 11:44:40 [emerg] 30081#0: bind() to 0.0.0.0:8081 failed (98: Address already in use)
+2024/05/27 11:44:40 [emerg] 30081#0: bind() to 0.0.0.0:8081 failed (98: Address already in use)
+2024/05/27 11:44:40 [emerg] 30081#0: bind() to 0.0.0.0:8081 failed (98: Address already in use)
+2024/05/27 11:44:40 [emerg] 30081#0: still could not bind()
+2024/05/27 11:45:54 [notice] 30103#0: signal process started
+2024/05/27 11:46:46 [error] 30108#0: *1 open() "../../nginx/build/querytable" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /querytable HTTP/1.1", host: "120.78.142.134:8081"
+2024/05/27 11:46:51 [error] 30108#0: *2 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 11:48:48 [error] 30108#0: *6 open() "../../nginx/build/nmaplowercheck1716781727" failed (2: No such file or directory), client: 104.152.52.27, server: localhost, request: "GET /nmaplowercheck1716781727 HTTP/1.1", host: "120.78.142.134:8081"
+2024/05/27 11:48:48 [error] 30108#0: *7 open() "../../nginx/build/sdk" failed (2: No such file or directory), client: 104.152.52.27, server: localhost, request: "POST /sdk HTTP/1.1", host: "120.78.142.134:8081"
+2024/05/27 11:48:48 [error] 30108#0: *9 open() "../../nginx/build/evox/about" failed (2: No such file or directory), client: 104.152.52.27, server: localhost, request: "GET /evox/about HTTP/1.1", host: "120.78.142.134:8081"
+2024/05/27 11:48:48 [error] 30108#0: *10 open() "../../nginx/build/HNAP1" failed (2: No such file or directory), client: 104.152.52.27, server: localhost, request: "GET /HNAP1 HTTP/1.1", host: "120.78.142.134:8081"
+2024/05/27 11:48:55 [notice] 30118#0: signal process started
+2024/05/27 11:51:09 [error] 30164#0: *1 open() "../../nginx/build/querytable" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /querytable HTTP/1.1", host: "120.78.142.134:8081"
+2024/05/27 11:51:10 [error] 30164#0: *1 open() "../../nginx/build/querytable" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /querytable HTTP/1.1", host: "120.78.142.134:8081"
+2024/05/27 11:51:16 [error] 30164#0: *1 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 11:54:30 [notice] 30220#0: signal process started
+2024/05/27 11:55:51 [error] 30237#0: *1 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 11:58:45 [error] 30237#0: *3 open() "../../nginx/build/querytable" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /querytable HTTP/1.1", host: "120.78.142.134:8081"
+2024/05/27 11:58:49 [notice] 30249#0: signal process started
+2024/05/27 11:59:00 [error] 30252#0: *1 open() "../../nginx/build/querytable" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /querytable HTTP/1.1", host: "120.78.142.134:8081"
+2024/05/27 11:59:03 [error] 30252#0: *1 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 11:59:06 [notice] 30253#0: signal process started
+2024/05/27 11:59:46 [error] 30256#0: *1 "../../nginx/build/index.html" is not found (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET / HTTP/1.1", host: "120.78.142.134:8081"
+2024/05/27 11:59:48 [error] 30256#0: *1 "../../nginx/build/index.html" is not found (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET / HTTP/1.1", host: "120.78.142.134:8081"
+2024/05/27 11:59:55 [notice] 30261#0: signal process started
+2024/05/27 11:59:59 [error] 30262#0: *5 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 12:02:04 [notice] 30309#0: signal process started
+2024/05/27 12:02:07 [error] 30310#0: *6 open() "../../nginx/build/login" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /login HTTP/1.1", host: "120.78.142.134:8081"
+2024/05/27 12:02:09 [error] 30310#0: *6 open() "../../nginx/build/login" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /login HTTP/1.1", host: "120.78.142.134:8081"
+2024/05/27 12:02:15 [error] 30310#0: *8 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 12:02:39 [notice] 30312#0: signal process started
+2024/05/27 12:02:57 [error] 30319#0: *3 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 12:03:23 [notice] 30321#0: signal process started
+2024/05/27 12:05:38 [error] 30326#0: *3 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 12:11:38 [notice] 30372#0: signal process started
+2024/05/27 12:11:44 [error] 30374#0: *4 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 12:52:40 [notice] 30558#0: signal process started
+2024/05/27 12:53:03 [error] 30561#0: *1 open() "../../nginx/build/login" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /login HTTP/1.1", host: "120.78.142.134:8081"
+2024/05/27 12:53:06 [error] 30561#0: *3 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 12:55:05 [error] 30561#0: *7 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 12:55:44 [notice] 30580#0: signal process started
+2024/05/27 12:55:46 [error] 30581#0: *10 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 12:56:11 [notice] 30583#0: signal process started
+2024/05/27 12:56:16 [error] 30586#0: *3 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:07:19 [emerg] 30656#0: bind() to 0.0.0.0:8081 failed (98: Address already in use)
+2024/05/27 13:07:19 [emerg] 30656#0: bind() to 0.0.0.0:8081 failed (98: Address already in use)
+2024/05/27 13:07:19 [emerg] 30656#0: bind() to 0.0.0.0:8081 failed (98: Address already in use)
+2024/05/27 13:07:19 [emerg] 30656#0: bind() to 0.0.0.0:8081 failed (98: Address already in use)
+2024/05/27 13:07:23 [notice] 30657#0: signal process started
+2024/05/27 13:07:27 [error] 30661#0: *4 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:08:00 [notice] 30662#0: signal process started
+2024/05/27 13:08:03 [error] 30663#0: *6 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:11:34 [error] 30663#0: *10 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:11:41 [notice] 30692#0: signal process started
+2024/05/27 13:11:43 [error] 30693#0: *15 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:20:57 [error] 30693#0: *19 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:21:12 [error] 30693#0: *18 open() "../../nginx/build/undefined" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "POST /undefined HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:25:28 [error] 30693#0: *23 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:25:28 [error] 30693#0: *21 open() "../../nginx/build/undefined" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "POST /undefined HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:25:41 [notice] 30765#0: signal process started
+2024/05/27 13:25:44 [error] 30766#0: *25 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:25:44 [error] 30766#0: *25 open() "../../nginx/build/undefined" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "POST /undefined HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:27:18 [emerg] 30801#0: bind() to 0.0.0.0:8081 failed (98: Address already in use)
+2024/05/27 13:27:18 [emerg] 30801#0: bind() to 0.0.0.0:8081 failed (98: Address already in use)
+2024/05/27 13:27:18 [emerg] 30801#0: bind() to 0.0.0.0:8081 failed (98: Address already in use)
+2024/05/27 13:27:18 [emerg] 30801#0: bind() to 0.0.0.0:8081 failed (98: Address already in use)
+2024/05/27 13:27:23 [notice] 30815#0: signal process started
+2024/05/27 13:27:28 [error] 30821#0: *3 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:27:31 [error] 30821#0: *3 open() "../../nginx/build/undefined" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "POST /undefined HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:29:01 [error] 30821#0: *5 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:29:01 [error] 30821#0: *5 open() "../../nginx/build/undefined" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "POST /undefined HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:29:03 [error] 30821#0: *6 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:29:03 [error] 30821#0: *6 open() "../../nginx/build/undefined" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "POST /undefined HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:29:04 [error] 30821#0: *4 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:29:04 [error] 30821#0: *4 open() "../../nginx/build/undefined" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "POST /undefined HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:29:05 [error] 30821#0: *7 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:29:05 [error] 30821#0: *7 open() "../../nginx/build/undefined" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "POST /undefined HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:29:06 [error] 30821#0: *8 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:29:06 [error] 30821#0: *8 open() "../../nginx/build/undefined" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "POST /undefined HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:29:07 [error] 30821#0: *9 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:29:07 [error] 30821#0: *9 open() "../../nginx/build/undefined" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "POST /undefined HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:29:07 [error] 30821#0: *10 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:29:07 [error] 30821#0: *10 open() "../../nginx/build/undefined" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "POST /undefined HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:29:08 [error] 30821#0: *11 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:29:08 [error] 30821#0: *11 open() "../../nginx/build/undefined" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "POST /undefined HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:29:09 [error] 30821#0: *12 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:29:09 [error] 30821#0: *12 open() "../../nginx/build/undefined" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "POST /undefined HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:29:15 [notice] 30843#0: signal process started
+2024/05/27 13:29:17 [error] 30844#0: *16 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:29:17 [error] 30844#0: *15 open() "../../nginx/build/undefined" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "POST /undefined HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:31:21 [error] 30844#0: *18 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:31:21 [error] 30844#0: *20 open() "../../nginx/build/undefined" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "POST /undefined HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:31:24 [error] 30844#0: *19 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:31:24 [error] 30844#0: *19 open() "../../nginx/build/undefined" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "POST /undefined HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:31:27 [error] 30844#0: *18 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:31:27 [error] 30844#0: *18 open() "../../nginx/build/undefined" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "POST /undefined HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:32:00 [error] 30844#0: *18 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:32:30 [error] 30844#0: *22 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:32:50 [error] 30844#0: *18 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:32:51 [error] 30844#0: *22 "../../nginx/build/tchain_api/index.html" is not found (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "POST /tchain_api/ HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:33:01 [error] 30844#0: *18 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:34:51 [error] 30844#0: *31 open() "../../nginx/build/register" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /register HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/register"
+2024/05/27 13:34:55 [error] 30844#0: *31 open() "../../nginx/build/src/index.jsx" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /src/index.jsx HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/"
+2024/05/27 13:36:15 [error] 30844#0: *40 open() "../../nginx/build/register" failed (2: No such file or directory), client: 143.89.78.85, server: localhost, request: "GET /register HTTP/1.1", host: "120.78.142.134:8081", referrer: "http://120.78.142.134:8081/register"
+2024/05/27 13:37:18 [notice] 30894#0: signal process started

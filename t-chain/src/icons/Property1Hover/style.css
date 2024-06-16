@@ -1,0 +1,7 @@
+.property-1-hover:hover .rect {
+    fill: #A4C8FF;
+  }
+
+  .property-1-hover.disabled .rect{
+    fill: #FFFFFF;
+  }

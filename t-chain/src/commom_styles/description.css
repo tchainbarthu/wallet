@@ -1,0 +1,39 @@
+[class^='.iphone-pro-'] .overlap-group{
+  background-color: #00b4ff;
+  height: 85px;
+  /* height: 116px; */
+  left: 0;
+  position: absolute;
+  top: 87px;
+  width: 393px;
+
+}
+
+[class^='.iphone-pro-'] .little-robot{
+  height: 30px;
+  left: 10px;
+  object-fit: cover;
+  position: absolute;
+  top: 15px;
+  width: 30px;
+}
+
+[class^='.iphone-pro-'] .overlap{
+  height: 43px;
+  left: 55px;
+  position: absolute;
+  top: 18px;
+  width: 296px;
+}
+
+[class^='.iphone-pro-'] .language-instance{
+  left: 275px !important;
+  position: absolute !important;
+  top: 0px !important;
+}
+
+[class^='.iphone-pro-'] .description-instance{
+  left: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+}

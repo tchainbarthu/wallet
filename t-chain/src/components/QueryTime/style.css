@@ -1,0 +1,118 @@
+.query-time {
+  align-items: left;
+  border: 1px solid;
+  border-color: #000000;
+  display: flex;
+  gap: 10px;
+  justify-content: left;
+  padding: 10px;
+  position: relative;
+  width: 100px;
+}
+
+.query-time .text-wrapper-4 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+  cursor: pointer;
+  text-align: left;
+}
+.text-wrapper-4 {
+  text-align: left;
+  top: 15px;
+}
+.query-time .img {
+  height: 35px;
+  position: relative;
+  width: 35px;
+}
+
+.query-time .div-wrapper {
+  align-items: left;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #000000;
+  display: flex;
+  gap: 10px;
+  justify-content: left;
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  top: 16px;
+  width: 100px;
+}
+
+.query-time .list-botton-2 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.query-time .list-button-2 {
+  align-items: left;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #000000;
+  display: flex;
+  gap: 10px;
+  height: 20px;
+  justify-content: left;
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  top: 37px;
+  width: 100px;
+}
+
+.query-time .list-botton-3 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1px;
+  margin-top: -1.5px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.query-time .list-button-3 {
+  align-items: left;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #000000;
+  display: flex;
+  gap: 10px;
+  justify-content: left;
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  top: 56px;
+  width: 100px;
+}
+
+.query-time .property-1-default {
+  margin-bottom: -0.75px;
+  margin-top: -0.34px;
+}
+
+.query-time .property-1-collepsed {
+  margin-bottom: -0.34px;
+  margin-top: -0.75px;
+}

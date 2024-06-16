@@ -1,0 +1,124 @@
+.table-head {
+  background-color: #e5e4e4;
+  height: 38px;
+  position: relative;
+  width: 393px;
+}
+
+.table-head .overlap {
+  height: 39px;
+  left: 0;
+  position: absolute;
+  top: -1px;
+  width: 138px;
+}
+
+.table-head .rectangle {
+  background-color: #d9d9d9;
+  border: 1px solid;
+  border-color: #000000;
+  height: 38px;
+  left: 0;
+  position: absolute;
+  top: 1px;
+  width: 138px;
+}
+
+.table-head .div {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 40px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  white-space: nowrap;
+  width: 138px;
+}
+
+.table-head .overlap-group {
+  height: 39px;
+  left: 138px;
+  position: absolute;
+  top: -1px;
+  width: 78px;
+}
+
+.table-head .rectangle-2 {
+  background-color: #d9d9d9;
+  border: 1px solid;
+  border-color: #000000;
+  height: 38px;
+  left: 0;
+  position: absolute;
+  top: 1px;
+  width: 78px;
+}
+
+.table-head .text-wrapper-2 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 40px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  white-space: nowrap;
+  width: 78px;
+}
+
+.table-head .overlap-2 {
+  height: 39px;
+  left: 216px;
+  position: absolute;
+  top: -1px;
+  width: 59px;
+}
+
+.table-head .rectangle-3 {
+  background-color: #d9d9d9;
+  border: 1px solid;
+  border-color: #000000;
+  height: 38px;
+  left: 0;
+  position: absolute;
+  top: 1px;
+  width: 59px;
+}
+
+.table-head .text-wrapper-3 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 40px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  white-space: nowrap;
+  width: 59px;
+}
+
+.table-head .overlap-group-2 {
+  height: 39px;
+  left: 275px;
+  position: absolute;
+  top: -1px;
+  width: 59px;
+}
+
+.table-head .overlap-3 {
+  height: 39px;
+  left: 334px;
+  position: absolute;
+  top: -1px;
+  width: 59px;
+}

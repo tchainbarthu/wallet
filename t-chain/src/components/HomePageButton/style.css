@@ -1,0 +1,84 @@
+.home-page-button {
+  height: 40px;
+  width: 120px;
+}
+
+
+
+.home-page-button .div-wrapper {
+  
+  /* background-color: rgb(23, 189, 255);
+   */
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #000000;
+  border-radius: 5px;
+  height: 30px;
+  position: relative;
+}
+
+.home-page-button .text-wrapper-4.zh {
+  color: #000000;
+  
+   /* color: #ffffff; */
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 45px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 3px;
+  width: 80px;
+}
+
+.home-page-button .text-wrapper-4.en {
+  color: #000000;
+  
+   /* color: #ffffff; */
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 30px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 3px;
+  width: 80px;
+}
+
+.home-page-button:hover .div-wrapper {
+  background-color: #64a2ff;
+}
+
+
+
+.home-page-button.selected .div-wrapper {
+  background-color: #1890ff; /* change to your preferred color */
+}
+
+.home-page-button.selected:hover .div-wrapper {
+  background-color: #64a2ff; /* change to your preferred color */
+}
+
+.home-page-button.disabled .div-wrapper {
+  background-color: #f5f5f5; /* change to your preferred color */
+}
+.home-page-button.disabled .text-wrapper-4 {
+  color: #bfbfbf; /* change to your preferred color */
+}
+.home-page-button.disabled:hover .div-wrapper {
+  background-color: #f5f5f5; /* change to your preferred color */
+}
+.home-page-button.disabled:hover .text-wrapper-4 {
+  color: #bfbfbf; /* change to your preferred color */
+}
+.home-page-button.selected .text-wrapper-4 {
+  color: #ffffff;
+}
+
+.home-page-button:hover .text-wrapper-4 {
+  color: #ffffff;
+  /* left: 40px;
+  top: 4px; */
+}

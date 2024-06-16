@@ -1,0 +1,1 @@
+export { LockPage } from "./IphonePro";

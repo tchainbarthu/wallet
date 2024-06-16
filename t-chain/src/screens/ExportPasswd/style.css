@@ -1,0 +1,220 @@
+.iphone-pro-export {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.iphone-pro-export .div {
+  background-color: #ffffff;
+  height: 852px;
+  position: relative;
+  width: 393px;
+  box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.1);
+}
+
+.iphone-pro-export .language-instance-2 {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  left: 80%;
+  right: 32.55%;
+  top: 1%;
+  bottom: 10.74%;
+}
+
+.iphone-pro-export .overlap-group {
+  /* background-color: #75a3ce; */
+  background-color: #00b4ff;
+  height: 85px;
+  /* height: 116px; */
+  left: 0;
+  position: absolute;
+  top: 0px;
+  width: 393px;
+}
+
+.iphone-pro-export .little-robot {
+  height: 30px;
+  left: 10px;
+  object-fit: cover;
+  position: absolute;
+  top: 15px;
+  width: 30px;
+}
+
+.iphone-pro-export .overlap {
+  height: 43px;
+  left: 55px;
+  position: absolute;
+  top: 18px;
+  width: 296px;
+}
+
+.iphone-pro-export .language-instance {
+  left: 275px !important;
+  position: absolute !important;
+  top: 0px !important;
+}
+
+.iphone-pro-export .description-instance {
+  left: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+.iphone-pro-export .img-export {
+  height: 86px;
+  left: 152px;
+  object-fit: cover;
+  position: absolute;
+  top: 130px;
+  width: 88px;
+}
+
+.iphone-pro-export .sbumit-instance-export_memo {
+  
+  /* left: 35px !important;
+  position: absolute !important;
+  top: 313px !important; */
+  /* Buttons v2 */
+position: absolute;
+width: 343px;
+height: 48px;
+left: 30px;
+right: 16px;
+top: 133px;
+bottom: 631px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px 12px 24px;
+
+border-radius: 12px;
+
+/* 线性渐变 */
+background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
+}
+
+.iphone-pro-export .sbumit-instance-export_Keystore {
+  /* Buttons v2 */
+position: absolute;
+width: 343px;
+height: 48px;
+left: 30px;
+right: 16px;
+top: 201px;
+bottom: 563px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px 12px 24px;
+
+border-radius: 12px;
+
+/* 线性渐变 */
+background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
+}
+
+
+.iphone-pro-export .sbumit-instance-export_account_password {
+ /* Buttons v2 */
+position: absolute;
+width: 343px;
+height: 48px;
+left: 30px;
+right: 16px;
+top: 269px;
+bottom: 495px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px 12px 24px;
+
+border-radius: 12px;
+
+/* 线性渐变 */
+background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
+}
+
+.iphone-pro-export .single-choice-component {
+  
+  left: 40px !important;
+  position: absolute !important;
+  top: 150px !important;
+}
+
+.iphone-pro-export .note-instance {
+  width: 100%; /* Full width */
+  height: 50px; /* Fixed height */
+  padding: 10px; /* Padding around the text */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  border: 0px; /* Gray border */
+  resize: none; /* Disable resizing */
+  position: absolute !important;
+  top: 680px; /* Position from the top */
+  left: 0; /* Position from the left */
+  
+}
+.iphone-pro-export .textarea-others {
+  
+  width: 100%; /* Full width */
+  height: 250px; /* Fixed height */
+  padding: 10px; /* Padding around the text */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  border: 1px solid #ccc; /* Gray border */
+  resize: none; /* Disable resizing */
+  position: absolute !important;
+  top: 400px; /* Position from the top */
+  left: 0; /* Position from the left */
+}
+
+.iphone-pro-export .textarea-file1 {
+  position: absolute;
+  width: 100%; /* Full width */
+  height: 150px; /* Fixed height */
+  top: 400px;
+  left: 0;
+  /* other styles... */
+}
+
+.iphone-pro-export .textarea-file2 {
+  position: absolute;
+  width: 100%; /* Full width */
+  height: 150px; /* Fixed height */
+  top: 580px;
+  left: 0;
+  /* other styles... */
+}
+
+.iphone-pro-export .note-instance-2 {
+  width: 100%; /* Full width */
+  height: 100px; /* Fixed height */
+  padding: 10px; /* Padding around the text */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  border: 0px; /* Gray border */
+  resize: none; /* Disable resizing */
+  position: absolute !important;
+  top: 740px; /* Position from the top */
+  left: 0; /* Position from the left */
+  
+}
+
+.iphone-pro-export .back-img{
+  /* Vector */
+  /* Vector */
+position: absolute;
+/* width: 9px; */
+/* height: 18px; */
+left: 15px;
+top: 30px;
+/* Secondary */
+/* border: 1.6px solid rgb(105, 111, 140); */
+}
