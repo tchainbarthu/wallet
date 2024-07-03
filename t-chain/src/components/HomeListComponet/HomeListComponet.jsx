@@ -6,7 +6,7 @@ Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcN
 import React from "react";
 import "./style.css";
 
-export const HomeListComponet = ({ className, selected, onClick, onDoubleClick }) => {
+export const HomeListComponet = ({ className, selected, onClick, onDoubleClick, img_src, name, description }) => {
   const selectedClass = selected ? 'selected' : '';
   return (
     <div className={`home-list-componet ${className} ${selectedClass}`}
@@ -16,9 +16,9 @@ export const HomeListComponet = ({ className, selected, onClick, onDoubleClick }
       <div className="overlap-group">
         <div className={`rectangle `} />
         <img className="coin-icon" src="/img/circle.png"/>
-        <img className="t-chain-coin" src="/svg/t-chain-coin.svg"/>
-        <div className="text-wrapper">TChain</div>
-        <div className="text-wrapper-1">TChain Platform coin</div>
+        <img className="t-chain-coin" src={img_src}/>
+        <div className="text-wrapper">{name}</div>
+        <div className="text-wrapper-1">{description}</div>
       </div>
     </div>
   );

@@ -1,0 +1,243 @@
+.iphone-pro-platform-carbonA-platform-management {
+  /* background-color: #ffffff; */
+  /* Background */
+background: rgb(248, 249, 252);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.iphone-pro-platform-carbonA-platform-management .div-2 {
+  background-color: #ffffff;
+  height: 852px;
+  position: relative;
+  width: 393px;
+  box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.1);
+}
+
+
+.iphone-pro-platform-carbonA-platform-management .overlap {
+  height: 43px;
+  left: 55px;
+  position: absolute;
+  top: 18px;
+  width: 296px;
+}
+
+.iphone-pro-platform-carbonA-platform-management .language-instance {
+  left: 275px !important;
+  position: absolute !important;
+  top: 0px !important;
+}
+
+.iphone-pro-platform-carbonA-platform-management .description-instance {
+  left: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+.iphone-pro-platform-carbonA-platform-management .language-instance-2 {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  left: 80%;
+  right: 32.55%;
+  top: 1%;
+  bottom: 10.74%;
+}
+
+.iphone-pro-platform-carbonA-platform-management .img {
+  /* height: 86px; */
+  left: 125px;
+  object-fit: cover;
+  position: absolute;
+  top: 100px;
+  /* width: 88px; */
+  /* circle */
+position: absolute;
+width: 162.03px;
+height: 162.03px;
+/* left: 66.04%;
+right: -66.04%;
+top: 54.31%;
+bottom: -54.31%; */
+/* background: linear-gradient(90.00deg, rgb(11, 184, 232),rgb(0, 220, 248) 100.001%); */
+}
+
+.iphone-pro-platform-carbonA-platform-management .img-1 {
+  /* height: 86px; */
+  left: 155px;
+  object-fit: cover;
+  position: absolute;
+  top: 140px;
+  /* width: 88px; */
+  /* circle */
+
+/* path */
+position: absolute;
+width: 106.05px;
+height: 93.59px;
+
+right: -48.76%;
+
+bottom: -35.38%;
+
+/* left: 66.04%;
+right: -66.04%;
+top: 54.31%;
+bottom: -54.31%; */
+/* background: linear-gradient(90.00deg, rgb(11, 184, 232),rgb(0, 220, 248) 100.001%); */
+}
+
+
+.iphone-pro-platform-carbonA-platform-management .sbumit-add-plotform {
+  left: 20px !important;
+  position: absolute !important;
+  top: 75px !important;
+  /* Buttons v2 */
+position: relative;
+width: 170px;
+height: 30px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px 12px 24px;
+
+border-radius: 12px;
+
+/* 线性渐变 */
+background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
+
+}
+
+.iphone-pro-platform-carbonA-platform-management .sbumit-delete-plotform {
+  left: 200px !important;
+  position: absolute !important;
+  top: 75px !important;
+  /* Buttons v2 */
+position: relative;
+width: 170px;
+height: 30px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px 12px 24px;
+
+border-radius: 12px;
+
+/* 线性渐变 */
+background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
+}
+
+.iphone-pro-platform-carbonA-platform-management .sbumit-deploy-token {
+  left: 260px !important;
+  position: absolute !important;
+  top: 200px !important;
+  /* Buttons v2 */
+position: relative;
+width: 120px;
+height: 30px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px 12px 24px;
+
+border-radius: 12px;
+
+/* 线性渐变 */
+background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
+}
+
+.iphone-pro-platform-carbonA-platform-management .sbumit-upgrade-token {
+  left: 260px !important;
+  position: absolute !important;
+  top: 250px !important;
+  /* Buttons v2 */
+position: relative;
+width: 120px;
+height: 30px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px 12px 24px;
+
+border-radius: 12px;
+
+/* 线性渐变 */
+background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
+}
+
+.iphone-pro-platform-carbonA-platform-management .sbumit-add-minting {
+  left: 240px !important;
+  position: absolute !important;
+  top: 300px !important;
+  /* Buttons v2 */
+position: relative;
+width: 140px;
+height: 30px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px 12px 24px;
+
+border-radius: 12px;
+
+/* 线性渐变 */
+background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
+}
+
+.scrollable-item-list {
+  height: 200px; /* Adjust based on your needs */
+  overflow-y: scroll;
+  border: 1px solid #ccc; /* Optional, just for visibility */
+  position:absolute;
+  width: 220px;
+  top: 200px;
+  left: 20px;
+}
+
+.item {
+  padding: 10px;
+  border-bottom: 1px solid #eee; /* Optional */
+}
+
+.iphone-pro-platform-carbonA-platform-management .sbumit-minting-address {
+  left: 240px !important;
+  position: absolute !important;
+  top: 350px !important;
+  /* Buttons v2 */
+position: relative;
+width: 140px;
+height: 30px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px 12px 24px;
+
+border-radius: 12px;
+
+/* 线性渐变 */
+background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
+}
+
+.iphone-pro-platform-carbonA-platform-management .back-img{
+  /* Vector */
+position: absolute;
+width: 9px;
+height: 18px;
+left: 10px;
+top: 20px;
+}

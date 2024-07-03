@@ -1,0 +1,1 @@
+export { PlatformDeleteManager } from "./IphonePro";

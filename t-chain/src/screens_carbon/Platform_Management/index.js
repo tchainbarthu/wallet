@@ -1,0 +1,1 @@
+export { PlatformManagement } from "./IphonePro";

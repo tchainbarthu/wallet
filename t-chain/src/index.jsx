@@ -37,6 +37,26 @@ import { RegisterSuccessful } from "./screens/RegisterSuccessful/IphonePro";
 
 import { PasswordProvider } from "./Contexts/PasswordContext";
 
+import { CarbonAccount } from "./screens_carbon/Account/IphonePro";
+
+import {PlatformPurchasing} from "./screens_carbon/Platform_Purchasing/IphonePro";
+
+import { CarbonATransfer } from "./screens_carbon/Transfer";
+
+import { PlatformManagement } from "./screens_carbon/Platform_Management";
+
+import { PlatformAddManager } from "./screens_carbon/Platform_Add_Manager";
+import { PlatformDeleteManager } from "./screens_carbon/Platform_Delete_Manager";
+import { CarbonAAddManager } from "./screens_carbon/Add_Manager";
+import { CarbonADeleteManager } from "./screens_carbon/Delete_Manager";
+import { PlatformDeployToken } from "./screens_carbon/Platform_Deploy_Token";
+
+import { CarbonADeployToken } from "./screens_carbon/CarbonA_Deploy_Token";
+
+import {PlatformUpgradeToken} from "./screens_carbon/Platform_Upgrade_Token/IphonePro";
+
+import { CarbonAUpgradeToken } from "./screens_carbon/Upgrade_Token";
+
 const app = document.getElementById("app");
 const root = ReactDOMClient.createRoot(app);
 
@@ -65,11 +85,24 @@ root.render(
         <Route path="/exportpasswd" element={<ExportPasswd />} />
         <Route path="/importpasswd" element={<ImportPasswd />} />
         <Route path="/account" element={<Account />} />
+        <Route path="/account/CarbonA" element={<CarbonAccount />} />
+        <Route path="/CarbonA/PlatformPurchasing" element={<PlatformPurchasing />} />
+        <Route path="/CarbonA/Transfer" element={<CarbonATransfer />} />
+        <Route path="/CarbonA/PlatformManagement" element={<PlatformManagement />} />
+        <Route path="/CarbonA/PlatformAddManager" element={<PlatformAddManager />} />
+        <Route path="/CarbonA/PlatformDeleteManager" element={<PlatformDeleteManager />} />
+        <Route path="/CarbonA/AddManager" element={<CarbonAAddManager />} />
+        <Route path="/CarbonA/DeleteManager" element={<CarbonADeleteManager />} />
+        <Route path="/CarbonA/PlatformDeployToken" element={<PlatformDeployToken />} />
+        <Route path="/CarbonA/CarbonADeployToken" element={<CarbonADeployToken />} />
+        <Route path="/CarbonA/PlatformUpgradeToken" element={<PlatformUpgradeToken />} />
+        <Route path="/CarbonA/UpgradeToken" element={<CarbonAUpgradeToken />} />
         <Route path="/transfer" element={<Transfer />} />
         <Route path="/querytable" element={<QueryTable />} />
         <Route path="/lockpage" element={<LockPage />} />
         <Route path="/Homepage" element={<Homepage />} />
         <Route path="/register_successful" element={<RegisterSuccessful />} />
+
         {/* Add more routes as needed */}
       </Routes>
       </LanguageProvider>

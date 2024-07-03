@@ -1,0 +1,1 @@
+export { PlatformPurchasing } from "./IphonePro";

@@ -41,9 +41,14 @@ const handleListComponentClick = (selectedItem, setSelectedItem) => {
   setSelectedItem(selectedItem);
 };
 
-const handleListComponentDoubleClick = (navigate) => {
+const handleListComponentDoubleClick = (navigate, setSelectedItem) => {
   console.log('Double clicked');
-  navigate('/account')
+  if (setSelectedItem === 1){
+    navigate('/account');
+  }
+  else{
+    navigate('/account/CarbonA')
+  }
   
 };
 
@@ -139,13 +144,26 @@ export const Homepage = () => {
         </div>
         <img className="little-robot" alt="Little robot" src="/img/little-robot-1.png" />
         </div> */}
-
-        <img src="/svg/g_description.svg" className="description-instance"/>
+      <img src="/svg/g_description.svg" className="description-instance"/>
+      
         <Language className="language-instance-2" property1="default" />
         {/* <img src='/svg/HomePage-button1.svg' className="button1"/> */}
 
-        <div className="overlap" onClick={() =>{navigate('/account')}}>
-          <DisplayHead className="design-component-instance-node" address={address} balance={Balance / 1000000000} />
+        <div className="overlap" onClick={() =>{
+          if (selectedItem === 1){
+            navigate('/account');
+          }else{
+            navigate('/account/CarbonA');
+          }
+        }}>
+          <DisplayHead className="design-component-instance-node" 
+          address={address} balance={Balance / 1000000000} img_src={
+            selectedItem === 1 ? '/svg/t-chain-coin.svg' : '/img/carbon-v0.png'
+          }
+          description={
+            selectedItem === 1 ? "TChain" : "CarbonA"
+          }
+          />
           {/* <DetailComponent className="detail-component-instance" onClick={()=>{handleDetailedComponentClick(navigate)}}/> */}
         </div>
         <div className="t-chain-coin-list">
@@ -153,12 +171,20 @@ export const Homepage = () => {
             <HomeListComponet className="home-list-component-instance" 
             selected={selectedItem === 1}
             onClick={() => {handleListComponentClick(1, setSelectedItem)}}
-            onDoubleClick={()=>{handleListComponentDoubleClick(navigate)}}/>
-            {/* <HomeListComponet className="home-list-componet-2" 
+            onDoubleClick={()=>{handleListComponentDoubleClick(navigate, 1)}}
+            img_src='/svg/t-chain-coin.svg'
+            name="TChain"
+            description="TChain Platform Coin"
+            />
+            <HomeListComponet className="home-list-componet-2" 
             selected={selectedItem === 2}
+            img_src='/img/carbon-v0.png'
             onClick={() => {handleListComponentClick(2, setSelectedItem)}}
-            onDoubleClick={()=>{handleListComponentDoubleClick(navigate)}}/>
-            <HomeListComponet className="home-list-componet-3" 
+            onDoubleClick={()=>{handleListComponentDoubleClick(navigate, 2)}}
+            name="CarbonA"
+            description="CarbonA Platform Coin"
+            />
+            {/* <HomeListComponet className="home-list-componet-3" 
             selected={selectedItem === 3}
             onClick={() => {handleListComponentClick(3, setSelectedItem)}}
             onDoubleClick={()=>{handleListComponentDoubleClick(navigate)}}/> */}

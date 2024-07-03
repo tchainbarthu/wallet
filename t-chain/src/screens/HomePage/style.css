@@ -104,13 +104,13 @@
     width: 76px;
   }
   
-  .iphone-pro-Homepage .home-list-componet-2 {
+  /* .iphone-pro-Homepage .home-list-componet-2 {
     height: 39px;
     left: -1px;
     position: absolute;
     top: 32px;
-    width: 393px;
-  }
+    width: 200px;
+  } */
   
   .iphone-pro-Homepage .home-list-componet-3 {
     height: 39px;
@@ -362,7 +362,7 @@ border: 0px;
   left: -1px;
   position: absolute;
   top: 32px;
-  width: 393px;
+  width: 200px;
 }
 
 .iphone-pro-Homepage .home-list-componet-3 {

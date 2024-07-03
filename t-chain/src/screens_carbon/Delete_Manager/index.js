@@ -1,0 +1,1 @@
+export { CarbonADeleteManager } from "./IphonePro";
