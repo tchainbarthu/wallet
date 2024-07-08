@@ -23,6 +23,7 @@ import { wait_for_txhash } from "../../common_waiting/wait_for_txhash";
 
 import { LanguageContext } from '../../Language/LanguageContext';
 const API_URL=window.TCHAIN_API_URL;
+const TCHAIN_DATABASE_ROOT = window.TCHAIN_DATABASE_ROOT
 export const Register = () => {
   const navigate = useNavigate(); // Get the navigate function from useNavigate
   
@@ -43,7 +44,7 @@ export const Register = () => {
     setAccount(event.target.value);
   };
 
-  const sendPostRequest = (current_register_template) => {
+  async function sendPostRequest (current_register_template) {
     // Replace 'http://example.com' with your server's URL
     
     if (account.length < 4){
@@ -64,9 +65,31 @@ export const Register = () => {
       alert("两次输入的密码不一致");
       return;
     }
+
+    // let remaining_time = 0;
     
     
     setIsLoading(true);
+    const response = await fetch(
+      `${TCHAIN_DATABASE_ROOT}/check_registering_number_day`,
+      {
+        method: 'GET',
+          headers: {
+        'Content-Type': 'application/json',
+      },
+      }
+    );
+    const data = await response.json();
+   
+    console.log(data);
+    const remaining_time = data.registeringNumber;
+        
+    if (remaining_time <0){
+      alert('达到最大注册次数！');
+      setIsLoading(false);
+      return;
+    }
+    
     fetch(API_URL, {
       method: 'POST',
       headers: {
@@ -108,6 +131,7 @@ export const Register = () => {
     .catch((error) => {
       console.error('Error:', error);
     });
+  
   };
 
   const handlePasswordChange = (event) => {

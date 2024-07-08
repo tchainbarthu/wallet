@@ -57,6 +57,8 @@ import {PlatformUpgradeToken} from "./screens_carbon/Platform_Upgrade_Token/Ipho
 
 import { CarbonAUpgradeToken } from "./screens_carbon/Upgrade_Token";
 
+import { DummyRegister } from "./screens/Dummy_Register/IphonePro";
+
 const app = document.getElementById("app");
 const root = ReactDOMClient.createRoot(app);
 
@@ -102,7 +104,7 @@ root.render(
         <Route path="/lockpage" element={<LockPage />} />
         <Route path="/Homepage" element={<Homepage />} />
         <Route path="/register_successful" element={<RegisterSuccessful />} />
-
+        <Route path="/dummy_register" element={<DummyRegister/>} />
         {/* Add more routes as needed */}
       </Routes>
       </LanguageProvider>

@@ -2,8 +2,18 @@ const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const app = express();
 const cors = require('cors');
+const cron = require('node-cron');
+
+const registeringNumbersMap = new Map();
 app.use(express.json());
 app.use(cors()); // This enables CORS
+// Schedule the task to run at 00:00 every day
+cron.schedule('0 0 * * *', () => {
+  // Clear the registering number map
+  registeringNumbersMap.clear();
+  console.log('Registering numbers cleared for the day.');
+});
+
 // Open SQLite database
 
 function convertStrToDate(dateString){
@@ -105,4 +115,31 @@ app.post('/fetch-slot-transfers', (req, res) => {
     }
     res.json(rows);
   });
+});
+
+app.get('/check_registering_number_day', (req, res) => {
+  try {
+    const ipAddress = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+
+    // Check if the IP address exists in the registering number map
+    if (registeringNumbersMap.has(ipAddress)) {
+      let registeringNumber = registeringNumbersMap.get(ipAddress);
+
+      // Check if the registering number is greater than or equal to 10
+      if (registeringNumber >= 10) {
+        res.status(200).json({ registeringNumber: -1 });
+      } else {
+        registeringNumber++; // Increment the registering number
+        registeringNumbersMap.set(ipAddress, registeringNumber); // Update the map with the incremented value
+        res.status(200).json({ registeringNumber: 10 - registeringNumber });
+      }
+    } else {
+      // If the IP address doesn't exist, create the key and set the registering number to 1
+      registeringNumbersMap.set(ipAddress, 1);
+      res.status(200).json({ registeringNumber: 9 });
+    }
+  } catch (error) {
+    console.error('Error occurred:', error);
+    res.status(500).json({ message: 'Internal server error.' });
+  }
 });

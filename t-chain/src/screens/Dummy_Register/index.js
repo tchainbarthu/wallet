@@ -1,0 +1,1 @@
+export { DummyRegister } from "./IphonePro";

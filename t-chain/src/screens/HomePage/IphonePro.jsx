@@ -176,14 +176,14 @@ export const Homepage = () => {
             name="TChain"
             description="TChain Platform Coin"
             />
-            <HomeListComponet className="home-list-componet-2" 
+            {/* <HomeListComponet className="home-list-componet-2" 
             selected={selectedItem === 2}
             img_src='/img/carbon-v0.png'
             onClick={() => {handleListComponentClick(2, setSelectedItem)}}
             onDoubleClick={()=>{handleListComponentDoubleClick(navigate, 2)}}
             name="CarbonA"
             description="CarbonA Platform Coin"
-            />
+            /> */}
             {/* <HomeListComponet className="home-list-componet-3" 
             selected={selectedItem === 3}
             onClick={() => {handleListComponentClick(3, setSelectedItem)}}
