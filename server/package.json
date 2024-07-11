@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "pkg index.js --output data-server --target node16-darwin-arm64 --public-packages \"*\" --public-assets \"./node_sqlite3.node\""
+    "build": "pkg index.js --output data-server --target node16-linux-x86 --public-packages \"*\" --public-assets \"./node_sqlite3.node\"",
+    "build_mac": "pkg index.js --output data-server --target node16-darwin-arm64 --public-packages \"*\" --public-assets \"./node_sqlite3.node\"",
+    "build_linux": "pkg index.js --output data-server --target node16-linux-x86 --public-packages \"*\" --public-assets \"./node_sqlite3.node\""
   },
   "keywords": [],
   "author": "",

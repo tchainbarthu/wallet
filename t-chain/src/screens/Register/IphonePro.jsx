@@ -71,7 +71,7 @@ export const Register = () => {
     
     setIsLoading(true);
     const response = await fetch(
-      `${TCHAIN_DATABASE_ROOT}/check_registering_number_day`,
+      `${TCHAIN_DATABASE_ROOT}check_registering_number_day`,
       {
         method: 'GET',
           headers: {

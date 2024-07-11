@@ -41,7 +41,7 @@ import { CarbonAccount } from "./screens_carbon/Account/IphonePro";
 
 import {PlatformPurchasing} from "./screens_carbon/Platform_Purchasing/IphonePro";
 
-import { CarbonATransfer } from "./screens_carbon/Transfer";
+// import { CarbonATransfer } from "./screens_carbon/Transfer";
 
 import { PlatformManagement } from "./screens_carbon/Platform_Management";
 
@@ -89,7 +89,7 @@ root.render(
         <Route path="/account" element={<Account />} />
         <Route path="/account/CarbonA" element={<CarbonAccount />} />
         <Route path="/CarbonA/PlatformPurchasing" element={<PlatformPurchasing />} />
-        <Route path="/CarbonA/Transfer" element={<CarbonATransfer />} />
+        {/* <Route path="/CarbonA/Transfer" element={<CarbonATransfer />} /> */}
         <Route path="/CarbonA/PlatformManagement" element={<PlatformManagement />} />
         <Route path="/CarbonA/PlatformAddManager" element={<PlatformAddManager />} />
         <Route path="/CarbonA/PlatformDeleteManager" element={<PlatformDeleteManager />} />

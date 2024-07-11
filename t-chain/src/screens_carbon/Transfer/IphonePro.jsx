@@ -315,7 +315,7 @@ export const CarbonATransfer = () => {
     <div>
       {
         isLoading ? (<WaitingPage />) : (
-          <div className="iphone-pro-transfer">
+          <div className="iphone-pro-transfer-carbon">
       <div className="div-2">
         <img src="/svg/Vector.svg" className="back-img" onClick={() => {backHome(navigate)}}/>
         {/* <div className="overlap-group">

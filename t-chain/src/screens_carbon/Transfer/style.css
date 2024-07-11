@@ -1,4 +1,4 @@
-.iphone-pro-transfer {
+.iphone-pro-transfer-carbon {
   /* background-color: #ffffff; */
   /* Background */
 background: rgb(248, 249, 252);
@@ -8,7 +8,7 @@ background: rgb(248, 249, 252);
   width: 100%;
 }
 
-.iphone-pro-transfer .div-2 {
+.iphone-pro-transfer-carbon .div-2 {
   background-color: #ffffff;
   height: 852px;
   position: relative;
@@ -16,7 +16,7 @@ background: rgb(248, 249, 252);
   box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.1);
 }
 
-.iphone-pro-transfer .overlap-group {
+.iphone-pro-transfer-carbon .overlap-group {
   /* background-color: #75a3ce; */
   background-color: #00b4ff;
   /* height: 106px; */
@@ -27,7 +27,7 @@ background: rgb(248, 249, 252);
   width: 393px;
 }
 
-.iphone-pro-transfer .little-robot {
+.iphone-pro-transfer-carbon .little-robot {
   height: 30px;
   left: 10px;
   object-fit: cover;
@@ -36,7 +36,7 @@ background: rgb(248, 249, 252);
   width: 30px;
 }
 
-.iphone-pro-transfer .overlap {
+.iphone-pro-transfer-carbon .overlap {
   height: 43px;
   left: 55px;
   position: absolute;
@@ -44,19 +44,19 @@ background: rgb(248, 249, 252);
   width: 296px;
 }
 
-.iphone-pro-transfer .language-instance {
+.iphone-pro-transfer-carbon .language-instance {
   left: 275px !important;
   position: absolute !important;
   top: 0px !important;
 }
 
-.iphone-pro-transfer .description-instance {
+.iphone-pro-transfer-carbon .description-instance {
   left: 0 !important;
   position: absolute !important;
   top: 0 !important;
 }
 
-.iphone-pro-transfer .language-instance-2 {
+.iphone-pro-transfer-carbon .language-instance-2 {
   position: absolute;
   width: 42px;
   height: 42px;
@@ -66,7 +66,7 @@ background: rgb(248, 249, 252);
   bottom: 10.74%;
 }
 
-.iphone-pro-transfer .img {
+.iphone-pro-transfer-carbon .img {
   /* height: 86px; */
   left: 125px;
   object-fit: cover;
@@ -84,7 +84,7 @@ bottom: -54.31%; */
 /* background: linear-gradient(90.00deg, rgb(11, 184, 232),rgb(0, 220, 248) 100.001%); */
 }
 
-.iphone-pro-transfer .img-1 {
+.iphone-pro-transfer-carbon .img-1 {
   /* height: 86px; */
   left: 155px;
   object-fit: cover;
@@ -108,7 +108,7 @@ top: 54.31%;
 bottom: -54.31%; */
 /* background: linear-gradient(90.00deg, rgb(11, 184, 232),rgb(0, 220, 248) 100.001%); */
 }
-.iphone-pro-transfer .display-1 {
+.iphone-pro-transfer-carbon .display-1 {
 top: 275px;
 left: 25px;
   /* list */
@@ -132,7 +132,7 @@ background: rgb(255, 255, 255);
 }
 
 
-.iphone-pro-transfer .display-2 {
+.iphone-pro-transfer-carbon .display-2 {
   top: 300px;
   left: 25px;
  /* list */
@@ -155,19 +155,19 @@ background: rgb(255, 255, 255);
   }
 
 
-.iphone-pro-transfer .label-instance {
+.iphone-pro-transfer-carbon .label-instance {
   left: 10px !important;
   position: absolute !important;
   /* top: 295px !important; */
 }
 
-.iphone-pro-transfer .design-component-instance-node {
+.iphone-pro-transfer-carbon .design-component-instance-node {
   left: 21px !important;
   position: absolute !important;
   /* top: 341px !important; */
 }
 
-.iphone-pro-transfer .sbumit-instance {
+.iphone-pro-transfer-carbon .sbumit-instance {
   left: 25px !important;
   position: absolute !important;
   top: 450px !important;
@@ -190,34 +190,34 @@ background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.9
 
 }
 
-.iphone-pro-transfer .input-text-instance {
+.iphone-pro-transfer-carbon .input-text-instance {
   left: 80px !important;
   position: absolute !important;
   width: 240px;
   /* top: 291px !important; */
 }
-.iphone-pro-transfer .input-text-instance.en {
+.iphone-pro-transfer-carbon .input-text-instance.en {
   left: 100px !important;
   position: absolute !important;
   width: 230px;
   /* top: 291px !important; */
 }
 
-.iphone-pro-transfer .input-text-2 {
+.iphone-pro-transfer-carbon .input-text-2 {
   left: 80px !important;
   position: absolute !important;
   /* top: 340px !important; */
   width: 240px;
 }
 
-.iphone-pro-transfer .input-text-2.en {
+.iphone-pro-transfer-carbon .input-text-2.en {
   left: 100px !important;
   position: absolute !important;
   width: 230px;
   /* top: 340px !important; */
 }
 
-.iphone-pro-transfer .back-img{
+.iphone-pro-transfer-carbon .back-img{
   /* Vector */
 position: absolute;
 width: 9px;

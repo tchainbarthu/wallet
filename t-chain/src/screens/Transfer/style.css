@@ -68,15 +68,16 @@ background: rgb(248, 249, 252);
 
 .iphone-pro-transfer .img {
   /* height: 86px; */
+  position: absolute !important;
   left: 125px;
   object-fit: cover;
-  position: absolute;
-  top: 100px;
+  
+  top: 40px !important;
   /* width: 88px; */
   /* circle */
-position: absolute;
-width: 162.03px;
-height: 162.03px;
+/* position: absolute; */
+width: 140px;
+height: 140px;
 /* left: 66.04%;
 right: -66.04%;
 top: 54.31%;
@@ -86,17 +87,18 @@ bottom: -54.31%; */
 
 .iphone-pro-transfer .img-1 {
   /* height: 86px; */
+  position: absolute !important;
   left: 155px;
   object-fit: cover;
-  position: absolute;
-  top: 140px;
+  
+  top: 70px !important;
   /* width: 88px; */
   /* circle */
 
 /* path */
-position: absolute;
-width: 106.05px;
-height: 93.59px;
+/* position: absolute; */
+width: 100px;
+height: 100px;
 
 right: -48.76%;
 
@@ -109,10 +111,11 @@ bottom: -54.31%; */
 /* background: linear-gradient(90.00deg, rgb(11, 184, 232),rgb(0, 220, 248) 100.001%); */
 }
 .iphone-pro-transfer .display-1 {
-top: 275px;
+  position: absolute !important;
+top: 200px !important;
 left: 25px;
   /* list */
-position: relative;
+
 width: 343px;
 height: 58px;
 /* 自动布局 */
@@ -133,10 +136,11 @@ background: rgb(255, 255, 255);
 
 
 .iphone-pro-transfer .display-2 {
-  top: 300px;
+  position: absolute !important;
+top: 275px !important;
   left: 25px;
  /* list */
-position: relative;
+
 width: 343px;
 height: 58px;
 /* 自动布局 */
@@ -172,8 +176,8 @@ background: rgb(255, 255, 255);
   position: absolute !important;
   top: 450px !important;
   /* Buttons v2 */
-position: relative;
-width: 343px;
+position: absolute;
+width: 343px !important;
 height: 48px;
 /* 自动布局 */
 display: flex;
