@@ -10,7 +10,7 @@ import { LanguageContext } from "../../Language/LanguageContext";
 export const Sbumit = ({ active = true, className, textKey = "Logon", onClick }) => {
   const { translations } = useContext(LanguageContext);
   const text = translations[textKey];
-  console.log(`${className} active:`, active)
+  // console.log(`${className} active:`, active)
   const disable_class = active ? "" : "disabled";
   const localOnClick = () => {
     if (active) {

@@ -24,6 +24,10 @@ import { useAccount } from "../../Contexts/AccountContext";
 
 import { LanguageContext } from "../../Language/LanguageContext";
 
+import { useCarbonAAmountContext } from "../../Contexts/CabonAAmount";
+
+import { useCarbonAPersonalAmount } from "../../Contexts/CabonAPersonalAmount";
+
 function backHome(navigate) {
   navigate('/Homepage');
 }
@@ -39,6 +43,9 @@ export const CarbonAccount = () => {
   
   const { language } = React.useContext(LanguageContext);
 
+  const { CarbonAAmount, setCarbonAAmount } = useCarbonAAmountContext();
+
+  const { CarbonAPersonalAmount, setCarbonAPersonalAmount } = useCarbonAPersonalAmount();
   // const fetchData = async (current_address_query_template) => {
   //   const response = await fetch(API_URL, {
   //     method: 'POST',
@@ -93,13 +100,13 @@ export const CarbonAccount = () => {
 
         <div className="display-4">
         <Label className="label-2" textKey="total_carbonA_amount" />
-        <div className={`text-wrapper-5 ${language}`}>{GasValue}</div>
+        <div className={`text-wrapper-5 ${language}`}>{CarbonAAmount}</div>
 
         </div>
         
         <div className="display-5">
         <Label className="label-3" textKey="carbonA_owned_amount" />
-        <div className={`text-wrapper-6 ${language}`}>{GasBuyValue}</div>
+        <div className={`text-wrapper-6 ${language}`}>{CarbonAPersonalAmount}</div>
         </div>
 
         

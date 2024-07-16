@@ -30,12 +30,18 @@ import { AccountProvider } from "./Contexts/AccountContext";
 
 import { AlreadyAccountProvider } from "./Contexts/AlreadyAccount";
 
+import { CarbonAAmountProvider } from "./Contexts/CabonAAmount";
+
+import {CarbonAPersonalAmountProvider} from "./Contexts/CabonAPersonalAmount";
+
 import { LeadingPage } from "./screens/LeadingPage/IphonePro";
 
 import { RegisterSuccessful } from "./screens/RegisterSuccessful/IphonePro";
 // import { LanguageProvider } from "./Language/LanguageProvider";
 
 import { PasswordProvider } from "./Contexts/PasswordContext";
+
+// import {CarbonAPro}
 
 import { CarbonAccount } from "./screens_carbon/Account/IphonePro";
 
@@ -59,6 +65,8 @@ import { CarbonAUpgradeToken } from "./screens_carbon/Upgrade_Token";
 
 import { DummyRegister } from "./screens/Dummy_Register/IphonePro";
 
+
+
 const app = document.getElementById("app");
 const root = ReactDOMClient.createRoot(app);
 
@@ -79,6 +87,8 @@ root.render(
       <GasValueProvider>
       <GasBuyValueProvider>
         <AccountProvider>
+          <CarbonAAmountProvider>
+            <CarbonAPersonalAmountProvider>
           <LanguageProvider>
       <Routes>
         <Route path="/" element={<LeadingPage />} />
@@ -108,6 +118,8 @@ root.render(
         {/* Add more routes as needed */}
       </Routes>
       </LanguageProvider>
+      </CarbonAPersonalAmountProvider>
+      </CarbonAAmountProvider>
       </AccountProvider>
       </GasBuyValueProvider>
       </GasValueProvider>

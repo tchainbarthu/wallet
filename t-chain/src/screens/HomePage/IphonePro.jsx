@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { CurrentCoinType } from "../../components/CurrentCoinType";
 import { DetailComponent } from "../../components/DetailComponent";
 import { DisplayHead } from "../../components/DisplayHead";
@@ -13,7 +13,7 @@ import { HomeListComponet } from "../../components/HomeListComponet";
 
 import { useNavigate, useLocation } from 'react-router-dom';
 
-import { useState } from "react";
+// import { useState } from "react";
 
 import { useAddress, AddressProvider } from '../../Contexts/AddressContext';
 
@@ -23,7 +23,7 @@ import { Description } from "../../components/Description";
 
 import { Language } from "../../components/Language";
 import { useAccount } from "../../Contexts/AccountContext";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { Sbumit } from "../../components/Sbumit";
 import "./style.css";
 
@@ -33,6 +33,12 @@ import { useGasValue, GasValueProvider } from '../../Contexts/GasValueContext';
 
 import { useGasBuyValue, GasBuyValueProvider } from '../../Contexts/GasBugValueContext';
 // import {API_URL} from '../../config';
+
+import { CarbonAAmountContext, useCarbonAAmountContext } from "../../Contexts/CabonAAmount";
+
+import { CarbonAPersonalAmount, useCarbonAPersonalAmount } from "../../Contexts/CabonAPersonalAmount";
+
+// import { useCarbonAAmountContext } from "../../Contexts/CabonAAmount";
 
 const API_URL=window.TCHAIN_API_URL;
 
@@ -74,8 +80,12 @@ export const Homepage = () => {
   const { GasValue, setGasValue } = useGasValue();
   const { GasBuyValue, setGasBuyValue } = useGasBuyValue();
   const { Account, setAccount } = useAccount();
-
+  const { CarbonAAmount, setCarbonAAmount } = useCarbonAAmountContext();
+  const { CarbonAPersonalAmount, setCarbonAPersonalAmount } = useCarbonAPersonalAmount();
   const [isLoading, setIsLoading] = useState(true);
+
+  const { sessionId } = useContext(SessionContext); // Get the sessionId from the context
+
   const fetchData = async (current_address_query_template) => {
     const response = await fetch(API_URL, {
       method: 'POST',
@@ -100,8 +110,8 @@ export const Homepage = () => {
           setGasValue(data.result.content.GasValue);
           setGasBuyValue(data.result.content.GasBuyValue);
           } else{
-            alert('数据解析失败');
-            navigate('/login');
+            // alert('数据解析失败');
+            // navigate('/login');
           }
 
   
@@ -111,6 +121,48 @@ export const Homepage = () => {
     // return data;
   };
 
+
+  const fetchCarbonAData = async (current_address_query_template) => {
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(current_address_query_template),
+    });
+  
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+  
+    response.json().then(
+      data => {
+        console.log('log carbon data');
+        console.log(data);
+        // setAddress(data.result);
+        if (data && data.result && data.result.content)
+          {
+            console.log('CarbonA data also exists!');
+            setCarbonAAmount(data.result.content.Total);
+            setCarbonAPersonalAmount(data.result.content.Amount);
+          //   setBalance(data.result.content.Balance);
+          // setGasValue(data.result.content.GasValue);
+          // setGasBuyValue(data.result.content.GasBuyValue);
+
+          } else{
+            // alert('数据解析失败');
+            // navigate('/login');
+          }
+
+  
+  
+      }
+    );
+    // return data;
+  };
+
+
+
   const current_address_query_template = { 
     "jsonrpc": "3.0",
     "method": "chain_queryInfo", 
@@ -118,10 +170,29 @@ export const Homepage = () => {
     "id": "1"}
     // const location = useLocation();
     // console.log(location);
+
+    const current_address_query_carbonA_template = {
+      "jsonrpc": "3.0",
+      "method": "chain_carbon", 
+      "params":[`opcode=carbon&subcode=blanceof&address=0x4fdf3a02a03b263f5378651672fba7dff2ec1e51&addr1=${address}`, "encryp=none"], 
+      "id": `${sessionId}`
+      // "id": "1"
+    }
+
   useEffect(() => {
     
     fetchData(current_address_query_template)
     .then(() => {
+      setIsLoading(false);
+  })
+  }
+  , [address, isLoading]);
+
+  useEffect(() => {
+    
+    fetchCarbonAData(current_address_query_carbonA_template)
+    .then(() => {
+
       setIsLoading(false);
   })
   }
@@ -157,7 +228,7 @@ export const Homepage = () => {
           }
         }}>
           <DisplayHead className="design-component-instance-node" 
-          address={address} balance={Balance / 1000000000} img_src={
+          address={address} balance={selectedItem === 1? Balance / 1000000000 : CarbonAPersonalAmount} img_src={
             selectedItem === 1 ? '/svg/t-chain-coin.svg' : '/img/carbon-v0.png'
           }
           description={
@@ -176,14 +247,15 @@ export const Homepage = () => {
             name="TChain"
             description="TChain Platform Coin"
             />
-            {/* <HomeListComponet className="home-list-componet-2" 
+            <HomeListComponet className="home-list-componet-2" 
             selected={selectedItem === 2}
             img_src='/img/carbon-v0.png'
             onClick={() => {handleListComponentClick(2, setSelectedItem)}}
             onDoubleClick={()=>{handleListComponentDoubleClick(navigate, 2)}}
             name="CarbonA"
             description="CarbonA Platform Coin"
-            /> */}
+            /> 
+
             {/* <HomeListComponet className="home-list-componet-3" 
             selected={selectedItem === 3}
             onClick={() => {handleListComponentClick(3, setSelectedItem)}}

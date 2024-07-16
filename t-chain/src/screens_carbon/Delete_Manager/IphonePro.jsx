@@ -97,6 +97,30 @@ const dummyFetch = () => {
     }, 1000); // Simulate network delay
   });
 };
+
+async function fetchManagerList (sessionId, address){
+  const platform_address = "0xa7f9a19d24c3f887f52b783eb37de2ee683cda9c";
+  const token_list_fetch_template = {
+    "jsonrpc": "3.0",
+    "method": "chain_carbon",
+     "params":[`opcode=carbon&subcode=showManager&&address=${platform_address}`,
+       "encryp=none"],
+        "id": `${sessionId}`};
+  let data = await fetch(API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(token_list_fetch_template),
+  });
+  
+  data = await data.json();
+  console.log('check real Manager data')
+  console.log(data);
+  let token_list = data.result.content;
+  return token_list;
+}
+
 const handleClick = (amount, OriginalAddress, targetAddress, sessionId, balance,data, setIsLoading, navigate, setBalance) => {
   // alert("转账成功");
   
@@ -321,9 +345,10 @@ export const CarbonADeleteManager = () => {
     const fetchItems = async () => {
       try {
         // const response = await fetch('YOUR_API_ENDPOINT');
-        const response = await dummyFetch();
+        // const response = await dummyFetch();
+        const response = await fetchManagerList(sessionId, address);
         // const data = await response.json();
-        const data = response;
+        const data = response.Addrs;
         setItems(data);
       } catch (error) {
         console.error('Failed to fetch items:', error);

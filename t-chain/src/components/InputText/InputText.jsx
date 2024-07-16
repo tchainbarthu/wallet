@@ -13,7 +13,7 @@ export const InputText = ({ className,  inputType = "text", onChange ,textKey, s
   // if (disabled && (specialText !== undefined)) {
   //   text = specialText;
   // }
-  console.log('disabled:', disabled)
+  // console.log('disabled:', disabled)
   if (disabled){
     
     inputType = "text";

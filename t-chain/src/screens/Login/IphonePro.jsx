@@ -62,7 +62,7 @@ export const Login = (cur_json_template) => {
   
 
   useEffect(() => {
-      console.log('alreadyAddress:', alreadyAddress);
+      // console.log('alreadyAddress:', alreadyAddress);
       setAccountLocal(alreadyAddress);
     
   }, [alreadyAddress, sessionId]);
@@ -82,12 +82,12 @@ export const Login = (cur_json_template) => {
   
     return response.json().then(
       data => {
-        console.log('fetch account data')
-        console.log(data);
+        // console.log('fetch account data')
+        // console.log(data);
         // setAddress(data.result);
         if (data && data.result && data.result.content)
           {
-            console.log('data exists');
+            // console.log('data exists');
             setBalance(data.result.content.Balance);
           setGasValue(data.result.content.GasValue);
           setGasBuyValue(data.result.content.GasBuyValue);
@@ -113,13 +113,13 @@ export const Login = (cur_json_template) => {
     })
     .then(response => response.json())
     .then(data => {
-      console.log(data);
+      // console.log(data);
       if (data.result.ret !== '0'){
          console.log(data.result.err);
       }else{
         return wait_for_txhash(data.result.content.info);
         // alert("获取免费能量成功");
-        console.log('get free gas',data.result.content.GasValue);
+        // console.log('get free gas',data.result.content.GasValue);
       }
     })
 
@@ -146,8 +146,8 @@ export const Login = (cur_json_template) => {
       "method": "chain_queryInfo", 
       "params":["pubChainQuery",`op=queryAddress&value=${address}<->latest`,"encryp=none"], 
       "id": "1"}
-    console.log('account:', account);
-    console.log('password:', password);
+    // console.log('account:', account);
+    // console.log('password:', password);
     
 
       fetch(API_URL, {
@@ -159,10 +159,10 @@ export const Login = (cur_json_template) => {
       })
       .then(response => response.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         
         if (data.result.ret !== '0'){
-          console.log(data.result.err);
+          // console.log(data.result.err);
           alert("登录失败，请检查账号密码是否正确");
         } 
         else{
@@ -170,7 +170,7 @@ export const Login = (cur_json_template) => {
           // const salt = bcrypt.genSaltSync(10);
           const salt = "$2a$10$fXsWaI9SItNQjohNtraQC.";
             const hashedPassword = bcrypt.hashSync(password, salt);
-            console.log('hashedPassword', hashedPassword);
+            // console.log('hashedPassword', hashedPassword);
             setAlreadyPassword(hashedPassword);
             setIsLoginFinished(true); 
             setAddress(data.result.content.info)
@@ -223,8 +223,8 @@ export const Login = (cur_json_template) => {
         <img className="little-robot" alt="Little robot" src="/svg/g_description.svg" />
         <img className="img" alt="Little robot" src="/svg/g-robot.svg" />
         <Sbumit className="sbumit-instance" text="登录" onClick={()=>{handleSubmit(cur_json_template)}}/>
-        <InputText className="input-text-instance" textKey='please_enter_account' onChange={e => { setAccountLocal(e.target.value); console.log('Account input changed:', e.target.value); }} value={account} />
-        <InputText inputType='password' className="design-component-instance-node" textKey={'please_enter_password'} onChange={e => { setPassword(e.target.value); console.log('Password input changed:', e.target.value); }} />
+        <InputText className="input-text-instance" textKey='please_enter_account' onChange={e => { setAccountLocal(e.target.value);  }} value={account} />
+        <InputText inputType='password' className="design-component-instance-node" textKey={'please_enter_password'} onChange={e => { setPassword(e.target.value);  }} />
         {/* <Label className="label-instance" textKey="account" /> */}
         {/* <Label className="label-2" textKey="password" /> */}
         <RedirectLink className="redirect-link-instance" textKey="import_key" href='/importpasswd'/>

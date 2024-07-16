@@ -43,7 +43,28 @@ const dummyFetch = () => {
   });
 };
 
-
+async function fetchTokenList (sessionId, address){
+  const platform_address = "0xa7f9a19d24c3f887f52b783eb37de2ee683cda9c";
+  const token_list_fetch_template = {
+    "jsonrpc": "3.0",
+    "method": "chain_carbon",
+     "params":[`opcode=carbon&subcode=showToken&address=${platform_address}`,
+       "encryp=none"],
+        "id": `${sessionId}`};
+  let data = await fetch(API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(token_list_fetch_template),
+  });
+  
+  data = await data.json();
+  // console.log('check real token data')
+  // console.log(data);
+  let token_list = data.result.content;
+  return token_list;
+}
 
 function backHome(navigate) {
   navigate('/Homepage');
@@ -67,15 +88,18 @@ export const PlatformManagement = () => {
   
   const [items, setItems] = useState([]); // Initialize state to hold your items
 
+
+
   useLoginRedirect();
 
   useEffect(() => {
     const fetchItems = async () => {
       try {
         // const response = await fetch('YOUR_API_ENDPOINT');
-        const response = await dummyFetch();
+        // const response = await dummyFetch();
+        const response = await fetchTokenList(sessionId, address);
         // const data = await response.json();
-        const data = response;
+        const data = response.Addrs;
         setItems(data);
       } catch (error) {
         console.error('Failed to fetch items:', error);
