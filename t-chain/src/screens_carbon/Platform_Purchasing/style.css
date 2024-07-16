@@ -184,7 +184,7 @@ background: rgb(255, 255, 255);
 }
 
 .iphone-pro-platform-carbonA-purchasing .design-component-instance-node {
-  left: 21px !important;
+  left: 10px !important;
   position: absolute !important;
   /* top: 341px !important; */
 }
@@ -215,13 +215,13 @@ background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.9
 .iphone-pro-platform-carbonA-purchasing .input-text-instance {
   left: 80px !important;
   position: absolute !important;
-  width: 240px;
+  width: 240px !important;
   /* top: 291px !important; */
 }
 .iphone-pro-platform-carbonA-purchasing .input-text-instance.en {
   left: 100px !important;
   position: absolute !important;
-  width: 230px;
+  width: 230px !important;
   /* top: 291px !important; */
 }
 
@@ -229,7 +229,7 @@ background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.9
   left: 80px !important;
   position: absolute !important;
   /* top: 340px !important; */
-  width: 240px;
+  width: 240px  !important;
 }
 
 .iphone-pro-platform-carbonA-purchasing .input-text-2.en {

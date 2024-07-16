@@ -142,7 +142,7 @@ export const Homepage = () => {
         // setAddress(data.result);
         if (data && data.result && data.result.content)
           {
-            console.log('CarbonA data also exists!');
+            // console.log('CarbonA data also exists!');
             setCarbonAAmount(data.result.content.Total);
             setCarbonAPersonalAmount(data.result.content.Amount);
           //   setBalance(data.result.content.Balance);

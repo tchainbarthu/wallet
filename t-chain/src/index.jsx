@@ -65,7 +65,7 @@ import { CarbonAUpgradeToken } from "./screens_carbon/Upgrade_Token";
 
 import { DummyRegister } from "./screens/Dummy_Register/IphonePro";
 
-
+import { CarbonATransfer } from "./screens_carbon/Transfer/IphonePro";
 
 const app = document.getElementById("app");
 const root = ReactDOMClient.createRoot(app);
@@ -99,7 +99,7 @@ root.render(
         <Route path="/account" element={<Account />} />
         <Route path="/account/CarbonA" element={<CarbonAccount />} />
         <Route path="/CarbonA/PlatformPurchasing" element={<PlatformPurchasing />} />
-        {/* <Route path="/CarbonA/Transfer" element={<CarbonATransfer />} /> */}
+        <Route path="/CarbonA/Transfer" element={<CarbonATransfer />} />
         <Route path="/CarbonA/PlatformManagement" element={<PlatformManagement />} />
         <Route path="/CarbonA/PlatformAddManager" element={<PlatformAddManager />} />
         <Route path="/CarbonA/PlatformDeleteManager" element={<PlatformDeleteManager />} />
