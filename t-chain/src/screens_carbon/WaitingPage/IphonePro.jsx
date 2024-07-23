@@ -58,7 +58,7 @@ export const WaitingPage = (cur_json_template) => {
     <div className="iphone-pro-login">
       <div className="div-2">
       <img src="/svg/g_description.svg" className="description-instance-new"/>
-        <img src="svg/Leading.svg" className='waiting'/>
+        <img src="/svg/Leading.svg" className='waiting'/>
         {/* <img src="/svg/T-Chain-Big.svg" className="t-chain-big"/> */}
         {/* <img src="/svg/Leading_description.svg" className="Leading-description"/> */}
         <img src="/svg/Waver.svg" className="waver"/>

@@ -43,7 +43,7 @@ const handleClick = (manager_name,carbon_address, targetAddress, sessionId, setI
 
   
   
-  const userConfirmation = window.confirm("确定增加吗？");
+  const userConfirmation = window.confirm("确定删除吗？");
 
   if (!userConfirmation) {
     return;
