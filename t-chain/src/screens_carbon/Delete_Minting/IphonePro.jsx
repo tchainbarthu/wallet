@@ -9,7 +9,7 @@ import { useLoginRedirect } from '../../loginAuth';
 import { SessionContext, useAuth } from "../../useAuth";
 import { useAddress } from '../../Contexts/AddressContext';
 import { useAccount } from '../../Contexts/AccountContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 // import { API_URL } from "../../config";
 
 
@@ -31,10 +31,10 @@ const API_URL = window.TCHAIN_API_URL;
 const DATABASE_ROOT = window.TCHAIN_DATABASE_ROOT;
 
 
-const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, navigate) => {
+const handleClick = (manager_name,carbon_address, targetAddress, sessionId, setIsLoading, navigate) => {
   // alert("转账成功");
   
-  
+  console.log('check carbon_address_2:', carbon_address);
   if (!check_address(targetAddress)) {
     alert ("地址格式错误");
     return;
@@ -54,7 +54,7 @@ const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, navig
   const current_add_manager_template = {
     "jsonrpc": "3.0",
     "method": "chain_carbon",
-     "params":[`opcode=carbon&subcode=removeManager&address=${platform_address}&addr1=${targetAddress}`, "encryp=none"],
+     "params":[`opcode=carbon&subcode=removeCoinage&address=${platform_address}&addr1=${carbon_address}&addr2=${targetAddress}&name=${manager_name}`, "encryp=none"],
       "id": `${sessionId}`};
   
   fetch(API_URL, {
@@ -124,14 +124,13 @@ const dummyFetch = () => {
   });
 };
 
-async function fetchManagerList (sessionId, address){
+async function fetchMintingList (sessionId, address){
   // const platform_address = "0xa7f9a19d24c3f887f52b783eb37de2ee683cda9c";
   const platform_address = window.CARBON_CONTRACT_ADDRESS;
   const token_list_fetch_template = {
     "jsonrpc": "3.0",
     "method": "chain_carbon",
-    "params":[`opcode=carbon&subcode=showManager&address=${platform_address}`,
-    //  "params":[`opcode=carbon&subcode=showPending&op=1&address=${platform_address}`,
+     "params":[`opcode=carbon&subcode=showCreater&address=${platform_address}&addr1=${address}`,
        "encryp=none"],
         "id": `${sessionId}`};
   let data = await fetch(API_URL, {
@@ -143,7 +142,7 @@ async function fetchManagerList (sessionId, address){
   });
   
   data = await data.json();
-  console.log('check pending Manager data')
+  console.log('check pending token data')
   console.log(data);
   let token_list = data.result.content;
   return token_list;
@@ -153,7 +152,7 @@ async function fetchManagerList (sessionId, address){
 function backHome(navigate) {
   navigate('/Homepage');
 }
-export const CarbonADeleteManager = () => {
+export const CarbonADeleteMinting = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context
   const { address} = useAddress();
 
@@ -176,16 +175,21 @@ export const CarbonADeleteManager = () => {
 
   const [ manager_name, setManagerName ] = useState('');
 
+  const location = useLocation();
+
   // const [already_confirm, setAlreadyConfirm] = useState(false);
 
   useLoginRedirect();
+
+  const carbon_address = location.state.carbon_address;
 
   useEffect(() => {
     const fetchItems = async () => {
       try {
         // const response = await fetch('YOUR_API_ENDPOINT');
         // const response = await dummyFetch();
-        const response = await fetchManagerList(sessionId, address);
+        // const response = await fetchManagerList(sessionId, address);
+        const response = await fetchMintingList(sessionId, carbon_address);
         // const data = await response.json();
         // const data = response.Addrs;
         const data = response.Names.map(
@@ -212,7 +216,7 @@ export const CarbonADeleteManager = () => {
       <div className="div-2">
         <img src="/svg/Vector.svg" className="back-img" onClick={() => {backHome(navigate)}}/>
         <div className="little-tittle">
-            {translations['member_list']}
+            {translations['minting_address_list']}
           </div>
         <Language className="language-instance-2" property1="default" />
 
@@ -238,9 +242,8 @@ export const CarbonADeleteManager = () => {
         {/* <Sbumit className="sbumit-delete-plotform" textKey="delete_platform_participation_management" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         
         <Sbumit className="sbumit-deploy-token" textKey="delete" onClick={() => {
-          handleClick(
-          manager_name, selectedItem, sessionId, setIsLoading, navigate
-        )}} />
+          handleClick
+            (manager_name,carbon_address, selectedItem, sessionId, setIsLoading, navigate)}} />
         <Sbumit className="sbumit-upgrade-token" textKey="cancel" onClick={() => {
           navigate('/CarbonA/PlatformDeleteManager');
           }} />

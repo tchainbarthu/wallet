@@ -211,7 +211,6 @@ background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.9
   padding: 10px;
   border-bottom: 1px solid #eee; /* Optional */
 }
-
 .item:hover {
   background-color:cornflowerblue;
 }

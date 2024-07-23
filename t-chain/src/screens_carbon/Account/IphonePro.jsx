@@ -28,6 +28,10 @@ import { useCarbonAAmountContext } from "../../Contexts/CabonAAmount";
 
 import { useCarbonAPersonalAmount } from "../../Contexts/CabonAPersonalAmount";
 
+import { SessionContext } from "../../useAuth";
+
+import {QRCodeSVG} from 'qrcode.react';
+
 function backHome(navigate) {
   navigate('/Homepage');
 }
@@ -40,55 +44,18 @@ export const CarbonAccount = () => {
   const { GasValue, setGasValue } = useGasValue();
   const { GasBuyValue, setGasBuyValue } = useGasBuyValue();
   const { Account, setAccount } = useAccount();
+  const { sessionId, setSessionId } = React.useContext(SessionContext);
+  const [data_str, setDataStr] = React.useState("");
   
   const { language } = React.useContext(LanguageContext);
 
   const { CarbonAAmount, setCarbonAAmount } = useCarbonAAmountContext();
 
   const { CarbonAPersonalAmount, setCarbonAPersonalAmount } = useCarbonAPersonalAmount();
-  // const fetchData = async (current_address_query_template) => {
-  //   const response = await fetch(API_URL, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(current_address_query_template),
-  //   });
   
-  //   if (!response.ok) {
-  //     throw new Error('Network response was not ok');
-  //   }
-  
-  //   response.json().then(
-  //     data => {
-  //       console.log(data);
-  //       // setAddress(data.result);
-  //       setBalance(data.result.content.Balance);
-  //       setGasValue(data.result.content.GasValue);
-  //       setGasBuyValue(data.result.content.GasBuyValue);
-
-  
-  
-  //     }
-  //   );
-  //   // return data;
-  // };
-
-  // const current_address_query_template = { 
-  //   "jsonrpc": "3.0",
-  //   "method": "chain_queryInfo", 
-  //   "params":["pubChainQuery",`op=queryAddress&value=${address}<->latest`,"encryp=none"], 
-  //   "id": "1"}
-  
-  // useEffect(() => {
-  //   fetchData(current_address_query_template);
-  // }
-  // , [address]);
+  const API_URL = window.TCHAIN_API_URL;
   return (
-    // <GasBuyValueProvider>
-    // <GasValueProvider>
-    // <AddressProvider>
-    // <BalanceProvider>
+    
     <div className="iphone-pro-account-Carbon-A">
       
       <div className="div-2">
@@ -109,6 +76,10 @@ export const CarbonAccount = () => {
         <div className={`text-wrapper-6 ${language}`}>{CarbonAPersonalAmount}</div>
         </div>
 
+        {
+          (data_str && data_str !== "") ? <QRCodeSVG value={data_str} size={200} className="QR-code"/> : null
+        }
+
         
         
         
@@ -119,9 +90,28 @@ export const CarbonAccount = () => {
         <Sbumit className="sbumit-instance" textKey="transfer" onClick={() => {navigate('/CarbonA/Transfer')}}/>
         <Sbumit className="sbumit-instance-1" textKey="platform_management" onClick={() => {navigate('/CarbonA/PlatformManagement')}}/>
         <Sbumit className="sbumit-3" divClassName="sbumit-2" textKey="transferQuery" onClick={() => {navigate('/querytable')}}/>
-        <Sbumit className="sbumit-4" divClassName="sbumit-2" textKey="platform_purchasing" onClick={() => {navigate('/CarbonA/PlatformPurchasing')}} />
+        <Sbumit className="sbumit-4 disabled" divClassName="sbumit-2" textKey="platform_purchasing" active={false} onClick={() => {navigate('/CarbonA/PlatformPurchasing')}} />
 
-        <Sbumit className="sbumit-qr-code" divClassName="sbumit-2" textKey="qr_code_receivables" onClick={() => {navigate('#')}} />
+        <Sbumit className="sbumit-qr-code" divClassName="sbumit-2" textKey="qr_code_receivables" onClick={() => {
+          const fetch_qr_info = async () => {
+            const template_qr = { "jsonrpc": "3.0", "method": "chain_carbon",
+              "params":["opcode=carbon&subcode=connectInfo", "encryp=none"], "id": sessionId};
+            let data = await fetch(API_URL, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(template_qr),
+            });
+            data = await data.json();
+            // console.log("check qr data",data);
+            // data_str = data.result.content.info;
+            setDataStr(data.result.content.info);
+            // return data_str;
+          }
+          fetch_qr_info();
+          console.log("check data_str",data_str);
+        }} />
       </div>
     </div>
     // </BalanceProvider>

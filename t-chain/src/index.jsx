@@ -59,13 +59,21 @@ import { PlatformDeployToken } from "./screens_carbon/Platform_Deploy_Token";
 
 import { CarbonADeployToken } from "./screens_carbon/CarbonA_Deploy_Token";
 
-import {PlatformUpgradeToken} from "./screens_carbon/Platform_Upgrade_Token/IphonePro";
+import {PlatformDeleteToken} from "./screens_carbon/Platform_Delete_Token/IphonePro";
 
-import { CarbonAUpgradeToken } from "./screens_carbon/Upgrade_Token";
+import { CarbonARemoveToken } from "./screens_carbon/Remove_Token";
 
 import { DummyRegister } from "./screens/Dummy_Register/IphonePro";
 
 import { CarbonATransfer } from "./screens_carbon/Transfer/IphonePro";
+
+import {PlatformAddMintingAddress} from "./screens_carbon/Platform_Add_Minting_Address/IphonePro";
+
+import { PlatformDeleteMintingAddress } from "./screens_carbon/Platform_Delete_Minting_Address";
+
+import { CarbonAAddMinting } from "./screens_carbon/Add_Minting";
+
+import { CarbonADeleteMinting } from "./screens_carbon/Delete_Minting/IphonePro";
 
 const app = document.getElementById("app");
 const root = ReactDOMClient.createRoot(app);
@@ -107,14 +115,18 @@ root.render(
         <Route path="/CarbonA/DeleteManager" element={<CarbonADeleteManager />} />
         <Route path="/CarbonA/PlatformDeployToken" element={<PlatformDeployToken />} />
         <Route path="/CarbonA/CarbonADeployToken" element={<CarbonADeployToken />} />
-        <Route path="/CarbonA/PlatformUpgradeToken" element={<PlatformUpgradeToken />} />
-        <Route path="/CarbonA/UpgradeToken" element={<CarbonAUpgradeToken />} />
+        <Route path="/CarbonA/PlatformDeleteToken" element={<PlatformDeleteToken />} />
+        <Route path="/CarbonA/RemoveToken" element={<CarbonARemoveToken />} />
+        <Route path="/CarbonA/PlatformAddMintingAddress" element={<PlatformAddMintingAddress />} />
+        <Route path="/CarbonA/AddMinting" element={<CarbonAAddMinting />} />
         <Route path="/transfer" element={<Transfer />} />
         <Route path="/querytable" element={<QueryTable />} />
         <Route path="/lockpage" element={<LockPage />} />
         <Route path="/Homepage" element={<Homepage />} />
         <Route path="/register_successful" element={<RegisterSuccessful />} />
         <Route path="/dummy_register" element={<DummyRegister/>} />
+        <Route path="/CarbonA/PlatformDeleteMintingAddress" element={<PlatformDeleteMintingAddress />} />
+        <Route path="/CarbonA/DeleteMinting" element={<CarbonADeleteMinting />} />
         {/* Add more routes as needed */}
       </Routes>
       </LanguageProvider>

@@ -9,7 +9,8 @@ import { useLoginRedirect } from '../../loginAuth';
 import { SessionContext, useAuth } from "../../useAuth";
 import { useAddress } from '../../Contexts/AddressContext';
 import { useAccount } from '../../Contexts/AccountContext';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 // import { API_URL } from "../../config";
 
 
@@ -30,10 +31,10 @@ import { LanguageContext } from "../../Language/LanguageContext";
 const API_URL = window.TCHAIN_API_URL;
 const DATABASE_ROOT = window.TCHAIN_DATABASE_ROOT;
 
-const handleClick = (name, targetAddress, sessionId, setIsLoading, navigate) => {
+const handleClick = (manager_name,carbon_address, targetAddress, sessionId, setIsLoading, navigate) => {
   // alert("转账成功");
   
-  
+  console.log('check carbon_address_2:', carbon_address);
   if (!check_address(targetAddress)) {
     alert ("地址格式错误");
     return;
@@ -53,7 +54,7 @@ const handleClick = (name, targetAddress, sessionId, setIsLoading, navigate) => 
   const current_add_manager_template = {
     "jsonrpc": "3.0",
     "method": "chain_carbon",
-     "params":[`opcode=carbon&subcode=deployToken&address=${platform_address}&addr1=${targetAddress}&name=${name}&type=0`, "encryp=none"],
+     "params":[`opcode=carbon&subcode=setCoinage&address=${platform_address}&addr1=${carbon_address}&addr2=${targetAddress}&name=${manager_name}`, "encryp=none"],
       "id": `${sessionId}`};
   
   fetch(API_URL, {
@@ -112,23 +113,61 @@ const handleClick = (name, targetAddress, sessionId, setIsLoading, navigate) => 
 
 }
 
+const fetchLockStatus = async (sessionId, address,setData, setLockedAmount) => {
+  // console.log('current address', address);
+  const current_json_template = { 
+    "jsonrpc": "3.0", 
+    "method": "chain_queryInfo", 
+    "params": [
+      "pubChainQuery",
+    `op=querylock&addr=${address}`,
+    "encryp=none"], 
+    "id": sessionId}
 
+  const response = await fetch(API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(current_json_template),
+  });
+
+  if (!response.ok) {
+    console.error('Error:', response.status, response.statusText);
+    return;
+  }
+
+  const data = await response.json();
+  setData(data);
+  if (data.result.content)
+    setLockedAmount(data.result.content.Nums); 
+  console.log('Data:', data);
+};
 
 function backHome(navigate) {
   navigate('/Homepage');
 }
-export const CarbonADeployToken = () => {
+export const CarbonAAddMinting = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context
   const { address} = useAddress();
-  const [name, setName] = useState('');
-  const [ TragetAddress, setTragetAddress ] = useState('');
-  
+
+  // const [ TragetAddress, setTragetAddress ] = useState('');
+  // const [ Amount, setAmount ] = useState('');
+  const [ managerName, setManagerName ] = useState('');
+  const [ targetAddress, setTragetAddress ] = useState('');
+
+  // const { Balance, setBalance } = useBalance();
 
   const navigate = useNavigate();
 
   const [ isLoading, setIsLoading ] = useState(false);
+  const [lockedAmount, setLockedAmount] = useState(0);
+  const [data, setData] = useState({});
+  // const [ carbon_address, setCarbonAddress ] = useState('');
 
   const { language } = useContext(LanguageContext);
+  const location = useLocation();
+  const { carbon_address } = location.state || {}; // Access the address from state, with a fallback to an empty object
   
   useLoginRedirect();
 
@@ -150,25 +189,21 @@ export const CarbonADeployToken = () => {
         {/* <img className="img" alt="Little robot" src="/img/little-robot-2.png" /> */}
         <Language className="language-instance-2" property1="default" />
         <div className="display-1">
-        <Label className="label-instance" textKey="address" />
-        <InputText className={`input-text-instance ${language}`} text="Amount" onChange={e => { setTragetAddress(e.target.value); console.log('Account input changed:', e.target.value); }}/>
+        <Label className="label-instance" textKey="name" />
+        <InputText className={`input-text-instance ${language}`} text="Amount" onChange={e => { setManagerName(e.target.value);  }}/>
         </div>
 
         <div className="display-2">
-        <Label className="design-component-instance-node" textKey="name"/>
-        <InputText className={`input-text-2 ${language}`} text="Account" onChange={e => { setName(e.target.value); console.log('Amount input changed:', e.target.value); }}/>
-          </div>
-
-          <div className="display-3">
         <Label className="design-component-instance-node" textKey="address"/>
-        <InputText className={`input-text-2 ${language}`} text="Account" onChange={e => { setTragetAddress(e.target.value); console.log('Amount input changed:', e.target.value); }}/>
+        <InputText className={`input-text-2 ${language}`} text="Account" onChange={e => { setTragetAddress(e.target.value); }}/>
           </div>
         {/* <img src="/svg/circle-transfer.svg" className="img"/>
         <img src="/svg/coin-transfer.svg" className="img-1"/> */}
         
         
-        <Sbumit className="sbumit-instance" textKey="deploy" onClick={() => {handleClick(name, TragetAddress, sessionId, setIsLoading, navigate)}} />
-        <Sbumit className="sbumit-instance-cancel" textKey="cancel" onClick={() => {navigate('/CarbonA/PlatformDeployToken')}} />
+        <Sbumit className="sbumit-instance" textKey="add" onClick={() => {
+          handleClick(managerName,carbon_address, targetAddress, sessionId, setIsLoading, navigate)}} />
+        <Sbumit className="sbumit-instance-cancel" textKey="cancel" onClick={() => {navigate('/CarbonA/PlatformAddMintingAddress')}} />
         
         
       </div>

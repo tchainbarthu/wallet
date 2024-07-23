@@ -177,12 +177,13 @@ background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.9
 }
 
 .iphone-pro-platform-carbonA-platform-management .sbumit-add-minting {
-  left: 240px !important;
+  
   position: absolute !important;
+  left: 250px !important;
   top: 300px !important;
   /* Buttons v2 */
 position: relative;
-width: 140px;
+width: 138px !important;
 height: 30px;
 /* 自动布局 */
 display: flex;
@@ -218,12 +219,12 @@ background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.9
 
 }
 .iphone-pro-platform-carbonA-platform-management .sbumit-minting-address {
-  left: 240px !important;
+  left: 250px !important;
   position: absolute !important;
   top: 350px !important;
   /* Buttons v2 */
 position: relative;
-width: 140px;
+width: 138px !important;
 height: 30px;
 /* 自动布局 */
 display: flex;

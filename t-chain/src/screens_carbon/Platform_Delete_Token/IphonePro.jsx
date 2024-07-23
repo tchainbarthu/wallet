@@ -97,206 +97,35 @@ const dummyFetch = () => {
     }, 1000); // Simulate network delay
   });
 };
-const handleClick = (amount, OriginalAddress, targetAddress, sessionId, balance,data, setIsLoading, navigate, setBalance) => {
-  // alert("转账成功");
-  
-  
-  if (!check_address(targetAddress)) {
-    alert ("地址格式错误");
-    return;
 
-  }
-
-  // const left = balance - lockedAmount;
-  const left = calculateLeft(balance, data);
-  if (!check_gas(left, amount)) {
-    alert ("余额不足或不合法");
-    return;
-  }
-  
-  const userConfirmation = window.confirm("确定转账吗？");
-
-  if (!userConfirmation) {
-    return;
-  }
-  setIsLoading(true);
-  var real_amount = amount * 1000000000;
-  // var real_amount = amount;
-  var hexadecimal_amount = decimalToHexadecimal(real_amount);
-  hexadecimal_amount = '0x' + hexadecimal_amount.toUpperCase();
-  console.log('hexadecimal_amount:', hexadecimal_amount)
-  const current_transfer_template = {
-    "jsonrpc": "3.0", 
-    "method": "chain_sendTransaction", 
-    "params": [
-    { "from": OriginalAddress, 
-    "to": targetAddress,
-    "value": hexadecimal_amount,
-    }, "", "encryp=none"], 
-    "id": sessionId}
-  
-  fetch(API_URL, {
+async function fetchTokenList (sessionId, address){
+  // const platform_address = "0xa7f9a19d24c3f887f52b783eb37de2ee683cda9c";
+  const platform_address = window.CARBON_CONTRACT_ADDRESS;
+  const token_list_fetch_template = {
+    "jsonrpc": "3.0",
+    "method": "chain_carbon",
+     "params":[`opcode=carbon&subcode=showPengindToken&address=${platform_address}&op=1`, "encryp=none"],
+        "id": `${sessionId}`};
+  let data = await fetch(API_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(current_transfer_template),
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('quick check current data',data);
-    if (data.result.ret !== '0'){
-      alert(data.result.err);
-      setIsLoading(false);
-      const success = false;
-      const txhash = null;
-      const save_data = {
-        OriginalAddress,
-        targetAddress,
-        hexadecimal_amount,
-        success ,
-        // transferTime,
-        txhash
+    body: JSON.stringify(token_list_fetch_template),
+  });
   
-      }
-      fetch(
-        'http://localhost:3001/save-transfer',{
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(save_data),
-        }
-      )
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        console.log('Save fail transfer data:', save_data);
-      })
-      .catch(
-        error => {
-          console.error('Error:', error);
-        }
-      )
-      return;
-    }
-    console.log(data);
-    const transferTime = new Date().toISOString(); // Get current time
-    const success = data.result.ret === '0';
-    const txhash = data.result.content.txhash;
-    // value = amount;
-    const save_data = {
-      OriginalAddress,
-      targetAddress,
-      hexadecimal_amount,
-      success ,
-      // transferTime,
-      txhash
-
-    }
-    
-    
-    
-    console.log('txhash:', txhash);
-    // return [wait_for_txhash(txhash), txhash];
-    wait_for_txhash(txhash)
-    .then(
-      status_code => {
-        let success = false;
-      if (status_code === 2){
-        alert("转账成功");
-        setBalance(left);
-         success = true;
-      }else{
-        console.log('status_code:', status_code);
-        alert("转账失败");
-         success = false;
-      }
-      const save_data = {
-        OriginalAddress,
-        targetAddress,
-        hexadecimal_amount,
-        success ,
-        // transferTime,
-        txhash
-  
-      }
-
-      return fetch(
-        `${DATABASE_ROOT}/save-transfer`,{
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(save_data),
-        }
-      )
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        console.log('Save success transfer data:', save_data);
-      })
-      .catch(
-        error => {
-          console.error('Error:', error);
-        }
-      )
-      
-
-      }
-    )
-    .then(
-      () => {
-        if (success){
-          // setIsLoading(false);
-          navigate('/Homepage');
-        }
-        else{
-          setIsLoading(false);
-        
-        }
-        // setIsLoading(false);
-      }
-    )
-  })
-
+  data = await data.json();
+  console.log('check pending token data')
+  console.log(data);
+  let token_list = data.result.content;
+  return token_list;
 }
 
-const fetchLockStatus = async (sessionId, address,setData, setLockedAmount) => {
-  // console.log('current address', address);
-  const current_json_template = { 
-    "jsonrpc": "3.0", 
-    "method": "chain_queryInfo", 
-    "params": [
-      "pubChainQuery",
-    `op=querylock&addr=${address}`,
-    "encryp=none"], 
-    "id": sessionId}
-
-  const response = await fetch(API_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(current_json_template),
-  });
-
-  if (!response.ok) {
-    console.error('Error:', response.status, response.statusText);
-    return;
-  }
-
-  const data = await response.json();
-  setData(data);
-  if (data.result.content)
-    setLockedAmount(data.result.content.Nums); 
-  console.log('Data:', data);
-};
 
 function backHome(navigate) {
   navigate('/Homepage');
 }
-export const CarbonAUpgradeToken = () => {
+export const PlatformDeleteToken = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context
   const { address} = useAddress();
 
@@ -315,15 +144,23 @@ export const CarbonAUpgradeToken = () => {
   
   const [items, setItems] = useState([]); // Initialize state to hold your items
 
+  const [selectedItem, setSelectedItem] = useState(null);
+
   useLoginRedirect();
 
   useEffect(() => {
     const fetchItems = async () => {
       try {
         // const response = await fetch('YOUR_API_ENDPOINT');
-        const response = await dummyFetch();
-        // const data = await response.json();
-        const data = response;
+        // const response = await dummyFetch();
+        const response = await fetchTokenList(sessionId, address);
+        
+        // const data = response;
+        const data = response.Names.map(
+          (name, index) => ({
+            name: name,
+            address: response.Addrs[index]
+          }));
         setItems(data);
       } catch (error) {
         console.error('Failed to fetch items:', error);
@@ -343,13 +180,18 @@ export const CarbonAUpgradeToken = () => {
       <div className="div-2">
         <img src="/svg/Vector.svg" className="back-img" onClick={() => {backHome(navigate)}}/>
         <div className="little-tittle">
-            {translations['member_list']}
+            {translations['token_list_to_remove']}
           </div>
         <Language className="language-instance-2" property1="default" />
 
         <div className="scrollable-item-list">
         {items.map((item, index) => (
-          <div key={index} className="item">
+          <div key={index} className={`item ${selectedItem === item.address ? "selected" : "" }`}
+          onClick = {
+            () => {
+              setSelectedItem(item.address);
+            }
+          }>
             {item.name} {/* Adjust this to match the structure of your items */}
           </div>
         ))}
@@ -360,8 +202,8 @@ export const CarbonAUpgradeToken = () => {
         {/* <Sbumit className="sbumit-add-plotform" textKey="add_platform_participation_management" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         {/* <Sbumit className="sbumit-delete-plotform" textKey="delete_platform_participation_management" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         
-        <Sbumit className="sbumit-deploy-token" textKey="upgrade" onClick={() => {navigate('/CarbonA/DeleteManager')}} />
-        <Sbumit className="sbumit-upgrade-token" textKey="confirm" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} />
+        <Sbumit className="sbumit-deploy-token" textKey="delete_token" onClick={() => {navigate('/CarbonA/RemoveToken')}} />
+        <Sbumit className="sbumit-upgrade-token" textKey="agree" onClick={() => {}} />
         {/* <Sbumit className="sbumit-add-minting" textKey="add_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         {/* <Sbumit className="sbumit-minting-address" textKey="delete_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         

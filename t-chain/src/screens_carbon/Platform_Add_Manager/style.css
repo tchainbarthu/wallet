@@ -176,6 +176,27 @@ border-radius: 12px;
 background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
 }
 
+.iphone-pro-platform-carbonA-platform-management .sbumit-upgrade-token.disabled {
+  left: 260px !important;
+  position: absolute !important;
+  top: 250px !important;
+  /* Buttons v2 */
+position: relative;
+width: 120px;
+height: 30px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px 12px 24px;
+
+border-radius: 12px;
+
+/* 线性渐变 */
+background: linear-gradient(90.00deg, rgb(213, 213, 213) 0%,rgb(5, 30, 33) 99.999%);
+}
+
 .iphone-pro-platform-carbonA-platform-management .sbumit-add-minting {
   left: 240px !important;
   position: absolute !important;

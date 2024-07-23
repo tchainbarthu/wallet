@@ -1,0 +1,1 @@
+export { PlatformDeleteMintingAddress } from "./IphonePro";

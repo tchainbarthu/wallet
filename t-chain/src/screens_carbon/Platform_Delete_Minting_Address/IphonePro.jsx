@@ -9,7 +9,7 @@ import { useLoginRedirect } from '../../loginAuth';
 import { SessionContext, useAuth } from "../../useAuth";
 import { useAddress } from '../../Contexts/AddressContext';
 import { useAccount } from '../../Contexts/AccountContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 // import { API_URL } from "../../config";
 
 
@@ -31,10 +31,45 @@ const API_URL = window.TCHAIN_API_URL;
 const DATABASE_ROOT = window.TCHAIN_DATABASE_ROOT;
 
 
-const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, navigate) => {
+const dummyFetch = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve([{ name: 'Item 1' }, { name: 'Item 2' }, { name: 'Item 3' },
+        { name: 'Item 1' }, { name: 'Item 2' }, { name: 'Item 3' },
+        { name: 'Item 1' }, { name: 'Item 2' }, { name: 'Item 3' }
+      ]); // Simulated data
+    }, 1000); // Simulate network delay
+  });
+};
+
+async function fetchMintingList (sessionId, address){
+  // const platform_address = "0xa7f9a19d24c3f887f52b783eb37de2ee683cda9c";
+  const platform_address = window.CARBON_CONTRACT_ADDRESS;
+  const token_list_fetch_template = {
+    "jsonrpc": "3.0",
+    "method": "chain_carbon",
+     "params":[`opcode=carbon&subcode=showPendingCoinage&address=${platform_address}&addr1=${address}&op=1`,
+       "encryp=none"],
+        "id": `${sessionId}`};
+  let data = await fetch(API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(token_list_fetch_template),
+  });
+  
+  data = await data.json();
+  console.log('check pending token data')
+  console.log(data);
+  let token_list = data.result.content;
+  return token_list;
+}
+
+const handleClick = (manager_name,carbon_address, targetAddress, sessionId, setIsLoading, navigate) => {
   // alert("转账成功");
   
-  
+  console.log('check carbon_address_2:', carbon_address);
   if (!check_address(targetAddress)) {
     alert ("地址格式错误");
     return;
@@ -54,7 +89,7 @@ const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, navig
   const current_add_manager_template = {
     "jsonrpc": "3.0",
     "method": "chain_carbon",
-     "params":[`opcode=carbon&subcode=removeManager&address=${platform_address}&addr1=${targetAddress}`, "encryp=none"],
+     "params":[`opcode=carbon&subcode=removeCoinage&address=${platform_address}&addr1=${carbon_address}&addr2=${targetAddress}&name=${manager_name}`, "encryp=none"],
       "id": `${sessionId}`};
   
   fetch(API_URL, {
@@ -113,47 +148,12 @@ const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, navig
 
 }
 
-const dummyFetch = () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve([{ name: 'Item 1' }, { name: 'Item 2' }, { name: 'Item 3' },
-        { name: 'Item 1' }, { name: 'Item 2' }, { name: 'Item 3' },
-        { name: 'Item 1' }, { name: 'Item 2' }, { name: 'Item 3' }
-      ]); // Simulated data
-    }, 1000); // Simulate network delay
-  });
-};
-
-async function fetchManagerList (sessionId, address){
-  // const platform_address = "0xa7f9a19d24c3f887f52b783eb37de2ee683cda9c";
-  const platform_address = window.CARBON_CONTRACT_ADDRESS;
-  const token_list_fetch_template = {
-    "jsonrpc": "3.0",
-    "method": "chain_carbon",
-    "params":[`opcode=carbon&subcode=showManager&address=${platform_address}`,
-    //  "params":[`opcode=carbon&subcode=showPending&op=1&address=${platform_address}`,
-       "encryp=none"],
-        "id": `${sessionId}`};
-  let data = await fetch(API_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(token_list_fetch_template),
-  });
-  
-  data = await data.json();
-  console.log('check pending Manager data')
-  console.log(data);
-  let token_list = data.result.content;
-  return token_list;
-}
 
 
 function backHome(navigate) {
   navigate('/Homepage');
 }
-export const CarbonADeleteManager = () => {
+export const PlatformDeleteMintingAddress = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context
   const { address} = useAddress();
 
@@ -172,12 +172,14 @@ export const CarbonADeleteManager = () => {
   
   const [items, setItems] = useState([]); // Initialize state to hold your items
 
+  const location = useLocation();
+  const { carbon_address } = location.state || {}; // Access the address from state, with a fallback to an empty object
+
   const [ selectedItem, setSelectedItem ] = useState(null);
 
-  const [ manager_name, setManagerName ] = useState('');
+  const [ managerName, setManagerName ] = useState('');
 
-  // const [already_confirm, setAlreadyConfirm] = useState(false);
-
+  const [ already_confirm, setAlreadyConfirm ] = useState(false);
   useLoginRedirect();
 
   useEffect(() => {
@@ -185,13 +187,17 @@ export const CarbonADeleteManager = () => {
       try {
         // const response = await fetch('YOUR_API_ENDPOINT');
         // const response = await dummyFetch();
-        const response = await fetchManagerList(sessionId, address);
-        // const data = await response.json();
-        // const data = response.Addrs;
+        // console.log('check location:', location);
+        // console.log('carbon_address:', carbon_address);
+        const response = await fetchMintingList(sessionId, carbon_address);
+        // const response = await fetchTokenList(sessionId, address);
+        
+        // const data = response;
         const data = response.Names.map(
           (name, index) => ({
             name: name,
-            address: response.Addrs[index]
+            address: response.Addrs[index],
+            op: response.Type[index]
           }));
         setItems(data);
       } catch (error) {
@@ -208,24 +214,25 @@ export const CarbonADeleteManager = () => {
     <div>
       {
         isLoading ? (<WaitingPage />) : (
-          <div className="iphone-pro-platform-carbonA-platform-management">
+          <div className="iphone-pro-platform-carbonA-platform-add-minging">
       <div className="div-2">
         <img src="/svg/Vector.svg" className="back-img" onClick={() => {backHome(navigate)}}/>
         <div className="little-tittle">
-            {translations['member_list']}
+            {translations['token_list_to_deploy']}
           </div>
         <Language className="language-instance-2" property1="default" />
 
         <div className="scrollable-item-list">
         {items.map((item, index) => (
           <div key={index} className={`item ${selectedItem === item.address ? "selected" : ""}`}
-          onClick= {
+          onClick={
             () => {
               setSelectedItem(item.address);
               setManagerName(item.name);
-              // setAlreadyConfirm(item.op !== 0);
+              setAlreadyConfirm(item.op === 1);
             }
           }
+          
           >
             {item.name} {/* Adjust this to match the structure of your items */}
           </div>
@@ -237,13 +244,14 @@ export const CarbonADeleteManager = () => {
         {/* <Sbumit className="sbumit-add-plotform" textKey="add_platform_participation_management" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         {/* <Sbumit className="sbumit-delete-plotform" textKey="delete_platform_participation_management" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         
-        <Sbumit className="sbumit-deploy-token" textKey="delete" onClick={() => {
-          handleClick(
-          manager_name, selectedItem, sessionId, setIsLoading, navigate
-        )}} />
-        <Sbumit className="sbumit-upgrade-token" textKey="cancel" onClick={() => {
-          navigate('/CarbonA/PlatformDeleteManager');
-          }} />
+        <Sbumit className="sbumit-deploy-token" textKey="delete_token" onClick={() => {navigate('/CarbonA/DeleteMinting', {state:{carbon_address: carbon_address}})}} />
+        <Sbumit className={`sbumit-upgrade-token ${already_confirm ? "disabled" : ""}`} textKey="agree" 
+        disabled={already_confirm}
+        onClick={() => {
+          handleClick
+            (managerName,carbon_address, selectedItem, sessionId, setIsLoading, navigate)
+
+        }} />
         {/* <Sbumit className="sbumit-add-minting" textKey="add_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         {/* <Sbumit className="sbumit-minting-address" textKey="delete_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         

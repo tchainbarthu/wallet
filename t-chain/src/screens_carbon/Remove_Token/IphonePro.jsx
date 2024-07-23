@@ -29,16 +29,13 @@ import { LanguageContext } from "../../Language/LanguageContext";
 // import { useNavigate } from "react-router-dom";
 const API_URL = window.TCHAIN_API_URL;
 const DATABASE_ROOT = window.TCHAIN_DATABASE_ROOT;
-
-
-const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, navigate) => {
+const handleClick = (name, targetAddress, sessionId, setIsLoading, navigate) => {
   // alert("转账成功");
   
   
   if (!check_address(targetAddress)) {
     alert ("地址格式错误");
     return;
-
   }
 
   
@@ -54,7 +51,7 @@ const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, navig
   const current_add_manager_template = {
     "jsonrpc": "3.0",
     "method": "chain_carbon",
-     "params":[`opcode=carbon&subcode=removeManager&address=${platform_address}&addr1=${targetAddress}`, "encryp=none"],
+     "params":[`opcode=carbon&subcode=removeToken&address=${platform_address}&addr1=${targetAddress}&name=${name}&type=0`, "encryp=none"],
       "id": `${sessionId}`};
   
   fetch(API_URL, {
@@ -124,15 +121,14 @@ const dummyFetch = () => {
   });
 };
 
-async function fetchManagerList (sessionId, address){
+
+async function fetchTokenList (sessionId, address){
   // const platform_address = "0xa7f9a19d24c3f887f52b783eb37de2ee683cda9c";
   const platform_address = window.CARBON_CONTRACT_ADDRESS;
   const token_list_fetch_template = {
     "jsonrpc": "3.0",
     "method": "chain_carbon",
-    "params":[`opcode=carbon&subcode=showManager&address=${platform_address}`,
-    //  "params":[`opcode=carbon&subcode=showPending&op=1&address=${platform_address}`,
-       "encryp=none"],
+     "params":[`opcode=carbon&subcode=showToken&address=${platform_address}`, "encryp=none"],
         "id": `${sessionId}`};
   let data = await fetch(API_URL, {
     method: 'POST',
@@ -143,17 +139,16 @@ async function fetchManagerList (sessionId, address){
   });
   
   data = await data.json();
-  console.log('check pending Manager data')
+  console.log('check pending token data')
   console.log(data);
   let token_list = data.result.content;
   return token_list;
 }
 
-
 function backHome(navigate) {
   navigate('/Homepage');
 }
-export const CarbonADeleteManager = () => {
+export const CarbonARemoveToken = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context
   const { address} = useAddress();
 
@@ -172,12 +167,11 @@ export const CarbonADeleteManager = () => {
   
   const [items, setItems] = useState([]); // Initialize state to hold your items
 
-  const [ selectedItem, setSelectedItem ] = useState(null);
+  const [ token_name, setTokenName ] = useState('');
 
-  const [ manager_name, setManagerName ] = useState('');
-
-  // const [already_confirm, setAlreadyConfirm] = useState(false);
-
+  const [selectedItem, setSelectedItem] = useState(null); // Initialize state to hold the selected item
+  
+  const [already_confirm, setAlreadyConfirm] = useState(false);
   useLoginRedirect();
 
   useEffect(() => {
@@ -185,13 +179,15 @@ export const CarbonADeleteManager = () => {
       try {
         // const response = await fetch('YOUR_API_ENDPOINT');
         // const response = await dummyFetch();
-        const response = await fetchManagerList(sessionId, address);
+        const response = await fetchTokenList(sessionId, address);
         // const data = await response.json();
-        // const data = response.Addrs;
+        // const data = response;
+        // const data = response;
         const data = response.Names.map(
           (name, index) => ({
             name: name,
-            address: response.Addrs[index]
+            address: response.Addrs[index],
+            op: response.Type[index]
           }));
         setItems(data);
       } catch (error) {
@@ -212,18 +208,18 @@ export const CarbonADeleteManager = () => {
       <div className="div-2">
         <img src="/svg/Vector.svg" className="back-img" onClick={() => {backHome(navigate)}}/>
         <div className="little-tittle">
-            {translations['member_list']}
+            {translations['platform_token_list']}
           </div>
         <Language className="language-instance-2" property1="default" />
 
         <div className="scrollable-item-list">
         {items.map((item, index) => (
           <div key={index} className={`item ${selectedItem === item.address ? "selected" : ""}`}
-          onClick= {
+          onClick={
             () => {
               setSelectedItem(item.address);
-              setManagerName(item.name);
-              // setAlreadyConfirm(item.op !== 0);
+              setTokenName(item.name);
+              setAlreadyConfirm(item.op === 1);
             }
           }
           >
@@ -237,13 +233,16 @@ export const CarbonADeleteManager = () => {
         {/* <Sbumit className="sbumit-add-plotform" textKey="add_platform_participation_management" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         {/* <Sbumit className="sbumit-delete-plotform" textKey="delete_platform_participation_management" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         
-        <Sbumit className="sbumit-deploy-token" textKey="delete" onClick={() => {
-          handleClick(
-          manager_name, selectedItem, sessionId, setIsLoading, navigate
-        )}} />
-        <Sbumit className="sbumit-upgrade-token" textKey="cancel" onClick={() => {
-          navigate('/CarbonA/PlatformDeleteManager');
-          }} />
+        <Sbumit className="sbumit-deploy-token" textKey="delete" 
+        active={!already_confirm} 
+        onClick={
+          () => {handleClick(token_name, selectedItem, sessionId, setIsLoading, navigate)}} 
+          />
+         
+        <Sbumit className="sbumit-upgrade-token" textKey="cancel" 
+        onClick={() => {
+          navigate('/CarbonA/PlatformDeleteToken');
+        }} />
         {/* <Sbumit className="sbumit-add-minting" textKey="add_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         {/* <Sbumit className="sbumit-minting-address" textKey="delete_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         

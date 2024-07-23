@@ -43,12 +43,12 @@ import { CarbonAPersonalAmount, useCarbonAPersonalAmount } from "../../Contexts/
 const API_URL=window.TCHAIN_API_URL;
 
 const handleListComponentClick = (selectedItem, setSelectedItem) => {
-  console.log('Clicked');
+  // console.log('Clicked');
   setSelectedItem(selectedItem);
 };
 
 const handleListComponentDoubleClick = (navigate, setSelectedItem) => {
-  console.log('Double clicked');
+  // console.log('Double clicked');
   if (setSelectedItem === 1){
     navigate('/account');
   }
@@ -101,11 +101,11 @@ export const Homepage = () => {
   
     response.json().then(
       data => {
-        console.log(data);
+        // console.log(data);
         // setAddress(data.result);
         if (data && data.result && data.result.content)
           {
-            console.log('data exists');
+            // console.log('data exists');
             setBalance(data.result.content.Balance);
           setGasValue(data.result.content.GasValue);
           setGasBuyValue(data.result.content.GasBuyValue);
@@ -137,8 +137,8 @@ export const Homepage = () => {
   
     response.json().then(
       data => {
-        console.log('log carbon data');
-        console.log(data);
+        // console.log('log carbon data');
+        // console.log(data);
         // setAddress(data.result);
         if (data && data.result && data.result.content)
           {
@@ -171,10 +171,12 @@ export const Homepage = () => {
     // const location = useLocation();
     // console.log(location);
 
+    const toC_address = window.CARBON_PERSONAL_ADDRESS;
+
     const current_address_query_carbonA_template = {
       "jsonrpc": "3.0",
       "method": "chain_carbon", 
-      "params":[`opcode=carbon&subcode=blanceof&address=0x4fdf3a02a03b263f5378651672fba7dff2ec1e51&addr1=${address}`, "encryp=none"], 
+      "params":[`opcode=carbon&subcode=blanceof&address=${toC_address}&addr1=${address}`, "encryp=none"], 
       "id": `${sessionId}`
       // "id": "1"
     }
