@@ -87,7 +87,7 @@ function calculateLeft(balance, data)
   }
 }
 
-const handleClick = (amount, OriginalAddress, targetAddress, sessionId, balance,data, setIsLoading, navigate, setBalance) => {
+const handleClick = (amount,contract_address, OriginalAddress, targetAddress, sessionId, balance,data, setIsLoading, navigate, setBalance) => {
   // alert("转账成功");
   
   
@@ -117,12 +117,8 @@ const handleClick = (amount, OriginalAddress, targetAddress, sessionId, balance,
   console.log('hexadecimal_amount:', hexadecimal_amount)
   const current_transfer_template = {
     "jsonrpc": "3.0", 
-    "method": "chain_sendTransaction", 
-    "params": [
-    { "from": OriginalAddress, 
-    "to": targetAddress,
-    "value": hexadecimal_amount,
-    }, "", "encryp=none"], 
+    "method": "chain_carbon", 
+    "params":[`opcode=carbon&subcode=carbonTrans&address=${contract_address}&addr1=${targetAddress}&value=", "encryp=none`], 
     "id": sessionId}
   
   fetch(API_URL, {
@@ -150,7 +146,7 @@ const handleClick = (amount, OriginalAddress, targetAddress, sessionId, balance,
   
       }
       fetch(
-        'http://localhost:3001/save-transfer',{
+        'http://localhost:3001/save-CarbonA-transfer',{
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -171,24 +167,14 @@ const handleClick = (amount, OriginalAddress, targetAddress, sessionId, balance,
       return;
     }
     console.log(data);
-    const transferTime = new Date().toISOString(); // Get current time
+    
     const success = data.result.ret === '0';
     const txhash = data.result.content.txhash;
-    // value = amount;
-    const save_data = {
-      OriginalAddress,
-      targetAddress,
-      hexadecimal_amount,
-      success ,
-      // transferTime,
-      txhash
-
-    }
     
     
     
     console.log('txhash:', txhash);
-    // return [wait_for_txhash(txhash), txhash];
+    
     wait_for_txhash(txhash)
     .then(
       status_code => {
@@ -239,7 +225,7 @@ const handleClick = (amount, OriginalAddress, targetAddress, sessionId, balance,
       () => {
         if (success){
           // setIsLoading(false);
-          navigate('/Homepage');
+          navigate('/account/CarbonA');
         }
         else{
           setIsLoading(false);

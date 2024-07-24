@@ -1,4 +1,4 @@
-.iphone-pro-platform-carbonA-platform-add-minging {
+.iphone-pro-platform-carbonA-platform-management {
   /* background-color: #ffffff; */
   /* Background */
 background: rgb(248, 249, 252);
@@ -8,7 +8,7 @@ background: rgb(248, 249, 252);
   width: 100%;
 }
 
-.iphone-pro-platform-carbonA-platform-add-minging .div-2 {
+.iphone-pro-platform-carbonA-platform-management .div-2 {
   background-color: #ffffff;
   height: 852px;
   position: relative;
@@ -17,7 +17,7 @@ background: rgb(248, 249, 252);
 }
 
 
-.iphone-pro-platform-carbonA-platform-add-minging .overlap {
+.iphone-pro-platform-carbonA-platform-management .overlap {
   height: 43px;
   left: 55px;
   position: absolute;
@@ -25,19 +25,19 @@ background: rgb(248, 249, 252);
   width: 296px;
 }
 
-.iphone-pro-platform-carbonA-platform-add-minging .language-instance {
+.iphone-pro-platform-carbonA-platform-management .language-instance {
   left: 275px !important;
   position: absolute !important;
   top: 0px !important;
 }
 
-.iphone-pro-platform-carbonA-platform-add-minging .description-instance {
+.iphone-pro-platform-carbonA-platform-management .description-instance {
   left: 0 !important;
   position: absolute !important;
   top: 0 !important;
 }
 
-.iphone-pro-platform-carbonA-platform-add-minging .language-instance-2 {
+.iphone-pro-platform-carbonA-platform-management .language-instance-2 {
   position: absolute;
   width: 42px;
   height: 42px;
@@ -47,7 +47,7 @@ background: rgb(248, 249, 252);
   bottom: 10.74%;
 }
 
-.iphone-pro-platform-carbonA-platform-add-minging .img {
+.iphone-pro-platform-carbonA-platform-management .img {
   /* height: 86px; */
   left: 125px;
   object-fit: cover;
@@ -65,7 +65,7 @@ bottom: -54.31%; */
 /* background: linear-gradient(90.00deg, rgb(11, 184, 232),rgb(0, 220, 248) 100.001%); */
 }
 
-.iphone-pro-platform-carbonA-platform-add-minging .img-1 {
+.iphone-pro-platform-carbonA-platform-management .img-1 {
   /* height: 86px; */
   left: 155px;
   object-fit: cover;
@@ -91,7 +91,7 @@ bottom: -54.31%; */
 }
 
 
-.iphone-pro-platform-carbonA-platform-add-minging .sbumit-add-plotform {
+.iphone-pro-platform-carbonA-platform-management .sbumit-add-plotform {
   left: 20px !important;
   position: absolute !important;
   top: 75px !important;
@@ -113,7 +113,7 @@ background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.9
 
 }
 
-.iphone-pro-platform-carbonA-platform-add-minging .sbumit-delete-plotform {
+.iphone-pro-platform-carbonA-platform-management .sbumit-delete-plotform {
   left: 200px !important;
   position: absolute !important;
   top: 75px !important;
@@ -134,7 +134,7 @@ border-radius: 12px;
 background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
 }
 
-.iphone-pro-platform-carbonA-platform-add-minging .sbumit-deploy-token {
+.iphone-pro-platform-carbonA-platform-management .sbumit-deploy-token {
   left: 260px !important;
   position: absolute !important;
   top: 200px !important;
@@ -155,7 +155,7 @@ border-radius: 12px;
 background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
 }
 
-.iphone-pro-platform-carbonA-platform-add-minging .sbumit-upgrade-token {
+.iphone-pro-platform-carbonA-platform-management .sbumit-upgrade-token {
   left: 260px !important;
   position: absolute !important;
   top: 250px !important;
@@ -176,7 +176,7 @@ border-radius: 12px;
 background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
 }
 
-.iphone-pro-platform-carbonA-platform-add-minging .sbumit-add-minting {
+.iphone-pro-platform-carbonA-platform-management .sbumit-add-minting {
   left: 240px !important;
   position: absolute !important;
   top: 300px !important;
@@ -212,7 +212,7 @@ background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.9
   border-bottom: 1px solid #eee; /* Optional */
 }
 
-.iphone-pro-platform-carbonA-platform-add-minging .sbumit-minting-address {
+.iphone-pro-platform-carbonA-platform-management .sbumit-minting-address {
   left: 240px !important;
   position: absolute !important;
   top: 350px !important;
@@ -233,7 +233,7 @@ border-radius: 12px;
 background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
 }
 
-.iphone-pro-platform-carbonA-platform-add-minging .back-img{
+.iphone-pro-platform-carbonA-platform-management .back-img{
   /* Vector */
 position: absolute;
 width: 9px;

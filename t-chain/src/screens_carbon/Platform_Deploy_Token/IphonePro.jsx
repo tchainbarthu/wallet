@@ -223,7 +223,7 @@ export const PlatformDeployToken = () => {
           onClick = {
             () => {
               setSelectedItem(item.address);
-              setAlreadyConfirm(item.op === 1);
+              setAlreadyConfirm(item.op === 1 || item.op === 3);
               setTokenName(item.name);
             }
           }

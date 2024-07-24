@@ -214,11 +214,11 @@ export const PlatformDeleteMintingAddress = () => {
     <div>
       {
         isLoading ? (<WaitingPage />) : (
-          <div className="iphone-pro-platform-carbonA-platform-add-minging">
+          <div className="iphone-pro-platform-carbonA-platform-management">
       <div className="div-2">
         <img src="/svg/Vector.svg" className="back-img" onClick={() => {backHome(navigate)}}/>
         <div className="little-tittle">
-            {translations['token_list_to_deploy']}
+            {translations['pending_address_to_delete']}
           </div>
         <Language className="language-instance-2" property1="default" />
 
@@ -229,7 +229,7 @@ export const PlatformDeleteMintingAddress = () => {
             () => {
               setSelectedItem(item.address);
               setManagerName(item.name);
-              setAlreadyConfirm(item.op === 1);
+              setAlreadyConfirm(item.op !== 0);
             }
           }
           
@@ -244,8 +244,9 @@ export const PlatformDeleteMintingAddress = () => {
         {/* <Sbumit className="sbumit-add-plotform" textKey="add_platform_participation_management" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         {/* <Sbumit className="sbumit-delete-plotform" textKey="delete_platform_participation_management" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         
-        <Sbumit className="sbumit-deploy-token" textKey="delete_token" onClick={() => {navigate('/CarbonA/DeleteMinting', {state:{carbon_address: carbon_address}})}} />
+        <Sbumit className="sbumit-deploy-token" textKey="delete_address" onClick={() => {navigate('/CarbonA/DeleteMinting', {state:{carbon_address: carbon_address}})}} />
         <Sbumit className={`sbumit-upgrade-token ${already_confirm ? "disabled" : ""}`} textKey="agree" 
+        active={!already_confirm}
         disabled={already_confirm}
         onClick={() => {
           handleClick

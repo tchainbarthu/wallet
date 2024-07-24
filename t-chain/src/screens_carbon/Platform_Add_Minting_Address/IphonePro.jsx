@@ -69,7 +69,87 @@ async function fetchMintingList (sessionId, address){
 }
 
 
+const handleClick = (manager_name,carbon_address, targetAddress, sessionId, setIsLoading, navigate) => {
+  // alert("转账成功");
+  
+  console.log('check carbon_address_2:', carbon_address);
+  if (!check_address(targetAddress)) {
+    alert ("地址格式错误");
+    return;
 
+  }
+
+  
+  
+  const userConfirmation = window.confirm("确定增加吗？");
+
+  if (!userConfirmation) {
+    return;
+  }
+  setIsLoading(true);
+  // const platform_address = "0xa7f9a19d24c3f887f52b783eb37de2ee683cda9c";
+  const platform_address = window.CARBON_CONTRACT_ADDRESS;
+  const current_add_manager_template = {
+    "jsonrpc": "3.0",
+    "method": "chain_carbon",
+     "params":[`opcode=carbon&subcode=setCoinage&address=${platform_address}&addr1=${carbon_address}&addr2=${targetAddress}&name=${manager_name}`, "encryp=none"],
+      "id": `${sessionId}`};
+  
+  fetch(API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(current_add_manager_template),
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('quick check current data',data);
+    if (data.result.ret !== '0'){
+      alert(data.result.err);
+      setIsLoading(false);
+      return;
+    }
+    console.log(data);
+    
+    const success = data.result.ret === '0';
+    const txhash = data.result.content.txhash;
+    
+    
+    
+    console.log('txhash:', txhash);
+    // return [wait_for_txhash(txhash), txhash];
+    wait_for_txhash(txhash)
+    .then(
+      status_code => {
+        let success = false;
+      if (status_code === 2){
+        alert("添加提交成功");
+        
+         success = true;
+      }else{
+        console.log('status_code:', status_code);
+        alert("添加提交失败");
+         success = false;
+      }
+      }
+    )
+    .then(
+      () => {
+        if (success){
+          // setIsLoading(false);
+          navigate('/Homepage');
+        }
+        else{
+          setIsLoading(false);
+        
+        }
+        // setIsLoading(false);
+      }
+    )
+  })
+
+}
 
 
 function backHome(navigate) {
@@ -96,6 +176,12 @@ export const PlatformAddMintingAddress = () => {
 
   const location = useLocation();
   const { carbon_address } = location.state || {}; // Access the address from state, with a fallback to an empty object
+
+  const [ selectedItem, setSelectedItem ] = useState(null);
+
+  const [ managerName, setManagerName ] = useState('');
+
+  const [ already_confirm, setAlreadyConfirm ] = useState(false);
 
   useLoginRedirect();
 
@@ -130,17 +216,24 @@ export const PlatformAddMintingAddress = () => {
     <div>
       {
         isLoading ? (<WaitingPage />) : (
-          <div className="iphone-pro-platform-carbonA-platform-add-minging">
+          <div className="iphone-pro-platform-carbonA-platform-management">
       <div className="div-2">
         <img src="/svg/Vector.svg" className="back-img" onClick={() => {backHome(navigate)}}/>
         <div className="little-tittle">
-            {translations['token_list_to_deploy']}
+            {translations['pending_address_to_deploy']}
           </div>
         <Language className="language-instance-2" property1="default" />
 
         <div className="scrollable-item-list">
         {items.map((item, index) => (
-          <div key={index} className="item">
+          <div key={index} className={`item ${selectedItem === item.address ? "selected" : ""}`}
+          onClick={
+            () => {
+              setSelectedItem(item.address);
+              setManagerName(item.name);
+              setAlreadyConfirm(item.op !== 0);
+            }
+          }>
             {item.name} {/* Adjust this to match the structure of your items */}
           </div>
         ))}
@@ -151,8 +244,9 @@ export const PlatformAddMintingAddress = () => {
         {/* <Sbumit className="sbumit-add-plotform" textKey="add_platform_participation_management" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         {/* <Sbumit className="sbumit-delete-plotform" textKey="delete_platform_participation_management" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         
-        <Sbumit className="sbumit-deploy-token" textKey="deploy_token" onClick={() => {navigate('/CarbonA/AddMinting', {state: {carbon_address: carbon_address}})}} />
-        <Sbumit className="sbumit-upgrade-token" textKey="agree" onClick={() => {navigate('/CarbonA/DeleteManager')}} />
+        <Sbumit className="sbumit-deploy-token" textKey="deploy_minting_address" onClick={() => {navigate('/CarbonA/AddMinting', {state: {carbon_address: carbon_address}})}} />
+        <Sbumit className="sbumit-upgrade-token" textKey="agree" active={!already_confirm} onClick={() => {handleClick(
+          managerName, carbon_address, selectedItem, sessionId, setIsLoading, navigate)}} />
         {/* <Sbumit className="sbumit-add-minting" textKey="add_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         {/* <Sbumit className="sbumit-minting-address" textKey="delete_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         
