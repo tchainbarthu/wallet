@@ -101,6 +101,8 @@ root.render(
       <Routes>
         <Route path="/" element={<LeadingPage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/CarbonA/login" element={<Login />} />
+        <Route path="/CarbonA/register" element={<Register />} />
         <Route path="/register" element={<Register />} />
         <Route path="/exportpasswd" element={<ExportPasswd />} />
         <Route path="/importpasswd" element={<ImportPasswd />} />
@@ -124,6 +126,7 @@ root.render(
         <Route path="/lockpage" element={<LockPage />} />
         <Route path="/Homepage" element={<Homepage />} />
         <Route path="/register_successful" element={<RegisterSuccessful />} />
+        <Route path="/CarbonA/register_successful" element={<RegisterSuccessful />} />
         <Route path="/dummy_register" element={<DummyRegister/>} />
         <Route path="/CarbonA/PlatformDeleteMintingAddress" element={<PlatformDeleteMintingAddress />} />
         <Route path="/CarbonA/DeleteMinting" element={<CarbonADeleteMinting />} />

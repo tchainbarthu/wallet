@@ -11,7 +11,7 @@ import "./style.css";
 import '../../commom_styles/description.css';
 // import '../../common_styles/icon_robot.css';
 // import {API_URL} from "../../config";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , useLocation} from 'react-router-dom';
 
 import { SessionContext, useAuth } from "../../useAuth";
 
@@ -50,6 +50,8 @@ export const RegisterSuccessful = (cur_json_template) => {
   
   const { alreadyAddress, setAlreadyAddress } = useAlreadyAccount();
 
+  const location = useLocation();
+
   const navigate = useNavigate();
 
   
@@ -64,7 +66,13 @@ export const RegisterSuccessful = (cur_json_template) => {
         <img src="/svg/Waver.svg" className="waver"/> */}
         <img src="/svg/sheld.svg" className='sheld'/>
         <img src="/svg/Congratulations.svg" className='congra'/>
-        <Sbumit className="sbumit-instance-2" text="注册" textKey='LoginInNow' onClick={()=>{navigate('/login')}}/>
+        <Sbumit className="sbumit-instance-2" text="注册" textKey='LoginInNow' onClick={()=>{
+          if (location.pathname === '/register_successful'){
+            navigate('/login');
+          }else if (location.pathname === '/CarbonA/register_successful'){
+            navigate('/CarbonA/login');
+          }
+        }}/>
       </div>
     </div>
   );

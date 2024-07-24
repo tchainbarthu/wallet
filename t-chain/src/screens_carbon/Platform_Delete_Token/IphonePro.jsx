@@ -123,7 +123,7 @@ async function fetchTokenList (sessionId, address){
 
 
 function backHome(navigate) {
-  navigate('/Homepage');
+  navigate('/account/CarbonA');
 }
 export const PlatformDeleteToken = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context

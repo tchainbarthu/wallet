@@ -11,7 +11,7 @@ import { SessionContext, useAuth } from "../../useAuth";
 // import {API_URL, REGISTER_TEMPLATE} from "../../config";
 
 
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useLocation} from 'react-router-dom';
 
 
 import { check_password } from '../../common_checks/checkpass_work';
@@ -40,6 +40,7 @@ export const Register = () => {
   // const {Language} = useContext(LanguageProvider);
   const { language, setLanguage, translations } = useContext(LanguageContext);
 
+  const location = useLocation();
   const handleAccountChange = (event) => {
     setAccount(event.target.value);
   };
@@ -113,7 +114,12 @@ export const Register = () => {
               setIsLoading(false);
             setAlreadyAddress(account);
             // navigate('/login'); // Navigate to the login page
-            navigate('/register_successful');
+            if (location.pathname === '/register'){
+              navigate('/register_successful');}
+            else if (location.pathname === '/CarbonA/register'){
+              navigate('/CarbonA/register_successful');}
+
+            
             }else{
               alert('注册失败');
             }

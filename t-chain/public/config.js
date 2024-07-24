@@ -2,7 +2,7 @@
 // window.TCHAIN_API_URL = 'https://www.trc100.com/t_chain_api/';
 // window.TCHAIN_DATABASE_ROOT = 'https://www.trc100.com/database_api/';
 
-window.TCHAIN_API_URL= "http://13816813962.gnway.cc:80"
+window.TCHAIN_API_URL= "http://13816813962.gnway.cc:80/"
 window.TCHAIN_DATABASE_ROOT = "http://localhost:8082/"
 
 window.CARBON_CONTRACT_ADDRESS = "0x09d59586ad76a9e4c7427560b6da15d88357c661";

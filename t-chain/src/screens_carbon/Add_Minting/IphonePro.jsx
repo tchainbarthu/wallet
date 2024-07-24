@@ -145,7 +145,7 @@ const fetchLockStatus = async (sessionId, address,setData, setLockedAmount) => {
 };
 
 function backHome(navigate) {
-  navigate('/Homepage');
+  navigate('/account/CarbonA');
 }
 export const CarbonAAddMinting = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context

@@ -12,7 +12,7 @@ import "./style.css";
 // import '../../common_styles/icon_robot.css';
 // import {API_URL} from "../../config";
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import { SessionContext, useAuth } from "../../useAuth";
 
@@ -57,6 +57,7 @@ export const Login = (cur_json_template) => {
 
   const { AlreadyPassword, setAlreadyPassword } = usePassword();
   
+  const location = useLocation();
   const navigate = useNavigate();
 
   
@@ -190,7 +191,11 @@ export const Login = (cur_json_template) => {
         return fetchData(current_address_query_template);
       })
       .then(()=>{
+        if (location.pathname === '/login') {
         navigate('/Homepage');
+        }else if(location.pathname === '/CarbonA/login'){
+          navigate('/account/CarbonA');
+        }
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -222,7 +227,7 @@ export const Login = (cur_json_template) => {
         
         <img className="little-robot" alt="Little robot" src="/svg/g_description.svg" />
         <img className="img" alt="Little robot" src="/svg/g-robot.svg" />
-        <Sbumit className="sbumit-instance" text="登录" onClick={()=>{handleSubmit(cur_json_template)}}/>
+        <Sbumit className="sbumit-instance" text="登录" onClick={()=>{handleSubmit()}}/>
         <InputText className="input-text-instance" textKey='please_enter_account' onChange={e => { setAccountLocal(e.target.value);  }} value={account} />
         <InputText inputType='password' className="design-component-instance-node" textKey={'please_enter_password'} onChange={e => { setPassword(e.target.value);  }} />
         {/* <Label className="label-instance" textKey="account" /> */}

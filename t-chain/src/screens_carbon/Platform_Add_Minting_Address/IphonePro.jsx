@@ -153,7 +153,7 @@ const handleClick = (manager_name,carbon_address, targetAddress, sessionId, setI
 
 
 function backHome(navigate) {
-  navigate('/Homepage');
+  navigate('/account/CarbonA');
 }
 export const PlatformAddMintingAddress = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context

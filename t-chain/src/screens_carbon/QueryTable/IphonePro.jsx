@@ -88,7 +88,7 @@ function hexToDecimal(hexString) {
 }
 
 function backHome(navigate) {
-  navigate('/Homepage');
+  navigate('/account/CarbonA');
 }
 export const QueryTable = () => {
   useLoginRedirect();
