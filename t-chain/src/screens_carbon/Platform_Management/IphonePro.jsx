@@ -164,15 +164,20 @@ export const PlatformManagement = () => {
         <Sbumit className="sbumit-delete-plotform" textKey="delete_platform_participation_management" onClick={() => {navigate('/CarbonA/PlatformDeleteManager') }} />
         
         <Sbumit className="sbumit-deploy-token" textKey="deploy_token" onClick={() => {navigate('/CarbonA/PlatformDeployToken') }} />
+        
         <Sbumit className="sbumit-upgrade-token" textKey="delete_token" onClick={() => {navigate('/CarbonA/PlatformDeleteToken') }} />
-        <Sbumit className="sbumit-add-minting" textKey="add_minting_address" onClick={() => { 
+
+        <Sbumit className="sbumit-add-minting-1" textKey="add_minting_address" onClick={() => {navigate('/CarbonA/PlatformAddMintingAddress') }} />
+
+        <Sbumit className="sbumit-delete-minting" textKey="delete_minting_address" onClick={() => {navigate('/CarbonA/PlatformDeleteMintingAddress') }} />
+        {/* <Sbumit className="sbumit-add-minting" textKey="add_minting_address" onClick={() => { 
           if (selectedItem === null) {
             alert('Please select a token');
             return;
           }
           navigate('/CarbonA/PlatformAddMintingAddress', { state: {carbon_address: selectedItem} });
-        }} />
-        <Sbumit className="sbumit-minting-address" textKey="delete_minting_address" onClick={
+        }} /> */}
+        {/* <Sbumit className="sbumit-minting-address" textKey="delete_minting_address" onClick={
           () => { 
             if (selectedItem === null) {
               alert('Please select a token');
@@ -180,7 +185,9 @@ export const PlatformManagement = () => {
             }
             navigate('/CarbonA/PlatformDeleteMintingAddress', { state: {carbon_address: selectedItem} });
           }} 
-          />
+          /> */}
+
+        
         
         
       </div>

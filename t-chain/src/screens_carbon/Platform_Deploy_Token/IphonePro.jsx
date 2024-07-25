@@ -163,7 +163,7 @@ export const PlatformDeployToken = () => {
         () => {
           if (success){
             // setIsLoading(false);
-            navigate('/Homepage');
+            navigate('/account/CarbonA');
           }
           else{
             setIsLoading(false);

@@ -176,14 +176,36 @@ border-radius: 12px;
 background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
 }
 
-.iphone-pro-platform-carbonA-platform-management .sbumit-add-minting {
-  
+.iphone-pro-platform-carbonA-platform-management .sbumit-add-minting-1 {
+  width: 120px;
+  left: 260px !important;
   position: absolute !important;
-  left: 250px !important;
   top: 300px !important;
   /* Buttons v2 */
 position: relative;
-width: 138px !important;
+
+height: 30px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px 12px 24px;
+
+border-radius: 12px;
+
+/* 线性渐变 */
+background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
+}
+
+
+.iphone-pro-platform-carbonA-platform-management .sbumit-delete-minting {
+  left: 260px !important;
+  position: absolute !important;
+  top: 350px !important;
+  /* Buttons v2 */
+position: relative;
+width: 120px;
 height: 30px;
 /* 自动布局 */
 display: flex;
@@ -217,26 +239,6 @@ background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.9
   top: 150px;
   left: 20px;
 
-}
-.iphone-pro-platform-carbonA-platform-management .sbumit-minting-address {
-  left: 250px !important;
-  position: absolute !important;
-  top: 350px !important;
-  /* Buttons v2 */
-position: relative;
-width: 138px !important;
-height: 30px;
-/* 自动布局 */
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 12px 24px 12px 24px;
-
-border-radius: 12px;
-
-/* 线性渐变 */
-background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
 }
 
 .iphone-pro-platform-carbonA-platform-management .back-img{

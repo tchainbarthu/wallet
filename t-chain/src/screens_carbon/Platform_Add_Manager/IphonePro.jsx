@@ -41,6 +41,7 @@ const dummyFetch = () => {
     }, 1000); // Simulate network delay
   });
 };
+
 async function fetchManagerList (sessionId, address){
   // const platform_address = "0xa7f9a19d24c3f887f52b783eb37de2ee683cda9c";
   const platform_address = window.CARBON_CONTRACT_ADDRESS;
@@ -59,8 +60,8 @@ async function fetchManagerList (sessionId, address){
   });
   
   data = await data.json();
-  console.log('check pending Manager data')
-  console.log(data);
+  // console.log('check pending Manager data')
+  // console.log(data);
   let token_list = data.result.content;
   return token_list;
 }
@@ -192,7 +193,7 @@ export const PlatformAddManager = () => {
             address: response.Addrs[index],
             op: response.Op[index]
           }));
-          // console.log('check real Manager data')
+          console.log('check real Manager data')
           // console.log(data);
         setItems(data);
       } catch (error) {

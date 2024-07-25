@@ -62,7 +62,7 @@ async function fetchManagerList (sessionId, address){
   });
   
   data = await data.json();
-  console.log('check real Manager data')
+  console.log('check pending delete Manager data')
   console.log(data);
   let token_list = data.result.content;
   return token_list;
@@ -81,7 +81,7 @@ const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, navig
 
   
   
-  const userConfirmation = window.confirm("确定增加吗？");
+  const userConfirmation = window.confirm("确定删除吗？");
 
   if (!userConfirmation) {
     return;
@@ -124,12 +124,12 @@ const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, navig
       status_code => {
         let success = false;
       if (status_code === 2){
-        alert("添加提交成功");
+        alert("删除提交成功");
         
          success = true;
       }else{
         console.log('status_code:', status_code);
-        alert("添加提交失败");
+        alert("删除提交失败");
          success = false;
       }
       }
@@ -138,7 +138,7 @@ const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, navig
       () => {
         if (success){
           // setIsLoading(false);
-          navigate('/Homepage');
+          navigate('/account/CarbonA');
         }
         else{
           setIsLoading(false);
@@ -193,7 +193,7 @@ export const PlatformDeleteManager = () => {
           (name, index) => ({
             name: name,
             address: response.Addrs[index],
-            op: response.Type[index]
+            op: response.Op[index]
           }));
         
         

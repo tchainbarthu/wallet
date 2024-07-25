@@ -138,7 +138,7 @@ const handleClick = (manager_name,carbon_address, targetAddress, sessionId, setI
       () => {
         if (success){
           // setIsLoading(false);
-          navigate('/Homepage');
+          navigate('/account/CarbonA');
         }
         else{
           setIsLoading(false);
