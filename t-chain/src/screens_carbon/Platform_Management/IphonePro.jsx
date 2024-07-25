@@ -72,7 +72,8 @@ async function fetchTokenList (sessionId, address){
 
 
 function backHome(navigate) {
-  navigate('/account/CarbonA');
+  // navigate('/account/CarbonA');
+  navigate(-1);
 }
 export const PlatformManagement = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context

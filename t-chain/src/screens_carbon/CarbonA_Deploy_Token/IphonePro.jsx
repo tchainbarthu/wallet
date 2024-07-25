@@ -115,7 +115,8 @@ const handleClick = (name, targetAddress, sessionId, setIsLoading, navigate) => 
 
 
 function backHome(navigate) {
-  navigate('/account/CarbonA');
+  // navigate('/account/CarbonA');
+  navigate(-1);
 }
 export const CarbonADeployToken = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context

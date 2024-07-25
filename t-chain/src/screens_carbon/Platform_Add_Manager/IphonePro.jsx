@@ -151,7 +151,8 @@ const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, navig
 
 
 function backHome(navigate) {
-  navigate('/account/CarbonA');
+  // navigate('/account/CarbonA');
+  navigate(-1);
 }
 export const PlatformAddManager = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context

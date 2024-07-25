@@ -150,7 +150,8 @@ async function fetchMintingList (sessionId, address){
 
 
 function backHome(navigate) {
-  navigate('/account/CarbonA');
+  // navigate('/account/CarbonA');
+  navigate(-1);
 }
 export const CarbonADeleteMinting = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context

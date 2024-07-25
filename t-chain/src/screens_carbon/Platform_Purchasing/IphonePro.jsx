@@ -284,7 +284,8 @@ const fetchLockStatus = async (sessionId, address,setData, setLockedAmount) => {
 };
 
 function backHome(navigate) {
-  navigate('/account/CarbonA');
+  // navigate('/account/CarbonA');
+  navigate(-1);
 }
 export const PlatformPurchasing = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context
