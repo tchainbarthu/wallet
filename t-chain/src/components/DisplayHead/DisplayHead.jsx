@@ -11,7 +11,8 @@ export const DisplayHead = ({ className, address, balance , img_src, description
     <div className={`display-head ${className}`}>
       <div className="text-wrapper">{description}</div>
       <div className="div">{address}</div>
-      <div className="text-wrapper-2">{balance.toFixed(2)}</div>
+      {/* <div className="text-wrapper-2">{balance.toFixed(2)}</div> */}
+      <div className="text-wrapper-2">{balance.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
       <img className="coin-icon" src="/img/circle.png"/>
       <img className="t-chain-coin" src={img_src}/>
     </div>

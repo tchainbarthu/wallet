@@ -230,7 +230,7 @@ export const Homepage = () => {
           }
         }}>
           <DisplayHead className="design-component-instance-node" 
-          address={address} balance={selectedItem === 1? Balance / 1000000000 : CarbonAPersonalAmount} img_src={
+          address={address} balance={selectedItem === 1? Balance / 1000000000 : CarbonAPersonalAmount / 1000000000} img_src={
             selectedItem === 1 ? '/svg/t-chain-coin.svg' : '/img/carbon-v0.png'
           }
           description={
