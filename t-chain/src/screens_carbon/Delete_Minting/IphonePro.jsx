@@ -86,12 +86,12 @@ const handleClick = (manager_name,carbon_address, targetAddress, sessionId, setI
       status_code => {
         let success = false;
       if (status_code === 2){
-        alert("添加提交成功");
+        alert("删除提交成功");
         
          success = true;
       }else{
         console.log('status_code:', status_code);
-        alert("添加提交失败");
+        alert("删除提交失败");
          success = false;
       }
       }
@@ -100,7 +100,9 @@ const handleClick = (manager_name,carbon_address, targetAddress, sessionId, setI
       () => {
         if (success){
           // setIsLoading(false);
-          navigate('/Homepage');
+          // navigate('/Homepage');
+          // navigate('/CarbonA/PlatformDeleteMintingAddress');
+          navigate('/CarbonA/PlatformDeleteMintingAddress', {state:{carbon_address: carbon_address}});
         }
         else{
           setIsLoading(false);

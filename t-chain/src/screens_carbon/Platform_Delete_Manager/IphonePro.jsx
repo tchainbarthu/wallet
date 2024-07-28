@@ -69,7 +69,7 @@ async function fetchManagerList (sessionId, address){
 }
 
 
-const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, navigate) => {
+const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, setShouldRefetch) => {
   // alert("转账成功");
   
   
@@ -137,8 +137,10 @@ const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, navig
     .then(
       () => {
         if (success){
-          // setIsLoading(false);
-          navigate('/account/CarbonA');
+          setIsLoading(false);
+          // navigate('/CarbonA/PlatformDeleteManager');
+          // window.location.reload();
+          setShouldRefetch(true);
         }
         else{
           setIsLoading(false);
@@ -154,7 +156,8 @@ const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, navig
 
 function backHome(navigate) {
   // navigate('/account/CarbonA');
-  navigate(-1);
+  // navigate(-1);
+  navigate('/CarbonA/PlatformManagement');
 }
 export const PlatformDeleteManager = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context
@@ -181,28 +184,39 @@ export const PlatformDeleteManager = () => {
   
   const [already_confirm, setAlreadyConfirm] = useState(false);
 
+  const [shouldRefetch, setShouldRefetch] = useState(false);
+
   useLoginRedirect();
 
   useEffect(() => {
-    const fetchItems = async () => {
-      try {
-        // const response = await fetch('YOUR_API_ENDPOINT');
-        // const response = await dummyFetch();
-        // const data = await response.json();
-        const response = await fetchManagerList(sessionId, address);
-        const data = response.Names.map(
-          (name, index) => ({
-            name: name,
-            address: response.Addrs[index],
-            op: response.Op[index]
-          }));
-        
-        
-        setItems(data);
-      } catch (error) {
-        console.error('Failed to fetch items:', error);
-      }
-    };
+    if (shouldRefetch){
+      fetchItems();
+      setShouldRefetch(false);
+    }
+  }, [shouldRefetch]);
+
+  const fetchItems = async () => {
+    try {
+      // const response = await fetch('YOUR_API_ENDPOINT');
+      // const response = await dummyFetch();
+      // const data = await response.json();
+      const response = await fetchManagerList(sessionId, address);
+      const data = response.Names.map(
+        (name, index) => ({
+          name: name,
+          address: response.Addrs[index],
+          op: response.Op[index]
+        }));
+      
+      
+      setItems(data);
+    } catch (error) {
+      console.error('Failed to fetch items:', error);
+    }
+  };
+
+  useEffect(() => {
+    
 
     fetchItems();
   }, []);
@@ -229,7 +243,7 @@ export const PlatformDeleteManager = () => {
               setSelectedItem(item.address);
               setManagerName(item.name);
               console.log('check item:', item.op);
-              setAlreadyConfirm(item.op === 1);
+              setAlreadyConfirm(item.op !== 0);
             }
           }>
             {item.name} {/* Adjust this to match the structure of your items */}
@@ -243,11 +257,11 @@ export const PlatformDeleteManager = () => {
         {/* <Sbumit className="sbumit-delete-plotform" textKey="delete_platform_participation_management" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         
         <Sbumit className="sbumit-deploy-token" textKey="delete" onClick={() => {navigate('/CarbonA/DeleteManager')}} />
-        <Sbumit className={`sbumit-upgrade-token ${already_confirm ? "disabled" : ""}`}
+        <Sbumit className={`sbumit-upgrade-token ${(already_confirm | (selectedItem === address)) ? "disabled" : ""}`}
         textKey="confirm" 
-        active={!already_confirm}
+        active={(!already_confirm) & (!(selectedItem === address))}
         onClick={() => {
-          handleClick(manager_name, selectedItem, sessionId, setIsLoading, navigate)
+          handleClick(manager_name, selectedItem, sessionId, setIsLoading, setShouldRefetch)
         }} />
         {/* <Sbumit className="sbumit-add-minting" textKey="add_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         {/* <Sbumit className="sbumit-minting-address" textKey="delete_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}

@@ -134,6 +134,10 @@ border-radius: 12px;
 background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.999%);
 }
 
+.sbumit-deploy-token.disabled {
+  background: #ccc !important;
+}
+
 .iphone-pro-platform-carbonA-platform-management .sbumit-deploy-token {
   left: 260px !important;
   position: absolute !important;

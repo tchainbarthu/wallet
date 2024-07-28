@@ -72,8 +72,8 @@ async function fetchTokenList (sessionId, address){
 
 
 function backHome(navigate) {
-  // navigate('/account/CarbonA');
-  navigate(-1);
+  navigate('/account/CarbonA');
+  // navigate(-1);
 }
 export const PlatformManagement = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context
@@ -168,25 +168,27 @@ export const PlatformManagement = () => {
         
         <Sbumit className="sbumit-upgrade-token" textKey="delete_token" onClick={() => {navigate('/CarbonA/PlatformDeleteToken') }} />
 
-        <Sbumit className="sbumit-add-minting-1" textKey="add_minting_address" onClick={() => {navigate('/CarbonA/PlatformAddMintingAddress') }} />
+        {/* <Sbumit className="sbumit-add-minting-1" textKey="add_minting_address" onClick={() => {navigate('/CarbonA/PlatformAddMintingAddress') }} /> */}
 
-        <Sbumit className="sbumit-delete-minting" textKey="delete_minting_address" onClick={() => {navigate('/CarbonA/PlatformDeleteMintingAddress') }} />
-        {/* <Sbumit className="sbumit-add-minting" textKey="add_minting_address" onClick={() => { 
+        {/* <Sbumit className="sbumit-delete-minting" textKey="delete_minting_address" onClick={() => {navigate('/CarbonA/PlatformDeleteMintingAddress') }} /> */}
+        <Sbumit className="sbumit-add-minting-1" textKey="add_minting_address" onClick={() => { 
           if (selectedItem === null) {
-            alert('Please select a token');
+            // alert('Please select a token');
+            alert(translations['please_select_a_token_first']);
             return;
           }
           navigate('/CarbonA/PlatformAddMintingAddress', { state: {carbon_address: selectedItem} });
-        }} /> */}
-        {/* <Sbumit className="sbumit-minting-address" textKey="delete_minting_address" onClick={
+        }} />
+        <Sbumit className="sbumit-delete-minting" textKey="delete_minting_address" onClick={
           () => { 
             if (selectedItem === null) {
-              alert('Please select a token');
+              // alert('Please select a token');
+              alert(translations['please_select_a_token_first']);
               return;
             }
             navigate('/CarbonA/PlatformDeleteMintingAddress', { state: {carbon_address: selectedItem} });
           }} 
-          /> */}
+          />
 
         
         

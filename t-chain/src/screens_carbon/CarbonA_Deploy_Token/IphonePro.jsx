@@ -99,7 +99,7 @@ const handleClick = (name, targetAddress, sessionId, setIsLoading, navigate) => 
       () => {
         if (success){
           // setIsLoading(false);
-          navigate('/Homepage');
+          navigate('/CarbonA/PlatformDeployToken');
         }
         else{
           setIsLoading(false);

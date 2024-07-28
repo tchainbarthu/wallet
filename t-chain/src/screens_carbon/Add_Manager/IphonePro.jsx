@@ -99,7 +99,7 @@ const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, navig
       () => {
         if (success){
           // setIsLoading(false);
-          navigate('/Homepage');
+          navigate('/CarbonA/PlatformAddManager');
         }
         else{
           setIsLoading(false);

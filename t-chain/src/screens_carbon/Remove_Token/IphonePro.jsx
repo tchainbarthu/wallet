@@ -83,12 +83,13 @@ const handleClick = (name, targetAddress, sessionId, setIsLoading, navigate) => 
       status_code => {
         let success = false;
       if (status_code === 2){
-        alert("添加提交成功");
+        alert("删除提交成功");
         
          success = true;
       }else{
         console.log('status_code:', status_code);
-        alert("添加提交失败");
+        alert("删除提交失败");
+        setIsLoading(false);
          success = false;
       }
       }
@@ -97,7 +98,7 @@ const handleClick = (name, targetAddress, sessionId, setIsLoading, navigate) => 
       () => {
         if (success){
           // setIsLoading(false);
-          navigate('/Homepage');
+          navigate('/CarbonA/PlatformDeleteToken');
         }
         else{
           setIsLoading(false);

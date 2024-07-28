@@ -98,6 +98,90 @@ const dummyFetch = () => {
   });
 };
 
+
+const handleClick = (name, targetAddress, sessionId, setIsLoading, navigate) => {
+  // alert("转账成功");
+  
+  
+  if (!check_address(targetAddress)) {
+    alert ("地址格式错误");
+    return;
+
+  }
+
+  
+  
+  const userConfirmation = window.confirm("确定增加吗？");
+
+  if (!userConfirmation) {
+    return;
+  }
+  setIsLoading(true);
+  // const platform_address = "0xa7f9a19d24c3f887f52b783eb37de2ee683cda9c";
+  const platform_address = window.CARBON_CONTRACT_ADDRESS;
+  const current_add_manager_template = {
+    "jsonrpc": "3.0",
+    "method": "chain_carbon",
+     "params":[`opcode=carbon&subcode=removeToken&address=${platform_address}&addr1=${targetAddress}&name=${name}&type=0`, "encryp=none"],
+      "id": `${sessionId}`};
+  
+  fetch(API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(current_add_manager_template),
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('quick check current data',data);
+    if (data.result.ret !== '0'){
+      alert(data.result.err);
+      setIsLoading(false);
+      return;
+    }
+    console.log(data);
+    
+    const success = data.result.ret === '0';
+    const txhash = data.result.content.txhash;
+    
+    
+    
+    console.log('txhash:', txhash);
+    // return [wait_for_txhash(txhash), txhash];
+    wait_for_txhash(txhash)
+    .then(
+      status_code => {
+        let success = false;
+      if (status_code === 2){
+        alert("删除提交成功");
+        setIsLoading(false);
+         success = true;
+      }else{
+        console.log('status_code:', status_code);
+        alert("删除提交失败");
+        setIsLoading(false);
+         success = false;
+      }
+      }
+    )
+    .then(
+      () => {
+        if (success){
+          // setIsLoading(false);
+          navigate('/CarbonA/PlatformDeployToken');
+        }
+        else{
+          setIsLoading(false);
+        
+        }
+        // setIsLoading(false);
+      }
+    )
+  })
+
+}
+
 async function fetchTokenList (sessionId, address){
   // const platform_address = "0xa7f9a19d24c3f887f52b783eb37de2ee683cda9c";
   const platform_address = window.CARBON_CONTRACT_ADDRESS;
@@ -123,8 +207,8 @@ async function fetchTokenList (sessionId, address){
 
 
 function backHome(navigate) {
-  // navigate('/account/CarbonA');
-  navigate(-1);
+  navigate('/CarbonA/PlatformManagement');
+  // navigate(-1);
 }
 export const PlatformDeleteToken = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context
@@ -147,26 +231,42 @@ export const PlatformDeleteToken = () => {
 
   const [selectedItem, setSelectedItem] = useState(null);
 
+  const [shouldRefetch, setShouldRefetch] = useState(false);
+
+  const [already_confirm, setAlreadyConfirm] = useState(false);
+
+  const [carbonA_name, setCarbonAName] = useState('');
+
   useLoginRedirect();
 
+  const fetchItems = async () => {
+    try {
+      // const response = await fetch('YOUR_API_ENDPOINT');
+      // const response = await dummyFetch();
+      const response = await fetchTokenList(sessionId, address);
+      
+      // const data = response;
+      const data = response.Names.map(
+        (name, index) => ({
+          name: name,
+          address: response.Addrs[index],
+          op: response.Type[index]
+        }));
+      setItems(data);
+    } catch (error) {
+      console.error('Failed to fetch items:', error);
+    }
+  };
+
   useEffect(() => {
-    const fetchItems = async () => {
-      try {
-        // const response = await fetch('YOUR_API_ENDPOINT');
-        // const response = await dummyFetch();
-        const response = await fetchTokenList(sessionId, address);
-        
-        // const data = response;
-        const data = response.Names.map(
-          (name, index) => ({
-            name: name,
-            address: response.Addrs[index]
-          }));
-        setItems(data);
-      } catch (error) {
-        console.error('Failed to fetch items:', error);
-      }
-    };
+    if (shouldRefetch){
+      fetchItems();
+      setShouldRefetch(false);
+    }
+  }, [shouldRefetch]);
+
+  useEffect(() => {
+    
 
     fetchItems();
   }, []);
@@ -191,6 +291,8 @@ export const PlatformDeleteToken = () => {
           onClick = {
             () => {
               setSelectedItem(item.address);
+              setCarbonAName(item.name);
+              setAlreadyConfirm(!(item.op === 0));
             }
           }>
             {item.name} {/* Adjust this to match the structure of your items */}
@@ -204,7 +306,18 @@ export const PlatformDeleteToken = () => {
         {/* <Sbumit className="sbumit-delete-plotform" textKey="delete_platform_participation_management" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         
         <Sbumit className="sbumit-deploy-token" textKey="delete_token" onClick={() => {navigate('/CarbonA/RemoveToken')}} />
-        <Sbumit className="sbumit-upgrade-token" textKey="agree" onClick={() => {}} />
+        <Sbumit className={`sbumit-upgrade-token ${already_confirm ? "disabled" : ""}`}
+        active={!already_confirm}
+        textKey="agree" 
+        onClick={() => {
+          if (! selectedItem){
+            alert("请先选择一个代币");
+            return;
+          }
+          handleClick(
+          carbonA_name, selectedItem, sessionId, setIsLoading, setShouldRefetch
+        );
+        }} />
         {/* <Sbumit className="sbumit-add-minting" textKey="add_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         {/* <Sbumit className="sbumit-minting-address" textKey="delete_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         

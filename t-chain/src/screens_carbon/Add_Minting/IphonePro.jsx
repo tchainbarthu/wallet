@@ -100,7 +100,8 @@ const handleClick = (manager_name,carbon_address, targetAddress, sessionId, setI
       () => {
         if (success){
           // setIsLoading(false);
-          navigate('/Homepage');
+          // navigate('/Homepage');
+          navigate('/CarbonA/PlatformAddMintingAddress', {state:{carbon_address: carbon_address}});
         }
         else{
           setIsLoading(false);

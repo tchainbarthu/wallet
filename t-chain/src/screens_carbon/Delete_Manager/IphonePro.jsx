@@ -100,7 +100,7 @@ const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, navig
       () => {
         if (success){
           // setIsLoading(false);
-          navigate('/Homepage');
+          navigate('/CarbonA/PlatformDeleteManager');
         }
         else{
           setIsLoading(false);
@@ -152,7 +152,8 @@ async function fetchManagerList (sessionId, address){
 
 function backHome(navigate) {
   // navigate('/account/CarbonA');
-  navigate(-1);
+  // navigate(-1);
+  navigate('/CarbonA/PlatformDeleteManager');
 }
 export const CarbonADeleteManager = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context
@@ -177,6 +178,9 @@ export const CarbonADeleteManager = () => {
 
   const [ manager_name, setManagerName ] = useState('');
 
+  const [ isSelf, setIsSelf ] = useState(false);
+
+  
   // const [already_confirm, setAlreadyConfirm] = useState(false);
 
   useLoginRedirect();
@@ -224,6 +228,7 @@ export const CarbonADeleteManager = () => {
             () => {
               setSelectedItem(item.address);
               setManagerName(item.name);
+              setIsSelf(item.address === address);
               // setAlreadyConfirm(item.op !== 0);
             }
           }
@@ -238,10 +243,14 @@ export const CarbonADeleteManager = () => {
         {/* <Sbumit className="sbumit-add-plotform" textKey="add_platform_participation_management" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         {/* <Sbumit className="sbumit-delete-plotform" textKey="delete_platform_participation_management" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         
-        <Sbumit className="sbumit-deploy-token" textKey="delete" onClick={() => {
+        <Sbumit 
+        className={`sbumit-deploy-token ${isSelf ? 'disabled' : ''}`}
+        textKey="delete" 
+        active = {!isSelf}
+        onClick={() => {
           handleClick(
-          manager_name, selectedItem, sessionId, setIsLoading, navigate
-        )}} />
+          manager_name, selectedItem, sessionId, setIsLoading, navigate);
+          }} />
         <Sbumit className="sbumit-upgrade-token" textKey="cancel" onClick={() => {
           navigate('/CarbonA/PlatformDeleteManager');
           }} />

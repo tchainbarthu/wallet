@@ -69,7 +69,7 @@ async function fetchMintingList (sessionId, address){
 }
 
 
-const handleClick = (manager_name,carbon_address, targetAddress, sessionId, setIsLoading, navigate) => {
+const handleClick = (manager_name,carbon_address, targetAddress, sessionId, setIsLoading, setShouldRefetch) => {
   // alert("转账成功");
   
   console.log('check carbon_address_2:', carbon_address);
@@ -137,8 +137,19 @@ const handleClick = (manager_name,carbon_address, targetAddress, sessionId, setI
     .then(
       () => {
         if (success){
-          // setIsLoading(false);
-          navigate('/account/CarbonA');
+          setIsLoading(false);
+          
+          // localStorage.setItem(
+          //   {
+          //     state: {
+          //       carbon_address: carbon_address
+          //     }
+          //   }
+          // );
+          setShouldRefetch(true);
+          // window.location.reload();
+          // navigate('/CarbonA/PlatformManagement');
+          // navigate('/CarbonA/PlatformAddMintingAddress', {state:{carbon_address: carbon_address}});
         }
         else{
           setIsLoading(false);
@@ -154,7 +165,10 @@ const handleClick = (manager_name,carbon_address, targetAddress, sessionId, setI
 
 function backHome(navigate) {
   // navigate('/account/CarbonA');
-  navigate(-1);
+  // navigate(-1);
+  navigate('/CarbonA/PlatformManagement');
+  // navigate('/CarbonA/PlatformAddMintingAddress');
+
 }
 export const PlatformAddMintingAddress = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context
@@ -184,29 +198,41 @@ export const PlatformAddMintingAddress = () => {
 
   const [ already_confirm, setAlreadyConfirm ] = useState(false);
 
+  const [shouldRefetch, setShouldRefetch] = useState(false);
+
   useLoginRedirect();
 
+  const fetchItems = async () => {
+    try {
+      // const response = await fetch('YOUR_API_ENDPOINT');
+      // const response = await dummyFetch();
+      // console.log('check location:', location);
+      console.log('carbon_address:', carbon_address);
+      const response = await fetchMintingList(sessionId, carbon_address);
+      // const response = await fetchTokenList(sessionId, address);
+      
+      // const data = response;
+      const data = response.Names.map(
+        (name, index) => ({
+          name: name,
+          address: response.Addrs[index],
+          op: response.Type[index]
+        }));
+      setItems(data);
+    } catch (error) {
+      console.error('Failed to fetch items:', error);
+    }
+  };
+
   useEffect(() => {
-    const fetchItems = async () => {
-      try {
-        // const response = await fetch('YOUR_API_ENDPOINT');
-        // const response = await dummyFetch();
-        // console.log('check location:', location);
-        console.log('carbon_address:', carbon_address);
-        const response = await fetchMintingList(sessionId, carbon_address);
-        // const response = await fetchTokenList(sessionId, address);
-        
-        // const data = response;
-        const data = response.Names.map(
-          (name, index) => ({
-            name: name,
-            address: response.Addrs[index]
-          }));
-        setItems(data);
-      } catch (error) {
-        console.error('Failed to fetch items:', error);
-      }
-    };
+    if (shouldRefetch){
+      fetchItems();
+      setShouldRefetch(false);
+    }
+  }, [shouldRefetch]);
+
+  useEffect(() => {
+    
 
     fetchItems();
   }, []);
@@ -232,7 +258,7 @@ export const PlatformAddMintingAddress = () => {
             () => {
               setSelectedItem(item.address);
               setManagerName(item.name);
-              setAlreadyConfirm(item.op !== 0);
+              setAlreadyConfirm(!(item.op === 0));
             }
           }>
             {item.name} {/* Adjust this to match the structure of your items */}
@@ -247,7 +273,7 @@ export const PlatformAddMintingAddress = () => {
         
         <Sbumit className="sbumit-deploy-token" textKey="deploy_minting_address" onClick={() => {navigate('/CarbonA/AddMinting', {state: {carbon_address: carbon_address}})}} />
         <Sbumit className="sbumit-upgrade-token" textKey="agree" active={!already_confirm} onClick={() => {handleClick(
-          managerName, carbon_address, selectedItem, sessionId, setIsLoading, navigate)}} />
+          managerName, carbon_address, selectedItem, sessionId, setIsLoading, setShouldRefetch)}} />
         {/* <Sbumit className="sbumit-add-minting" textKey="add_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         {/* <Sbumit className="sbumit-minting-address" textKey="delete_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         

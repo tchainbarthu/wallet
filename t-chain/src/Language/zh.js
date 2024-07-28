@@ -83,7 +83,7 @@
     qr_code_receivables: '收款二维码',
     platform_purchasing: '平台收购',
     platform_management: '平台管理',
-
+    please_select_a_token_first: '请先选择一个代币',
     platform_purchasing_address: '收购地址',
     platform_purchasing_price: '收购价格',
     platform_deal_amount: '成交数量',

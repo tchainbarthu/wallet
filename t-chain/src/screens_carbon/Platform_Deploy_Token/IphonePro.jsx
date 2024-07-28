@@ -66,8 +66,8 @@ async function fetchTokenList (sessionId, address){
 }
 
 function backHome(navigate) {
-  // navigate('/account/CarbonA');
-  navigate(-1);
+  navigate('/CarbonA/PlatformManagement');
+  // navigate(-1);
 }
 export const PlatformDeployToken = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context
@@ -94,8 +94,9 @@ export const PlatformDeployToken = () => {
 
   const [tokenName, setTokenName] = useState('');
 
+  const [shouldRefetch, setShouldRefetch] = useState(false);
 
-  const handleClick = (token_name, targetAddress, sessionId, setIsLoading, navigate) => {
+  const handleClick = (token_name, targetAddress, sessionId, setIsLoading, setShouldRefetch) => {
     // alert("转账成功");
     
     
@@ -163,8 +164,9 @@ export const PlatformDeployToken = () => {
       .then(
         () => {
           if (success){
-            // setIsLoading(false);
-            navigate('/account/CarbonA');
+            setIsLoading(false);
+            setShouldRefetch(true);
+            // navigate('/account/CarbonA');
           }
           else{
             setIsLoading(false);
@@ -180,26 +182,35 @@ export const PlatformDeployToken = () => {
 
   useLoginRedirect();
 
+  const fetchItems = async () => {
+    try {
+      // const response = await fetch('YOUR_API_ENDPOINT');
+      // const response = await dummyFetch();
+      const response = await fetchTokenList(sessionId, address);
+      // const data = await response.json();
+      // console.log('check pending token data')
+      // const data = response;
+      const data = response.Names.map(
+        (name, index) => ({
+          name: name,
+          address: response.Addrs[index],
+          op: response.Type[index]
+        }));
+      setItems(data);
+    } catch (error) {
+      console.error('Failed to fetch items:', error);
+    }
+  };
+
   useEffect(() => {
-    const fetchItems = async () => {
-      try {
-        // const response = await fetch('YOUR_API_ENDPOINT');
-        // const response = await dummyFetch();
-        const response = await fetchTokenList(sessionId, address);
-        // const data = await response.json();
-        // console.log('check pending token data')
-        // const data = response;
-        const data = response.Names.map(
-          (name, index) => ({
-            name: name,
-            address: response.Addrs[index],
-            op: response.Type[index]
-          }));
-        setItems(data);
-      } catch (error) {
-        console.error('Failed to fetch items:', error);
-      }
-    };
+    if (shouldRefetch){
+      fetchItems();
+      setShouldRefetch(false);
+    }
+  }, [shouldRefetch]);
+
+  useEffect(() => {
+    
 
     fetchItems();
   }, []);
@@ -224,7 +235,7 @@ export const PlatformDeployToken = () => {
           onClick = {
             () => {
               setSelectedItem(item.address);
-              setAlreadyConfirm(item.op === 1 || item.op === 3);
+              setAlreadyConfirm(!(item.op === 0));
               setTokenName(item.name);
             }
           }
@@ -244,7 +255,7 @@ export const PlatformDeployToken = () => {
           } />
         <Sbumit className="sbumit-upgrade-token" textKey="agree" active={!already_confirm}
         onClick={() => {
-          handleClick(tokenName, selectedItem, sessionId, setIsLoading, navigate);
+          handleClick(tokenName, selectedItem, sessionId, setIsLoading, setShouldRefetch);
         }} />
         {/* <Sbumit className="sbumit-add-minting" textKey="add_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         {/* <Sbumit className="sbumit-minting-address" textKey="delete_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}

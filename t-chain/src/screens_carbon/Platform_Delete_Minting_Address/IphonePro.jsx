@@ -66,7 +66,7 @@ async function fetchMintingList (sessionId, address){
   return token_list;
 }
 
-const handleClick = (manager_name,carbon_address, targetAddress, sessionId, setIsLoading, navigate) => {
+const handleClick = (manager_name,carbon_address, targetAddress, sessionId, setIsLoading, setShouldRefetch) => {
   // alert("转账成功");
   
   console.log('check carbon_address_2:', carbon_address);
@@ -121,13 +121,15 @@ const handleClick = (manager_name,carbon_address, targetAddress, sessionId, setI
       status_code => {
         let success = false;
       if (status_code === 2){
-        alert("添加提交成功");
+        alert("删除提交成功");
         
          success = true;
+         setIsLoading(false);
       }else{
         console.log('status_code:', status_code);
-        alert("添加提交失败");
+        alert("删除提交失败");
          success = false;
+         setIsLoading(false);
       }
       }
     )
@@ -135,8 +137,19 @@ const handleClick = (manager_name,carbon_address, targetAddress, sessionId, setI
       () => {
         if (success){
           // setIsLoading(false);
-          navigate('/account/CarbonA');
+          // navigate('/CarbonA/PlatformManagement');
+          // localStorage.setItem(
+          //   {
+          //     state: {
+          //       carbon_address: carbon_address
+          //     }
+          //   }
+          // );
+          // window.location.reload();
+          setShouldRefetch(true);
         }
+
+        
         else{
           setIsLoading(false);
         
@@ -151,8 +164,8 @@ const handleClick = (manager_name,carbon_address, targetAddress, sessionId, setI
 
 
 function backHome(navigate) {
-  // navigate('/account/CarbonA');
-  navigate(-1);
+  navigate('/CarbonA/PlatformManagement');
+  // navigate(-1);
 }
 export const PlatformDeleteMintingAddress = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context
@@ -181,30 +194,42 @@ export const PlatformDeleteMintingAddress = () => {
   const [ managerName, setManagerName ] = useState('');
 
   const [ already_confirm, setAlreadyConfirm ] = useState(false);
+
+  const [shouldRefetch, setShouldRefetch] = useState(false);
+
   useLoginRedirect();
 
+  const fetchItems = async () => {
+    try {
+      // const response = await fetch('YOUR_API_ENDPOINT');
+      // const response = await dummyFetch();
+      // console.log('check location:', location);
+      // console.log('carbon_address:', carbon_address);
+      const response = await fetchMintingList(sessionId, carbon_address);
+      // const response = await fetchTokenList(sessionId, address);
+      
+      // const data = response;
+      const data = response.Names.map(
+        (name, index) => ({
+          name: name,
+          address: response.Addrs[index],
+          op: response.Type[index]
+        }));
+      setItems(data);
+    } catch (error) {
+      console.error('Failed to fetch items:', error);
+    }
+  };
+
   useEffect(() => {
-    const fetchItems = async () => {
-      try {
-        // const response = await fetch('YOUR_API_ENDPOINT');
-        // const response = await dummyFetch();
-        // console.log('check location:', location);
-        // console.log('carbon_address:', carbon_address);
-        const response = await fetchMintingList(sessionId, carbon_address);
-        // const response = await fetchTokenList(sessionId, address);
-        
-        // const data = response;
-        const data = response.Names.map(
-          (name, index) => ({
-            name: name,
-            address: response.Addrs[index],
-            op: response.Type[index]
-          }));
-        setItems(data);
-      } catch (error) {
-        console.error('Failed to fetch items:', error);
-      }
-    };
+    if (shouldRefetch){
+      fetchItems();
+      setShouldRefetch(false);
+    }
+  }, [shouldRefetch]);
+
+  useEffect(() => {
+    
 
     fetchItems();
   }, []);
@@ -251,7 +276,7 @@ export const PlatformDeleteMintingAddress = () => {
         disabled={already_confirm}
         onClick={() => {
           handleClick
-            (managerName,carbon_address, selectedItem, sessionId, setIsLoading, navigate)
+            (managerName,carbon_address, selectedItem, sessionId, setIsLoading, setShouldRefetch)
 
         }} />
         {/* <Sbumit className="sbumit-add-minting" textKey="add_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}

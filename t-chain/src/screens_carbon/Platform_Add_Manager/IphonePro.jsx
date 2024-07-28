@@ -66,7 +66,7 @@ async function fetchManagerList (sessionId, address){
   return token_list;
 }
 
-const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, navigate) => {
+const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, setShouldRefetch) => {
   // alert("转账成功");
   
   
@@ -124,18 +124,22 @@ const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, navig
         alert("添加提交成功");
         
          success = true;
+         setIsLoading(false);
       }else{
         console.log('status_code:', status_code);
         alert("添加提交失败");
          success = false;
+         setIsLoading(false);
       }
       }
     )
     .then(
       () => {
         if (success){
-          // setIsLoading(false);
-          navigate('/Homepage');
+          setIsLoading(false);
+          // navigate('/CarbonA/PlatformAddManager');
+          // window.location.reload();
+          setShouldRefetch(true);
         }
         else{
           setIsLoading(false);
@@ -151,8 +155,8 @@ const handleClick = (manager_name, targetAddress, sessionId, setIsLoading, navig
 
 
 function backHome(navigate) {
-  // navigate('/account/CarbonA');
-  navigate(-1);
+  navigate('/CarbonA/PlatformManagement');
+  // navigate(-1);
 }
 export const PlatformAddManager = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context
@@ -178,29 +182,41 @@ export const PlatformAddManager = () => {
   const [ manager_name, setManagerName ] = useState('');
 
   const [already_confirm, setAlreadyConfirm] = useState(false);
+
+  const [shouldRefetch, setShouldRefetch] = useState(false);
+
   useLoginRedirect();
 
+  const fetchItems = async () => {
+    try {
+      // const response = await fetch('YOUR_API_ENDPOINT');
+      // const response = await dummyFetch();
+      const response = await fetchManagerList(sessionId, address);
+      // const data = await response.json();
+      // const data = response;
+      const data = response.Names.map(
+        (name, index) => ({
+          name: name,
+          address: response.Addrs[index],
+          op: response.Op[index]
+        }));
+        console.log('check real Manager data')
+        // console.log(data);
+      setItems(data);
+    } catch (error) {
+      console.error('Failed to fetch items:', error);
+    }
+  };
+  
   useEffect(() => {
-    const fetchItems = async () => {
-      try {
-        // const response = await fetch('YOUR_API_ENDPOINT');
-        // const response = await dummyFetch();
-        const response = await fetchManagerList(sessionId, address);
-        // const data = await response.json();
-        // const data = response;
-        const data = response.Names.map(
-          (name, index) => ({
-            name: name,
-            address: response.Addrs[index],
-            op: response.Op[index]
-          }));
-          console.log('check real Manager data')
-          // console.log(data);
-        setItems(data);
-      } catch (error) {
-        console.error('Failed to fetch items:', error);
-      }
-    };
+    if (shouldRefetch){
+      fetchItems();
+      setShouldRefetch(false);
+    }
+  }, [shouldRefetch]);
+
+  useEffect(() => {
+    
 
     fetchItems();
   }, []);
@@ -247,7 +263,7 @@ export const PlatformAddManager = () => {
             return;
           }
           handleClick(
-          manager_name, selectedItem, sessionId, setIsLoading, navigate
+          manager_name, selectedItem, sessionId, setIsLoading, setShouldRefetch
         );}} />
         {/* <Sbumit className="sbumit-add-minting" textKey="add_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         {/* <Sbumit className="sbumit-minting-address" textKey="delete_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
