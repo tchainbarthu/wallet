@@ -150,7 +150,7 @@ const handleClick = (amount, OriginalAddress, targetAddress, sessionId, balance,
   
       }
       fetch(
-        'http://localhost:3001/save-transfer',{
+        `${DATABASE_ROOT}/save-transfer`,{
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

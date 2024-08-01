@@ -87,9 +87,9 @@ function calculateLeft(balance, data)
   }
 }
 
-const handleClick = (amount,contract_address, OriginalAddress, targetAddress, sessionId, balance,data, setIsLoading, navigate, setBalance) => {
+const handleClick = (amount, OriginalAddress, targetAddress, sessionId, balance,data, setIsLoading, navigate, setBalance) => {
   // alert("转账成功");
-  
+  const platform_address = window.CARBON_CONTRACT_ADDRESS;
   
   if (!check_address(targetAddress)) {
     alert ("地址格式错误");
@@ -118,7 +118,7 @@ const handleClick = (amount,contract_address, OriginalAddress, targetAddress, se
   const current_transfer_template = {
     "jsonrpc": "3.0", 
     "method": "chain_carbon", 
-    "params":[`opcode=carbon&subcode=carbonTrans&address=${contract_address}&addr1=${targetAddress}&value=", "encryp=none`], 
+    "params":[`opcode=carbon&subcode=carbonTrans&address=${platform_address}&addr1=${targetAddress}&value=${real_amount}`, "encryp=none"], 
     "id": sessionId}
   
   fetch(API_URL, {
@@ -146,7 +146,7 @@ const handleClick = (amount,contract_address, OriginalAddress, targetAddress, se
   
       }
       fetch(
-        'http://localhost:3001/save-CarbonA-transfer',{
+        `${DATABASE_ROOT}/save-CarbonA-transfer`,{
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -199,7 +199,7 @@ const handleClick = (amount,contract_address, OriginalAddress, targetAddress, se
       }
 
       return fetch(
-        `${DATABASE_ROOT}/save-transfer`,{
+        `${DATABASE_ROOT}/save-CarbonA-transfer`,{
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -270,8 +270,8 @@ const fetchLockStatus = async (sessionId, address,setData, setLockedAmount) => {
 };
 
 function backHome(navigate) {
-  // navigate('/account/CarbonA');
-  navigate(-1);
+  navigate('/account/CarbonA');
+  // navigate(-1);
 }
 export const CarbonATransfer = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context

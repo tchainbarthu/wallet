@@ -152,13 +152,18 @@ export const CarbonAccount = () => {
 
         <div className="display-4">
         <Label className="label-2" textKey="total_carbonA_amount" />
-        <div className={`text-wrapper-5 ${language}`}>{CarbonAAmount}</div>
+        <div className={`text-wrapper-5 ${language}`}>{CarbonAAmount / 1000}</div>
 
         </div>
         
         <div className="display-5">
         <Label className="label-3" textKey="carbonA_owned_amount" />
-        <div className={`text-wrapper-6 ${language}`}>{CarbonAPersonalAmount}</div>
+        <div className={`text-wrapper-6 ${language}`}>{CarbonAPersonalAmount / 1000}</div>
+        </div>
+
+        <div className="display-6">
+        <Label className="label-3" textKey="carbon_contract_address" />
+        <div className={`text-wrapper-6 ${language}`}>{window.CARBON_CONTRACT_ADDRESS}</div>
         </div>
 
         {
@@ -174,7 +179,7 @@ export const CarbonAccount = () => {
         
         <Sbumit className="sbumit-3" textKey="transfer" onClick={() => {navigate('/CarbonA/Transfer')}}/>
         {isManager && <Sbumit className="sbumit-instance" textKey="platform_management" onClick={() => {navigate('/CarbonA/PlatformManagement')}}/>}
-        <Sbumit className="sbumit-4" divClassName="sbumit-2" textKey="transferQuery" onClick={() => {navigate('/querytable')}}/>
+        <Sbumit className="sbumit-4" divClassName="sbumit-2" textKey="transferQuery" onClick={() => {navigate('/CarbonA/querytable')}}/>
         <Sbumit className="sbumit-instance-1 disabled" divClassName="sbumit-2" textKey="platform_purchasing" active={false} onClick={() => {navigate('/CarbonA/PlatformPurchasing')}} />
 
         <Sbumit className="sbumit-qr-code" divClassName="sbumit-2" textKey="qr_code_receivables" onClick={() => {

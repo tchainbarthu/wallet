@@ -279,6 +279,11 @@ export const PlatformDeleteMintingAddress = () => {
             (managerName,carbon_address, selectedItem, sessionId, setIsLoading, setShouldRefetch)
 
         }} />
+
+<div className="address-table">
+        <Label className="address-table-label" textKey="address"/>
+        <InputText className="address-table-text" text="Account" disabled={true} value={selectedItem}/>
+      </div>
         {/* <Sbumit className="sbumit-add-minting" textKey="add_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         {/* <Sbumit className="sbumit-minting-address" textKey="delete_minting_address" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         

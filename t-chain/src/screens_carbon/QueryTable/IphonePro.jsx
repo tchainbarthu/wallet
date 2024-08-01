@@ -46,16 +46,16 @@ const fetchData = async (dateType, setData, address, startDate, endDate) => {
 
   switch (dateType) {
     case 'thisDay':
-      url = `${DATABASE_ROOT}/fetch-today-transfers`;
+      url = `${DATABASE_ROOT}/fetch-CarbonA-today-transfers`;
       break;
     case 'thisMonth':
-      url = `${DATABASE_ROOT}/fetch-month-transfers`;
+      url = `${DATABASE_ROOT}/fetch-CarbonA-month-transfers`;
       break;
     case 'specifyTimeRange':
-      url = `${DATABASE_ROOT}/fetch-slot-transfers`;
+      url = `${DATABASE_ROOT}/fetch-CarbonA-slot-transfers`;
       break;
     default:
-      url = `${DATABASE_ROOT}/fetch-today-transfers`
+      url = `${DATABASE_ROOT}/fetch-CarbonA-today-transfers`
       break;
   }
 
@@ -91,7 +91,7 @@ function backHome(navigate) {
   // navigate('/account/CarbonA');
   navigate(-1);
 }
-export const QueryTable = () => {
+export const CarbonAQueryTable = () => {
   useLoginRedirect();
   const [queryType, setQueryType] = useState('thisDay');
   const { address, setAddress } = useAddress();

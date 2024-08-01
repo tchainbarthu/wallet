@@ -180,6 +180,8 @@ export const CarbonADeleteManager = () => {
 
   const [ isSelf, setIsSelf ] = useState(false);
 
+  const [textBoxValue, setTextBoxValue] = useState('');
+
   
   // const [already_confirm, setAlreadyConfirm] = useState(false);
 
@@ -229,13 +231,25 @@ export const CarbonADeleteManager = () => {
               setSelectedItem(item.address);
               setManagerName(item.name);
               setIsSelf(item.address === address);
+              setTextBoxValue(item.address);
               // setAlreadyConfirm(item.op !== 0);
             }
           }
+          onDoubleClick={() => {
+            setTextBoxValue(item.address);
+          }}
           >
             {item.name} {/* Adjust this to match the structure of your items */}
           </div>
         ))}
+        
+      </div>
+
+      {/* <InputText type="text" className="address-table" value={textBoxValue} disabled = {true} /> */}
+
+      <div className="address-table">
+        <Label className="address-table-label" textKey="address"/>
+        <InputText className="address-table-text" text="Account" disabled={true} value={textBoxValue}/>
       </div>
         
         

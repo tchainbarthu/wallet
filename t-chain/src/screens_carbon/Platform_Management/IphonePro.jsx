@@ -190,7 +190,10 @@ export const PlatformManagement = () => {
           }} 
           />
 
-        
+<div className="address-table">
+        <Label className="address-table-label" textKey="address"/>
+        <InputText className="address-table-text" text="Account" disabled={true} value={selectedItem}/>
+      </div>
         
         
       </div>

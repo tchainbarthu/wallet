@@ -75,6 +75,7 @@ import { CarbonAAddMinting } from "./screens_carbon/Add_Minting";
 
 import { CarbonADeleteMinting } from "./screens_carbon/Delete_Minting/IphonePro";
 
+import { CarbonAQueryTable } from "./screens_carbon/QueryTable/IphonePro";
 const app = document.getElementById("app");
 const root = ReactDOMClient.createRoot(app);
 
@@ -123,6 +124,7 @@ root.render(
         <Route path="/CarbonA/AddMinting" element={<CarbonAAddMinting />} />
         <Route path="/transfer" element={<Transfer />} />
         <Route path="/querytable" element={<QueryTable />} />
+        <Route path="/CarbonA/QueryTable" element={<CarbonAQueryTable />} />
         <Route path="/lockpage" element={<LockPage />} />
         <Route path="/Homepage" element={<Homepage />} />
         <Route path="/register_successful" element={<RegisterSuccessful />} />

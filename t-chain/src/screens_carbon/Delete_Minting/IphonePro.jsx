@@ -178,6 +178,8 @@ export const CarbonADeleteMinting = () => {
 
   const [ manager_name, setManagerName ] = useState('');
 
+  const [textBoxValue, setTextBoxValue] = useState('');
+
   const location = useLocation();
 
   // const [already_confirm, setAlreadyConfirm] = useState(false);
@@ -230,6 +232,7 @@ export const CarbonADeleteMinting = () => {
             () => {
               setSelectedItem(item.address);
               setManagerName(item.name);
+              
               // setAlreadyConfirm(item.op !== 0);
             }
           }
@@ -239,7 +242,10 @@ export const CarbonADeleteMinting = () => {
         ))}
       </div>
         
-        
+      <div className="address-table">
+        <Label className="address-table-label" textKey="address"/>
+        <InputText className="address-table-text" text="Account" disabled={true} value={selectedItem}/>
+      </div>
         
         {/* <Sbumit className="sbumit-add-plotform" textKey="add_platform_participation_management" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}
         {/* <Sbumit className="sbumit-delete-plotform" textKey="delete_platform_participation_management" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}

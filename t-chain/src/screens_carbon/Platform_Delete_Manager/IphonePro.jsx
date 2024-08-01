@@ -186,6 +186,8 @@ export const PlatformDeleteManager = () => {
 
   const [shouldRefetch, setShouldRefetch] = useState(false);
 
+  const [textBoxValue, setTextBoxValue] = useState('');
+
   useLoginRedirect();
 
   useEffect(() => {
@@ -244,11 +246,17 @@ export const PlatformDeleteManager = () => {
               setManagerName(item.name);
               console.log('check item:', item.op);
               setAlreadyConfirm(item.op !== 0);
+              setTextBoxValue(item.address);
             }
           }>
             {item.name} {/* Adjust this to match the structure of your items */}
           </div>
         ))}
+      </div>
+
+      <div className="address-table">
+        <Label className="address-table-label" textKey="address"/>
+        <InputText className="address-table-text" text="Account" disabled={true} value={textBoxValue}/>
       </div>
         
         

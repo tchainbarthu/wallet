@@ -17,7 +17,7 @@ background: rgb(248, 249, 252);
 
 .iphone-pro-account-Carbon-A .QR-code {
   position: absolute;
-  top: 500px; /* Adjust as needed */
+  top: 550px; /* Adjust as needed */
   left: 100px; /* Adjust as needed */
 
 }
@@ -147,6 +147,29 @@ background: rgb(255, 255, 255);
   left: 10px !important;
 position: absolute;
 top: 360px;
+width: 375px;
+height: 58px;
+/* 自动布局 */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 14px;
+
+border-radius: 12px;
+
+/* elevation */
+box-shadow: 0px 3px 4px 0px rgba(47, 102, 246, 0.12);
+/* Surface */
+background: rgb(255, 255, 255);
+}
+
+.iphone-pro-account-Carbon-A .display-6 {
+  /* list */  
+  /* list */
+  left: 10px !important;
+position: absolute;
+top: 430px;
 width: 375px;
 height: 58px;
 /* 自动布局 */
@@ -392,7 +415,7 @@ background: linear-gradient(90.00deg, rgb(11, 184, 232) 0%,rgb(0, 220, 248) 99.9
   height: 30px;
 
   left: 70px;
-  top: 450px;
+  top: 510px;
 }
 
 .iphone-pro-account-Carbon-A .sbumit-3 {

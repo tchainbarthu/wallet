@@ -41,6 +41,25 @@ let db = new sqlite3.Database('./mydb.sqlite3', (err) => {
   )`);
 });
 
+let carbonA_db = new sqlite3.Database('./carbonA_db.sqlite3', (err) => {
+  if (err) {
+    console.error(err.message);
+  }
+  console.log('Connected to the carbonA_db sqlite database.');
+
+  // Create table if not exists
+  carbonA_db.run(`CREATE TABLE IF NOT EXISTS transfers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    OriginalAddress text,
+    targetAddress text,
+    hexadecimal_amount text,
+    success integer,
+    transferTime DATE,
+    txhash text
+  )`);
+}
+);
+
 // Endpoint to save transfer
 app.post('/save-transfer', (req, res) => {
   const { OriginalAddress, targetAddress, hexadecimal_amount, success, txhash } = req.body;
@@ -52,6 +71,18 @@ app.post('/save-transfer', (req, res) => {
     res.json({ id: this.lastID });
   });
 });
+
+app.post('/save-CarbonA-transfer', (req, res) => {
+  const { OriginalAddress, targetAddress, hexadecimal_amount, success, txhash } = req.body;
+  const transferTime = new Date();
+  carbonA_db.run(`INSERT INTO transfers (OriginalAddress, targetAddress, hexadecimal_amount, success, transferTime, txhash) VALUES (?, ?, ?, ?, ?, ?)`, [OriginalAddress, targetAddress, hexadecimal_amount, success, transferTime, txhash], function(err) {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    res.json({ id: this.lastID });
+  });
+}
+);
 
 const PORT = process.env.TCHAIN_DATABASE_PORT || 8082;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
@@ -86,6 +117,36 @@ app.post('/fetch-today-transfers', (req, res) => {
   // });
 });
 
+app.post('/fetch-CarbonA-today-transfers', (req, res) => {
+  const { originalAddress } = req.body;
+
+  // db.all("SELECT * FROM transfers WHERE DATE(transferTime) = DATE('now') AND originalAddress = ?", [originalAddress], (err, rows) => {
+  //   if (err) {
+  //     return res.status(500).json({ error: err.message });
+  //   }
+  //   res.json(rows);
+  // });
+  let today = new Date();
+  today.setHours(0, 0, 0, 0); // set the time to 00:00:00
+
+  let tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1); // get the date of tomorrow
+  console.log(today, tomorrow);
+  carbonA_db.all("SELECT * FROM transfers WHERE originalAddress = ? AND transferTime >= ? AND transferTime < ?", [originalAddress, today, tomorrow], (err, rows) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    res.json(rows);
+  });
+  // db.all("SELECT * FROM transfers WHERE originalAddress = ? ", [originalAddress], (err, rows) => {
+  //   if (err) {
+  //     return res.status(500).json({ error: err.message });
+  //   }
+  //   res.json(rows);
+  // });
+}
+);
+
 // Endpoint to fetch this month's transfers
 app.post('/fetch-month-transfers', (req, res) => {
   const { originalAddress } = req.body;
@@ -101,6 +162,22 @@ app.post('/fetch-month-transfers', (req, res) => {
     res.json(rows);
   });
 });
+
+app.post('/fetch-CarbonA-month-transfers', (req, res) => {
+  const { originalAddress } = req.body;
+
+  let now = new Date();
+  let start = new Date(now.getFullYear(), now.getMonth(), 1); // set the date to the first day of the current month
+  let end = new Date(now.getFullYear(), now.getMonth() + 1, 1); // set the date to the first day of the next month
+
+  carbonA_db.all("SELECT * FROM transfers WHERE originalAddress = ? AND transferTime >= ? AND transferTime < ?", [originalAddress, start, end], (err, rows) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    res.json(rows);
+  });
+}
+);
 
 // Endpoint to fetch transfers for a specific time slot
 app.post('/fetch-slot-transfers', (req, res) => {
@@ -137,6 +214,33 @@ app.get('/check_registering_number_day', (req, res) => {
       // If the IP address doesn't exist, create the key and set the registering number to 1
       registeringNumbersMap.set(ipAddress, 1);
       res.status(200).json({ registeringNumber: 9 });
+    }
+  } catch (error) {
+    console.error('Error occurred:', error);
+    res.status(500).json({ message: 'Internal server error.' });
+  }
+});
+
+app.get('/check_registering_number_month', (req, res) => {
+  try {
+    const ipAddress = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+
+    // Check if the IP address exists in the registering number map
+    if (registeringNumbersMap.has(ipAddress)) {
+      let registeringNumber = registeringNumbersMap.get(ipAddress);
+
+      // Check if the registering number is greater than or equal to 50
+      if (registeringNumber >= 50) {
+        res.status(200).json({ registeringNumber: -1 });
+      } else {
+        registeringNumber++; // Increment the registering number
+        registeringNumbersMap.set(ipAddress, registeringNumber); // Update the map with the incremented value
+        res.status(200).json({ registeringNumber: 50 - registeringNumber });
+      }
+    } else {
+      // If the IP address doesn't exist, create the key and set the registering number to 1
+      registeringNumbersMap.set(ipAddress, 1);
+      res.status(200).json({ registeringNumber: 49 });
     }
   } catch (error) {
     console.error('Error occurred:', error);

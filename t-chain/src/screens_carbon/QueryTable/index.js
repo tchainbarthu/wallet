@@ -1,1 +1,1 @@
-export { QueryTable } from "./IphonePro";
+export { CarbonAQueryTable } from "./IphonePro";

@@ -148,7 +148,8 @@ async function fetchTokenList (sessionId, address){
 
 function backHome(navigate) {
   // navigate('/account/CarbonA');
-  navigate(-1);
+  // navigate(-1);
+  navigate('/CarbonA/PlatformDeleteToken');
 }
 export const CarbonARemoveToken = () => {
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context
@@ -229,7 +230,10 @@ export const CarbonARemoveToken = () => {
           </div>
         ))}
       </div>
-        
+      <div className="address-table">
+        <Label className="address-table-label" textKey="address"/>
+        <InputText className="address-table-text" text="Account" disabled={true} value={selectedItem}/>
+      </div>
         
         
         {/* <Sbumit className="sbumit-add-plotform" textKey="add_platform_participation_management" onClick={() => {handleClick(Amount, address, TragetAddress, sessionId, Balance,data, setIsLoading, navigate, setBalance)}} /> */}

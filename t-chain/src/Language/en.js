@@ -40,6 +40,8 @@ export default {
     TotalLockAmout: 'Total Lock Amount',
     allowedAmount: 'Allowed Amount',
 
+    carbon_contract_address: 'Carbon Contract Address',
+
     unlock: 'Unlock',
     lock: 'Lock',
     lockAccount: 'Lock Account',

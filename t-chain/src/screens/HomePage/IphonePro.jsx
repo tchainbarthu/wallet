@@ -142,6 +142,8 @@ export const Homepage = () => {
         // setAddress(data.result);
         if (data && data.result && data.result.content)
           {
+            console.log('check carbon data');
+            console.log(data);
             // console.log('CarbonA data also exists!');
             setCarbonAAmount(data.result.content.Total);
             setCarbonAPersonalAmount(data.result.content.Amount);
@@ -230,7 +232,7 @@ export const Homepage = () => {
           }
         }}>
           <DisplayHead className="design-component-instance-node" 
-          address={address} balance={selectedItem === 1? Balance / 1000000000 : CarbonAPersonalAmount / 1000000000} img_src={
+          address={ selectedItem === 1 ? address : window.CARBON_CONTRACT_ADDRESS} balance={selectedItem === 1? Balance / 1000000000 : CarbonAPersonalAmount / 1000} img_src={
             selectedItem === 1 ? '/svg/t-chain-coin.svg' : '/img/carbon-v0.png'
           }
           description={
