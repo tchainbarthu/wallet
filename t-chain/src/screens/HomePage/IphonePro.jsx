@@ -42,11 +42,6 @@ import { CarbonAPersonalAmount, useCarbonAPersonalAmount } from "../../Contexts/
 
 const API_URL=window.TCHAIN_API_URL;
 
-const handleListComponentClick = (selectedItem, setSelectedItem) => {
-  // console.log('Clicked');
-  setSelectedItem(selectedItem);
-};
-
 const handleListComponentDoubleClick = (navigate, setSelectedItem) => {
   // console.log('Double clicked');
   if (setSelectedItem === 1){
@@ -58,22 +53,12 @@ const handleListComponentDoubleClick = (navigate, setSelectedItem) => {
   
 };
 
-const handleDetailedComponentClick = (navigate) => {
-  navigate('/account')
-}
-
-
-const handleHomePageButtonOnClick = (currentProfile, setCurrentProfile)=>{
-  // console.log(currentProfile)
-  setCurrentProfile(currentProfile);
-}
-
 export const Homepage = () => {
   useAuth();
   useLoginRedirect();
   const navigate = useNavigate();
-  const [currentProfile, setCurrentProfile] = useState(1);
-  const [selectedItem, setSelectedItem] = useState(1);
+  // const [currentProfile, setCurrentProfile] = useState(1);
+  const [selectedItem, setSelectedItem] = useState(0);
   const { address, setAddress } = useAddress();
 
   const { Balance, setBalance } = useBalance();
@@ -85,6 +70,36 @@ export const Homepage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const { sessionId } = useContext(SessionContext); // Get the sessionId from the context
+
+  const [ tokenList, setTokenList ] = useState([]);
+
+  const [ currentTokenName, setCurrentTokenName ] = useState('TChain');
+
+  const [currentTokenDescription, setCurrentTokenDescription] = useState('TChain Platform Coin');
+  const fetchTokenList = async (sessionId, address) => {
+    const current_template = { "jsonrpc": "3.0", 
+      "method": "chain_queryInfo", 
+      "params": ["pubTrustQuery","op=queryToken","encryp=none"],
+      "id": "1"} 
+    let data = await fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(current_template),
+    });
+    data = await data.json();
+    console.log(
+      'check data:',data
+    )
+    if (data && data.result && data.result.content){
+      if (data.result.ret !== "0"){
+        alert('数据解析失败');
+        navigate('/login');
+      }
+      setTokenList(data.result.content);
+    }
+  }
 
   const fetchData = async (current_address_query_template) => {
     const response = await fetch(API_URL, {
@@ -173,34 +188,17 @@ export const Homepage = () => {
     // const location = useLocation();
     // console.log(location);
 
-    const toC_address = window.CARBON_PERSONAL_ADDRESS;
-
-    const current_address_query_carbonA_template = {
-      "jsonrpc": "3.0",
-      "method": "chain_carbon", 
-      "params":[`opcode=carbon&subcode=blanceof&address=${toC_address}&addr1=${address}`, "encryp=none"], 
-      "id": `${sessionId}`
-      // "id": "1"
-    }
+    
 
   useEffect(() => {
-    
-    fetchData(current_address_query_template)
-    .then(() => {
-      setIsLoading(false);
-  })
-  }
-  , [address, isLoading]);
-
-  useEffect(() => {
-    
-    fetchCarbonAData(current_address_query_carbonA_template)
-    .then(() => {
-
-      setIsLoading(false);
-  })
-  }
-  , [address, isLoading]);
+    fetchData(current_address_query_template);
+    fetchTokenList(sessionId, address)
+    .then(
+      ()=>{
+        setIsLoading(false);
+      }
+    );
+  }, [address, isLoading]);
   
   return (
     <div>
@@ -225,40 +223,74 @@ export const Homepage = () => {
         {/* <img src='/svg/HomePage-button1.svg' className="button1"/> */}
 
         <div className="overlap" onClick={() =>{
-          if (selectedItem === 1){
+          if (currentTokenName.includes('TChain')){
             navigate('/account');
           }else{
             navigate('/account/CarbonA');
           }
         }}>
           <DisplayHead className="design-component-instance-node" 
-          address={ selectedItem === 1 ? address : window.CARBON_CONTRACT_ADDRESS} balance={selectedItem === 1? Balance / 1000000000 : CarbonAPersonalAmount / 1000} img_src={
-            selectedItem === 1 ? '/svg/t-chain-coin.svg' : '/img/carbon-v0.png'
+          address={ currentTokenName.includes('TChain') ? address : window.CARBON_PERSONAL_ADDRESS} balance={currentTokenName.includes('TChain') ? Balance / 1000000000 : CarbonAPersonalAmount / 1000} img_src={
+            currentTokenName.includes('TChain') ? '/svg/t-chain-coin.svg' : '/img/carbon-v0.png'
           }
           description={
-            selectedItem === 1 ? "TChain" : "CarbonA"
+            currentTokenDescription
           }
           />
           {/* <DetailComponent className="detail-component-instance" onClick={()=>{handleDetailedComponentClick(navigate)}}/> */}
         </div>
         <div className="t-chain-coin-list">
           <div className="overlap-group-2">
-            <HomeListComponet className="home-list-component-instance" 
+            {
+              tokenList.map((item, index) => (
+                <HomeListComponet className={`home-list-component-instance-${index}`} 
+                selected={selectedItem === index}
+                onClick={() => {
+                  setSelectedItem(index);
+                  setCurrentTokenName(item.name);
+                  setCurrentTokenDescription(item.desc);
+                  if (item.name.includes('Carbon')){
+                    window.CARBON_PERSONAL_ADDRESS = item.address;
+                    const toC_address = item.address;
+
+                    const current_address_query_carbonA_template = {
+                      "jsonrpc": "3.0",
+                      "method": "chain_carbon", 
+                      "params":[`opcode=carbon&subcode=blanceof&address=${toC_address}&addr1=${address}`, "encryp=none"], 
+                      "id": `${sessionId}`
+                      // "id": "1"
+                    }
+                   
+                    fetchCarbonAData(current_address_query_carbonA_template);
+                }}
+                }
+                onDoubleClick={()=>{
+                  handleListComponentDoubleClick(navigate, item.name.includes('TChain') ? 1 : 2);
+                }}
+                img_src={
+                  item.name.includes('TChain') ? '/svg/t-chain-coin.svg' : '/img/carbon-v0.png'
+                }
+                name={item.name}
+                description={item.desc}
+                />
+              ))
+            }
+            {/* <HomeListComponet className="home-list-component-instance" 
             selected={selectedItem === 1}
             onClick={() => {handleListComponentClick(1, setSelectedItem)}}
             onDoubleClick={()=>{handleListComponentDoubleClick(navigate, 1)}}
             img_src='/svg/t-chain-coin.svg'
             name="TChain"
             description="TChain Platform Coin"
-            />
-            <HomeListComponet className="home-list-componet-2" 
+            /> */}
+            {/* <HomeListComponet className="home-list-componet-2" 
             selected={selectedItem === 2}
             img_src='/img/carbon-v0.png'
             onClick={() => {handleListComponentClick(2, setSelectedItem)}}
             onDoubleClick={()=>{handleListComponentDoubleClick(navigate, 2)}}
             name="CarbonA"
             description="CarbonA Platform Coin"
-            /> 
+            />  */}
 
             {/* <HomeListComponet className="home-list-componet-3" 
             selected={selectedItem === 3}

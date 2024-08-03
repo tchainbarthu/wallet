@@ -89,7 +89,8 @@ function calculateLeft(balance, data)
 
 const handleClick = (amount, OriginalAddress, targetAddress, sessionId, balance,data, setIsLoading, navigate, setBalance) => {
   // alert("转账成功");
-  const platform_address = window.CARBON_CONTRACT_ADDRESS;
+  // const platform_address = window.CARBON_CONTRACT_ADDRESS;
+  const carbon_personal_address = window.CARBON_PERSONAL_ADDRESS;
   
   if (!check_address(targetAddress)) {
     alert ("地址格式错误");
@@ -110,16 +111,19 @@ const handleClick = (amount, OriginalAddress, targetAddress, sessionId, balance,
     return;
   }
   setIsLoading(true);
-  var real_amount = amount * 1000000000;
+  var real_amount = amount * 1000;
   // var real_amount = amount;
   var hexadecimal_amount = decimalToHexadecimal(real_amount);
   hexadecimal_amount = '0x' + hexadecimal_amount.toUpperCase();
-  console.log('hexadecimal_amount:', hexadecimal_amount)
+  // console.log('hexadecimal_amount:', hexadecimal_amount)
+  // const hexadecimal_amount = real_amount;
   const current_transfer_template = {
     "jsonrpc": "3.0", 
     "method": "chain_carbon", 
-    "params":[`opcode=carbon&subcode=carbonTrans&address=${platform_address}&addr1=${targetAddress}&value=${real_amount}`, "encryp=none"], 
+    "params":[`opcode=carbon&subcode=carbonTrans&address=${carbon_personal_address}&addr1=${targetAddress}&value=${real_amount}`, "encryp=none"], 
     "id": sessionId}
+
+    console.log('current_transfer_template:', current_transfer_template);
   
   fetch(API_URL, {
     method: 'POST',
@@ -140,6 +144,7 @@ const handleClick = (amount, OriginalAddress, targetAddress, sessionId, balance,
         OriginalAddress,
         targetAddress,
         hexadecimal_amount,
+        // real_amount,
         success ,
         // transferTime,
         txhash
@@ -156,8 +161,8 @@ const handleClick = (amount, OriginalAddress, targetAddress, sessionId, balance,
       )
       .then(response => response.json())
       .then(data => {
-        console.log(data);
-        console.log('Save fail transfer data:', save_data);
+        // console.log(data);
+        // console.log('Save fail transfer data:', save_data);
       })
       .catch(
         error => {
@@ -173,7 +178,7 @@ const handleClick = (amount, OriginalAddress, targetAddress, sessionId, balance,
     
     
     
-    console.log('txhash:', txhash);
+    // console.log('txhash:', txhash);
     
     wait_for_txhash(txhash)
     .then(
@@ -184,7 +189,7 @@ const handleClick = (amount, OriginalAddress, targetAddress, sessionId, balance,
         setBalance(left);
          success = true;
       }else{
-        console.log('status_code:', status_code);
+        // console.log('status_code:', status_code);
         alert("转账失败");
          success = false;
       }
@@ -192,6 +197,7 @@ const handleClick = (amount, OriginalAddress, targetAddress, sessionId, balance,
         OriginalAddress,
         targetAddress,
         hexadecimal_amount,
+        real_amount,
         success ,
         // transferTime,
         txhash
@@ -209,8 +215,8 @@ const handleClick = (amount, OriginalAddress, targetAddress, sessionId, balance,
       )
       .then(response => response.json())
       .then(data => {
-        console.log(data);
-        console.log('Save success transfer data:', save_data);
+        // console.log(data);
+        // console.log('Save success transfer data:', save_data);
       })
       .catch(
         error => {

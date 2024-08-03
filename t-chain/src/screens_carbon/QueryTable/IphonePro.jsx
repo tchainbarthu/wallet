@@ -77,7 +77,8 @@ const fetchData = async (dateType, setData, address, startDate, endDate) => {
 
   if (response){
     const data = await response.json();
-    console.log(data)
+    console.log('data', data);
+    console.log(data);
     setData(data);
   }
 
@@ -116,7 +117,7 @@ export const CarbonAQueryTable = () => {
         className={`table-row-instance-${i} ${queryType === 'specifyTimeRange' ? 'put-down' : ''}`}
         TXBash={item.txhash}
         targetAddress={item.targetAddress}
-        Amount={hexToDecimal(item.hexadecimal_amount) / 1000000000}
+        Amount={(item.hexadecimal_amount) / 1000}
         Time={sec2time(item.transferTime)}
         Result={item.success ? 'Success' : 'Fail'}
       />

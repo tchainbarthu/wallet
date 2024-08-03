@@ -163,7 +163,7 @@ export const CarbonAccount = () => {
 
         <div className="display-6">
         <Label className="label-3" textKey="carbon_contract_address" />
-        <div className={`text-wrapper-6 ${language}`}>{window.CARBON_CONTRACT_ADDRESS}</div>
+        <div className={`text-wrapper-6 ${language}`}>{window.CARBON_PERSONAL_ADDRESS}</div>
         </div>
 
         {

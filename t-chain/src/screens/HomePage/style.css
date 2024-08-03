@@ -337,11 +337,19 @@ border: 0px;
   width: 393px;
 }
 
-.iphone-pro-Homepage .home-list-component-instance {
+.iphone-pro-Homepage .home-list-component-instance-0 {
   height: 39px;
   left: -1px;
   position: absolute;
   top: 1px;
+  width: 200px;
+}
+
+.iphone-pro-Homepage .home-list-component-instance-1 {
+  height: 39px;
+  left: -1px;
+  position: absolute;
+  top: 34px;
   width: 200px;
 }
 .iphone-pro-Homepage .text-wrapper-5 {
@@ -357,19 +365,19 @@ border: 0px;
   width: 76px;
 }
 
-.iphone-pro-Homepage .home-list-componet-2 {
+.iphone-pro-Homepage .home-list-component-instance-2 {
   height: 39px;
   left: -1px;
   position: absolute;
-  top: 32px;
+  top: 67px;
   width: 200px;
 }
 
-.iphone-pro-Homepage .home-list-componet-3 {
+.iphone-pro-Homepage .home-list-component-instance-3 {
   height: 39px;
   left: -1px;
   position: absolute;
-  top: 65px;
+  top: 100px;
   width: 393px;
 }
 
